@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "antd": "^3.12.1",
+    "awesome-debounce-promise": "^1.0.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-scripts": "2.1.2",

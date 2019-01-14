@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 import '../styles/App.css';
 import Results from './Results';
+import AwesomeDebouncePromise from 'awesome-debounce-promise';
 
 
 window.apiUrl = 'http://localhost:8080/';
@@ -31,13 +32,15 @@ class App extends Component {
   }
 
   search = (username) => {
-    //console.log(username);
+    console.log(username);
   }
+
+  debouncedSearch = AwesomeDebouncePromise(this.search, 1000);
 
   render() {
     return (
       <div>
-        <Search width="600px" onSearch={this.search} />
+        <Search width="600px" onSearch={this.debouncedSearch} />
         <Results />
       </div>
     );
