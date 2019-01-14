@@ -13,7 +13,8 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      sites: []
+      sites: [],
+      results: []
     }
 
   }
@@ -23,7 +24,7 @@ class App extends Component {
       .then(response => response.json())
         .then(responseJson => {
           this.setState({
-            site: responseJson
+            sites: responseJson
           });
         })
         .catch(() => {
@@ -33,15 +34,42 @@ class App extends Component {
 
   search = (username) => {
     console.log(username);
+    
+    let results = [];
+    for(let i=0 ; i < this.state.sites.length ; i++){
+
+      // console.log(this.state.sites[i]);
+
+      fetch(window.apiUrl + 'check' + this.state.sites[i].endpoint.replace('{username}', username))
+      .then(response => response.json())
+        .then(responseJson => {
+          //console.log(responseJson);
+          let newResults = this.state.results;
+          newResults.push(responseJson);
+          this.setState({
+            results: newResults
+          }, () => {
+            console.log(this.state.results);
+          });
+        })
+        .catch((e) => {
+            console.log(e);
+            // console.log(this.state.sites[i]);
+        });
+    }
+
+
   }
 
-  debouncedSearch = AwesomeDebouncePromise(this.search, 1000);
+  
+
+  debouncedSearch = AwesomeDebouncePromise(this.search, 800);
 
   render() {
     return (
       <div>
         <Search width="600px" onSearch={this.debouncedSearch} />
-        <Results />
+        <Results results={this.state.results} />
       </div>
     );
   }
