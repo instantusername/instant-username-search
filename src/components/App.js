@@ -35,7 +35,6 @@ class App extends Component {
   search = (username) => {
     console.log(username);
     
-    let results = [];
     for(let i=0 ; i < this.state.sites.length ; i++){
 
       // console.log(this.state.sites[i]);
@@ -44,12 +43,10 @@ class App extends Component {
       .then(response => response.json())
         .then(responseJson => {
           //console.log(responseJson);
-          let newResults = this.state.results;
+          let newResults = [].concat(this.state.results);
           newResults.push(responseJson);
           this.setState({
             results: newResults
-          }, () => {
-            console.log(this.state.results);
           });
         })
         .catch((e) => {
