@@ -22,6 +22,17 @@
   color: #61dafb;
 }
 
+.jxAspA {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+  max-width: 720px;
+
+  margin-top: 4rem;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

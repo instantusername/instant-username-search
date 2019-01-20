@@ -25,7 +25,7 @@ render(){
                 <Icon name='lightning' color='yellow' />
                 <Header.Content>Instant Username Search</Header.Content>
             </Header>
-            <Input.Search placeholder="username" enterButton="Search" size="large" onChange={this.onChange}/>
+            <Input.Search placeholder="username" size="large" onChange={this.onChange}/>
         </StyledSearch>
     );
 }
