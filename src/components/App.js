@@ -64,8 +64,8 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <Search width="600px" onSearch={this.debouncedSearch} />
+      <div className="main">
+        <Search onSearch={this.debouncedSearch} />
         <Results results={this.state.results} />
       </div>
     );
