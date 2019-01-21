@@ -1,16 +1,6 @@
 import React, { Component } from 'react';
-import { Input } from 'antd';
-import { Header, Icon } from 'semantic-ui-react'
-import styled from 'styled-components'
-import 'semantic-ui-css/semantic.min.css'
+import { Input, Icon } from 'antd';
 import '../styles/Search.css';
-
-
-const StyledSearch = styled.div`
-        width: ${props => props.width || "700px"};
-        margin-left: auto;
-        margin-right: auto;
-    `
     
 export class Search extends Component{
     
@@ -20,13 +10,13 @@ onChange = (event) => {
 render(){
     
     return (
-        <StyledSearch width={this.props.width}>
-            <Header as='h1'>
-                <Icon name='lightning' color='yellow' />
-                <Header.Content>Instant Username Search</Header.Content>
-            </Header>
-            <Input.Search placeholder="username" size="large" onChange={this.onChange}/>
-        </StyledSearch>
+        <div className="search">
+            <div className="header">
+                <Icon type="thunderbolt" theme="filled" />
+                <h1>Instant Username Search</h1>
+            </div>
+            <Input placeholder="Search username" size="large" allowClear onChange={this.onChange}/>
+        </div>
     );
 }
 }

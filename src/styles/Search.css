@@ -1,11 +1,39 @@
-.ui.header{
-    margin-bottom: 2rem;
-}
-
 .ant-input.ant-input-lg {
     width: 100%;
     max-width: 720px;
     text-align: center; 
     font-size: 1.2rem;
     border-radius: 36px;
+}
+
+.search
+ {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+  max-width: 720px;
+
+  margin-top: 4rem;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+
+.header{
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 2rem;
+
+}
+
+.header h1{
+  align-self: center;
+  font-size: 2.2rem;
+}
+
+.anticon-thunderbolt{
+    color: #FFEB3B;
+    font-size: 4rem;
 }
