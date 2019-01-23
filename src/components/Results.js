@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Resultcard from './ResultCard';
+import '../styles/Results.css';
 
 class Results extends Component{
     constructor(props){
@@ -19,12 +21,24 @@ class Results extends Component{
 
         let results = this.props.results.map(res => {
             let av = res.available ? "available" : "not available";
+
+            if(res.message != null){
+                return null;
+            }
             return (<div>
                 
-                <p>{res.url + ": " + av} </p>
+                {/* <p>{res.url + ": " + av} </p> */}
+                <Resultcard result={res}/>
+                
             </div>)
         });
-        return(<p>{results}</p>);
+        return(
+            <div className="results">
+            {results}
+            </div>
+        
+        
+        );
     }
 }
 
