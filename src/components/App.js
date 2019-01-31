@@ -8,8 +8,12 @@ import AwesomeDebouncePromise from 'awesome-debounce-promise';
 
 window.apiUrl = 'http://localhost:8080/';
 
+// AbortController and signal to cancel fetch requests
+var controller;
+var signal;
+
 class App extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       sites: [],
@@ -21,25 +25,23 @@ class App extends Component {
   componentDidMount = () => {
     fetch(window.apiUrl + 'services/getAll')
       .then(response => response.json())
-        .then(responseJson => {
-          this.setState({
-            sites: responseJson
-          });
-        })
-        .catch(() => {
-            console.log('error while fetching services list');
+      .then(responseJson => {
+        this.setState({
+          sites: responseJson
         });
+      })
+      .catch((e) => {
+        console.log('error while fetching services list' + e.message);
+      });
   }
 
   search = (username) => {
-    console.log(username);
-    
-    for(let i=0 ; i < this.state.sites.length ; i++){
+    controller = new AbortController();
+    signal = controller.signal;
 
-      // console.log(this.state.sites[i]);
-
-      fetch(window.apiUrl + 'check' + this.state.sites[i].endpoint.replace('{username}', username))
-      .then(response => response.json())
+    for (let i = 0; i < this.state.sites.length; i++) {
+      fetch(window.apiUrl + 'check' + this.state.sites[i].endpoint.replace('{username}', username), { signal })
+        .then(response => response.json())
         .then(responseJson => {
           //console.log(responseJson);
           let newResults = [].concat(this.state.results);
@@ -49,22 +51,31 @@ class App extends Component {
           });
         })
         .catch((e) => {
-            console.log(e);
-            // console.log(this.state.sites[i]);
+          console.log(e.message);
+          // console.log(this.state.sites[i]);
         });
     }
-
-
   }
 
-  
-
   debouncedSearch = AwesomeDebouncePromise(this.search, 800);
+
+  inputChanged = (input) => {
+    if (input !== '') {
+      if (this.state.results.length > 0) {
+        controller.abort();
+        this.setState({
+          results: []
+        });
+      }
+      this.debouncedSearch(input);
+    }
+
+  }
 
   render() {
     return (
       <div className="main">
-        <Search onSearch={this.debouncedSearch} />
+        <Search onSearch={this.inputChanged} />
         <Results results={this.state.results} />
       </div>
     );

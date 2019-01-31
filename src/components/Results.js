@@ -13,14 +13,13 @@ class Results extends Component{
     componentDidUpdate(prevProps) {
         //console.log(this.props.results)
         if (this.props.results !== prevProps.results) {
-            console.log(this.props.results);
+            //console.log(this.props.results);
         }
       }
 
     render(){
 
         let results = this.props.results.map(res => {
-            let av = res.available ? "available" : "not available";
 
             if(res.message != null){
                 return null;
