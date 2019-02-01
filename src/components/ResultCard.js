@@ -21,7 +21,7 @@ class ResultCard extends Component{
 
         return(
             <div className="card">
-                <a href={this.props.result.url} target="_blank">
+                <a href={this.props.result.url} target="_blank" rel="noopener noreferrer">
                 
                 
                 <Card hoverable loading={false} onClick={()=>{console.log("asdasd")}}>

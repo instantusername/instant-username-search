@@ -3,40 +3,23 @@ import Resultcard from './ResultCard';
 import '../styles/Results.css';
 
 class Results extends Component{
-    constructor(props){
-        super(props);
-        this.state = {
-
-        }
-    }
-
-    componentDidUpdate(prevProps) {
-        //console.log(this.props.results)
-        if (this.props.results !== prevProps.results) {
-            //console.log(this.props.results);
-        }
-      }
 
     render(){
-
-        let results = this.props.results.map(res => {
-
+        let results = this.props.results.map((res, i) => {
+            // message: error message from server
+            // if it exists, that means something went wrong on the server-side
             if(res.message != null){
                 return null;
             }
-            return (<div>
-                
-                {/* <p>{res.url + ": " + av} </p> */}
-                <Resultcard result={res}/>
-                
-            </div>)
+            return (
+                <Resultcard key={i} result={res}/>
+            );
         });
+
         return(
             <div className="results">
-            {results}
+                {results}
             </div>
-        
-        
         );
     }
 }

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
+import { debounce } from "debounce";
 import Search from './Search';
+import Results from './Results';
 import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 import '../styles/App.css';
-import Results from './Results';
-import AwesomeDebouncePromise from 'awesome-debounce-promise';
 
-
-window.apiUrl = 'http://localhost:8080/';
+window.apiUrl = 'http://192.168.1.116:8080/';
+const checkEndpoint = window.apiUrl + 'check';
 
 // AbortController and signal to cancel fetch requests
 var controller;
@@ -19,10 +19,10 @@ class App extends Component {
       sites: [],
       results: []
     }
-
   }
 
   componentDidMount = () => {
+    // fetch all the services available to check
     fetch(window.apiUrl + 'services/getAll')
       .then(response => response.json())
       .then(responseJson => {
@@ -36,14 +36,18 @@ class App extends Component {
   }
 
   search = (username) => {
+    // instantiniate a new controller for this cycle
     controller = new AbortController();
     signal = controller.signal;
 
+    // loop through all sites and check the availability
     for (let i = 0; i < this.state.sites.length; i++) {
-      fetch(window.apiUrl + 'check' + this.state.sites[i].endpoint.replace('{username}', username), { signal })
+      const checkService = this.state.sites[i].endpoint;
+      const checkUser = checkService.replace('{username}', username);
+
+      fetch(checkEndpoint + checkUser, { signal })
         .then(response => response.json())
         .then(responseJson => {
-          //console.log(responseJson);
           let newResults = [].concat(this.state.results);
           newResults.push(responseJson);
           this.setState({
@@ -52,24 +56,27 @@ class App extends Component {
         })
         .catch((e) => {
           console.log(e.message);
-          // console.log(this.state.sites[i]);
         });
     }
   }
 
-  debouncedSearch = AwesomeDebouncePromise(this.search, 800);
+  // debounce the search function
+  debouncedSearch = debounce(this.search, 800);
 
+  // search input changes
   inputChanged = (input) => {
+    // if input is empty, do nothing
     if (input !== '') {
+      // if this is not the first cycle, clean results in the state
       if (this.state.results.length > 0) {
         controller.abort();
         this.setState({
           results: []
         });
       }
+      // invoke debounced search
       this.debouncedSearch(input);
     }
-
   }
 
   render() {
