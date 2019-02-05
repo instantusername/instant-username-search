@@ -6,28 +6,15 @@ const { Meta } = Card;
 
 
 class ResultCard extends Component{
-    constructor(props){
-        super(props);
-        this.state = {
-
-        }
-    }
-
-    cardClicked = () => {
-
-    }
-
     render(){
-
+        let status = this.props.result.available ? "Available" : "Taken";
         return(
-            <div className="card">
+            <div className={"card " + status.toLowerCase()}>
                 <a href={this.props.result.url} target="_blank" rel="noopener noreferrer">
-                
-                
-                <Card hoverable loading={false} onClick={()=>{console.log("asdasd")}}>
+                <Card hoverable loading={false}>
                     <Meta
                         title={this.props.result.service}
-                        description={this.props.result.available ? "Available" : "Taken"}
+                        description={status}
                     />
                 </Card>
                 </a>
