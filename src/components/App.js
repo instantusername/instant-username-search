@@ -81,7 +81,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="main">
+      <div className="container">
         <Search onSearch={this.inputChanged} />
         <Results results={this.state.results} />
       </div>
