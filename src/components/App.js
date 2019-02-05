@@ -5,7 +5,7 @@ import Results from './Results';
 import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 import '../styles/App.css';
 
-window.apiUrl = 'http://192.168.1.116:8080/';
+window.apiUrl = 'http://localhost:8080/';
 const checkEndpoint = window.apiUrl + 'check';
 
 // AbortController and signal to cancel fetch requests
