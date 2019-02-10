@@ -1,3 +1,24 @@
+.taken > a > .ant-card > .ant-card-body > .ant-card-meta > .ant-card-meta-detail > .ant-card-meta-title{
+    text-decoration: line-through;
+    color: rgba(0, 0, 0, 0.45);
+}
+
+.taken > a > .ant-card-hoverable:hover{
+    box-shadow: 0 0px 0px rgba(0, 0, 0, 0.09);
+}
+
+.available > a > .ant-card{
+    border-color: #FFEB3B;
+    border-width: 0.1rem
+}
+
+.available > a > .ant-card-hoverable:hover{
+    box-shadow: 0 2px 8px #FFEB3B;
+    border-color: #FFEB3B;
+}
+
+
+
 .card {
     margin: 1%;
 }
