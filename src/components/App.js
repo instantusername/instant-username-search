@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { debounce } from "debounce";
 import Search from './Search';
 import Results from './Results';
+import Footer from './Footer';
 import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 import '../styles/App.css';
 
@@ -90,6 +91,7 @@ class App extends Component {
         <div className="container">
           <Results results={this.state.results} />
           <hr/>
+          <Footer />
         </div>
       </div>
     );
