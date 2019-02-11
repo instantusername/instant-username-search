@@ -9,18 +9,24 @@
 
 .available > a > .ant-card{
     border-color: #FFEB3B;
-    border-width: 0.1rem
+    border-width: 0.1rem;
+    background-color: rgba(255,235,59, 0.05);
 }
 
 .available > a > .ant-card-hoverable:hover{
-    box-shadow: 0 2px 8px #FFEB3B;
+    box-shadow: 4px 6px 8px rgba(0, 0, 0, 0.09);
     border-color: #FFEB3B;
+    background-color: rgba(255,235,59, 0.15);
 }
 
 
 
 .card {
     margin: 1%;
+}
+
+.card > a > .ant-card{
+    border-radius: 0.4rem;
 }
 
 @media (max-width: 768px) {

@@ -1,21 +1,35 @@
 .container {
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.jumbotron{
+  background-image: url("http://www.script-tutorials.com/demos/360/images/stars.png");
+  background-color: black;
+  background-attachment: fixed;
+}
+
+hr {
+  border: 0;
+  height: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
   }
-  @media (min-width: 768px) {
-    .container {
-      width: 750px;
-    }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
   }
-  @media (min-width: 992px) {
-    .container {
-      width: 970px;
-    }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
   }
-  @media (min-width: 1200px) {
-    .container {
-      width: 1170px;
-    }
-  }
+}

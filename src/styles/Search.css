@@ -15,10 +15,11 @@
   width: 100%;
   max-width: 720px;
 
-  margin-top: 5%;
-  margin-bottom: 5%;
+  padding-top: 5%;
+  padding-bottom: 5%;
   margin-left: auto;
   margin-right: auto;
+
 }
 
 .header{
@@ -28,6 +29,8 @@
 
 .header h1{
   align-self: center;
+  color: white;
+  font-weight: bold;
 }
 
 .anticon-thunderbolt{

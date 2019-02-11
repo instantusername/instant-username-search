@@ -81,9 +81,16 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container">
-        <Search onSearch={this.inputChanged} />
-        <Results results={this.state.results} />
+      <div>
+        <div className="jumbotron">
+          <div className="container">
+            <Search onSearch={this.inputChanged} />
+          </div>
+        </div>
+        <div className="container">
+          <Results results={this.state.results} />
+          <hr/>
+        </div>
       </div>
     );
   }
