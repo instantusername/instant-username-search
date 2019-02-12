@@ -5,3 +5,28 @@
 .pull-left{
     float: left;
 }
+
+@media (max-width: 768px) {
+    .footer {
+        padding-top: 0.5rem;
+        padding-bottom: 2.5rem;
+    }
+}
+@media (min-width: 768px) {
+    .footer {
+        padding-top: 1rem;
+        padding-bottom: 3rem;
+    }
+}
+@media (min-width: 992px) {
+    .footer {
+        padding-top: 1rem;
+        padding-bottom: 3.5rem;
+    }
+}
+@media (min-width: 1200px) {
+    .footer {
+        padding-top: 1.5rem;
+        padding-bottom: 4rem;
+    }
+}

@@ -5,7 +5,7 @@ class Footer extends Component{
 
   render(){
     return(
-      <footer>
+      <footer className='footer'>
         <div className='pull-left'>
             {'© ' + new Date().getFullYear()} <a href="https://github.com/umutcanbolat/instant-username-search/blob/master/LICENSE">GPL 3.0</a>
         </div>
