@@ -6,7 +6,7 @@ import Footer from './Footer';
 import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 import '../styles/App.css';
 
-window.apiUrl = 'http://localhost:8080/';
+window.apiUrl = 'https://instant-username-search-api.herokuapp.com/';
 const checkEndpoint = window.apiUrl + 'check';
 
 // AbortController and signal to cancel fetch requests
@@ -90,7 +90,7 @@ class App extends Component {
         </div>
         <div className="container">
           <Results results={this.state.results} />
-          <hr/>
+          <hr />
           <Footer />
         </div>
       </div>

@@ -1,10 +1,11 @@
 {
   "name": "instant-username-search",
-  "version": "0.1.0",
+  "version": "1.0.1",
   "private": true,
   "dependencies": {
     "antd": "^3.12.1",
     "debounce": "^1.2.0",
+    "gh-pages": "^2.0.1",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-scripts": "^2.1.3"
@@ -13,7 +14,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -23,5 +26,23 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
+  ],
+  "description": "👤 Search for the availability of your username on more than 100 social media sites",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/umutcanbolat/instant-username-search.git"
+  },
+  "author": "Umut Canbolat",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/umutcanbolat/instant-username-search/issues"
+  },
+  "homepage": "https://umutcanbolat.github.io/instant-username-search",
+  "keywords": [
+    "instant-username-search",
+    "username",
+    "search"
   ]
 }
