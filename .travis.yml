@@ -1,9 +1,6 @@
 sudo: false
 language: node_js
 node_js:
-  - 6
-  - 7
-  - 8
   - stable
 
 cache:
@@ -13,4 +10,10 @@ cache:
 script:
   - npm test
   - npm run build
-  - npm run deploy
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  keep-history: true
+  on:
+    branch: master
