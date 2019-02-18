@@ -6,7 +6,7 @@
 }
 
 .jumbotron{
-  background-image: url("http://www.script-tutorials.com/demos/360/images/stars.png");
+  background-image: url("../resources/stars.png");
   background-color: black;
   background-attachment: fixed;
 }

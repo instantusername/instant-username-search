@@ -56,7 +56,7 @@ class App extends Component {
           });
         })
         .catch((e) => {
-          console.log(e.message);
+          //console.log(e.message);
         });
     }
   }
@@ -64,20 +64,17 @@ class App extends Component {
   // debounce the search function
   debouncedSearch = debounce(this.search, 800);
 
-  // search input changes
+  // search on input changes
   inputChanged = (input) => {
-    // if input is empty, do nothing
-    if (input !== '') {
-      // if this is not the first cycle, clean results in the state
-      if (this.state.results.length > 0) {
-        controller.abort();
-        this.setState({
-          results: []
-        });
-      }
-      // invoke debounced search
-      this.debouncedSearch(input);
+    // if this is not the first cycle, clean results in the state
+    if (this.state.results.length > 0) {
+      controller.abort();
+      this.setState({
+        results: []
+      });
     }
+    // invoke debounced search
+    this.debouncedSearch(input);
   }
 
   render() {
