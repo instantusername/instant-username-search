@@ -9,11 +9,10 @@ cache:
     - node_modules
 script:
   - npm test
+  - npm run build
+after_success:
+  - git config --global user.name "umutcanbolat"
+  - git config --global user.email "10065235+umutcanbolat@users.noreply.github.com"
+  - git remote rm origin
+  - git remote add origin https://umutcanbolat:${GITHUB_TOKEN}@github.com/umutcanbolat/instant-username-search.git
   - npm run deploy
-deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN
-  keep_history: true
-  on:
-    branch: master
