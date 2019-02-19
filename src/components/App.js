@@ -36,6 +36,13 @@ class App extends Component {
       });
   }
 
+  componentWillUnmount = () => {
+    // cancel all requests before unmounting
+    if (controller !== undefined) {
+      controller.abort();
+    }
+  }
+
   search = (username) => {
     // instantiniate a new controller for this cycle
     controller = new AbortController();
