@@ -18,6 +18,17 @@ hr {
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+.landing{
+  margin: 5rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.landing .astronaut{
+  width: 5rem;
+  height: 5rem;
+}
+
 @media (min-width: 768px) {
   .container {
     width: 750px;

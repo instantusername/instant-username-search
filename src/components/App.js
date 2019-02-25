@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { debounce } from "debounce";
+import { Icon } from 'antd';
 import Search from './Search';
 import Results from './Results';
 import Footer from './Footer';
+import astronaut from '../resources/astronaut.svg'
 import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 import '../styles/App.css';
 
@@ -85,6 +87,20 @@ class App extends Component {
   }
 
   render() {
+    let landingPage = (
+      <div className='landing'>
+        <img className='astronaut' src={astronaut} />
+        <h2>Check username availability as you type</h2>
+        <p>Instant username search will analyze more than 100 social media sites for you. Results appear here as you type!</p>
+      </div>
+    );
+
+    let content;
+    if (this.state.results.length === 0) {
+      content = landingPage;
+    } else {
+      content = <Results results={this.state.results} />;
+    }
     return (
       <div>
         <div className="jumbotron">
@@ -93,7 +109,7 @@ class App extends Component {
           </div>
         </div>
         <div className="container">
-          <Results results={this.state.results} />
+          {content}
           <hr />
           <Footer />
         </div>
