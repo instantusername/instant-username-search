@@ -19,16 +19,31 @@ hr {
 }
 
 .landing{
-  margin: 5rem;
   display: flex;
   flex-direction: row;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
 
 .landing .astronaut{
   width: 5rem;
   height: 5rem;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
+.landing .intro h2{
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .landing .intro h2{
+    font-size: 1rem;
+  }
+}
 @media (min-width: 768px) {
   .container {
     width: 750px;
@@ -42,5 +57,8 @@ hr {
 @media (min-width: 1200px) {
   .container {
     width: 1170px;
+  }
+  .landing .intro p{
+    font-size: 1rem;
   }
 }

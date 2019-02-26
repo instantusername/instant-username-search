@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { debounce } from "debounce";
-import { Icon } from 'antd';
 import Search from './Search';
 import Results from './Results';
 import Footer from './Footer';
@@ -90,8 +89,10 @@ class App extends Component {
     let landingPage = (
       <div className='landing'>
         <img className='astronaut' src={astronaut} />
-        <h2>Check username availability as you type</h2>
-        <p>Instant username search will analyze more than 100 social media sites for you. Results appear here as you type!</p>
+        <div className='intro'>
+          <h2>Check username availability as you type</h2>
+          <p>Instant username search will check more than 100 social media sites for you. Results will appear here as you type!</p>
+        </div>
       </div>
     );
 
