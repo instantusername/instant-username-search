@@ -88,7 +88,7 @@ class App extends Component {
   render() {
     let landingPage = (
       <div className='landing'>
-        <img className='astronaut' src={astronaut} />
+        <img alt='astronaut' className='astronaut' src={astronaut} />
         <div className='intro'>
           <h2>Check username availability as you type</h2>
           <p>Instant username search will check more than 100 social media sites for you. Results will appear here as you type!</p>
