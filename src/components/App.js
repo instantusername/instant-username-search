@@ -19,7 +19,8 @@ class App extends Component {
     super(props);
     this.state = {
       sites: [],
-      results: []
+      results: [],
+      isQueried: false
     }
   }
 
@@ -39,9 +40,7 @@ class App extends Component {
 
   componentWillUnmount = () => {
     // cancel all requests before unmounting
-    if (controller !== undefined) {
-      controller.abort();
-    }
+    this.cancelAllRequests();
   }
 
   search = (username) => {
@@ -74,15 +73,30 @@ class App extends Component {
 
   // search on input changes
   inputChanged = (input) => {
-    // if this is not the first cycle, clean results in the state
-    if (this.state.results.length > 0) {
-      controller.abort();
-      this.setState({
-        results: []
-      });
-    }
+    this.setState({
+      isQueried: true
+    });
+
+    this.cancelAllRequests();
+    this.setState({
+      results: []
+    });
+
     // invoke debounced search
     this.debouncedSearch(input);
+  }
+
+  inputEmptied = () => {
+    this.cancelAllRequests();
+    this.setState({
+      isQueried: false
+    });
+  }
+
+  cancelAllRequests = () => {
+    if (controller !== undefined) {
+      controller.abort();
+    }
   }
 
   render() {
@@ -97,16 +111,24 @@ class App extends Component {
     );
 
     let content;
-    if (this.state.results.length === 0) {
-      content = landingPage;
+    if (this.state.isQueried) {
+      if (this.state.results.length === 0) {
+        // loading results
+        content = <Results loading={true} />;
+      } else {
+        // show results
+        content = <Results results={this.state.results} />;
+      }
     } else {
-      content = <Results results={this.state.results} />;
+      // empty search
+      content = landingPage;
     }
+
     return (
       <div>
         <div className="jumbotron">
           <div className="container">
-            <Search onSearch={this.inputChanged} />
+            <Search onSearch={this.inputChanged} onEmpty={this.inputEmptied} />
           </div>
         </div>
         <div className="container">

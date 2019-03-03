@@ -12,19 +12,18 @@ export class Search extends Component {
     }
 
     onChange = (event) => {
-        // niceInput is the url friendly version of input
+        // niceInput is the url friendly version of the input
         let niceInput = event.target.value.replace(/[^a-zA-Z0-9-_.]/g, '');
 
-        if (niceInput !== this.state.input) {
-            this.setState({
-                input: niceInput
-            }, () => {
-                if (niceInput !== '') {
-                    this.props.onSearch(niceInput);
-                }
-
-            });
-        }
+        this.setState({
+            input: niceInput
+        }, () => {
+            if (niceInput !== '') {
+                this.props.onSearch(niceInput);
+            } else {
+                this.props.onEmpty();
+            }
+        });
     }
     render() {
 
