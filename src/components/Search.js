@@ -15,15 +15,17 @@ export class Search extends Component {
         // niceInput is the url friendly version of the input
         let niceInput = event.target.value.replace(/[^a-zA-Z0-9-_.]/g, '');
 
-        this.setState({
-            input: niceInput
-        }, () => {
-            if (niceInput !== '') {
-                this.props.onSearch(niceInput);
-            } else {
-                this.props.onEmpty();
-            }
-        });
+        if (niceInput !== this.state.input) {
+            this.setState({
+                input: niceInput
+            }, () => {
+                if (niceInput !== '') {
+                    this.props.onSearch(niceInput);
+                } else {
+                    this.props.onEmpty();
+                }
+            });
+        }
     }
     render() {
 
