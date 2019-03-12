@@ -6,6 +6,7 @@ import Footer from './Footer';
 import astronaut from '../resources/astronaut.svg'
 import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 import '../styles/App.css';
+import { FormattedMessage, FormattedHTMLMessage } from 'react-intl';
 
 window.apiUrl = 'https://instant-username-search-api.herokuapp.com/';
 const checkEndpoint = window.apiUrl + 'check';
@@ -104,8 +105,17 @@ class App extends Component {
       <div className='landing'>
         <img alt='astronaut' className='astronaut' src={astronaut} />
         <div className='intro'>
-          <h2>Check username availability as you type</h2>
-          <p>Instant username search will check more than 100 social media sites for you. Results will appear here as you type!</p>
+          <h2>
+            <FormattedMessage id="app.description.title"
+              defaultMessage="Check username availability as you type"
+              description="Description title on main page" />
+          </h2>
+          <p>
+            <FormattedMessage id="app.description.body"
+              defaultMessage="{appName} will check more than 100 social media sites for you. Results will appear here as you type!"
+              description="Description body on main page"
+              values={{ appName: 'Instant Username Search' }} />
+          </p>
         </div>
       </div>
     );
