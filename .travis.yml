@@ -14,4 +14,4 @@ after_success:
   - git config --global user.email "10065235+umutcanbolat@users.noreply.github.com"
   - git remote rm origin
   - git remote add origin https://umutcanbolat:${GITHUB_TOKEN}@github.com/umutcanbolat/instant-username-search.git
-  - npm run deploy
+  - test $TRAVIS_BRANCH = "master" && npm run deploy
