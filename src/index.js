@@ -4,9 +4,23 @@ import './styles/index.css';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 import { IntlProvider } from "react-intl";
+import { addLocaleData } from "react-intl";
+import locale_en from 'react-intl/locale-data/en';
+import locale_de from 'react-intl/locale-data/de';
+import messages_de from "./translations/de.json";
+import messages_en from "./translations/en.json";
+
+addLocaleData([...locale_en, ...locale_de]);
+
+const messages = {
+    'de': messages_de,
+    'en': messages_en
+};
+
+const language = navigator.language.split(/[-_]/)[0];  // language without region code
 
 ReactDOM.render(
-    <IntlProvider locale='en'>
+    <IntlProvider locale={language} messages={messages[language]}>
         <App />
     </IntlProvider>,
     document.getElementById('root')

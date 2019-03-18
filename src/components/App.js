@@ -6,7 +6,7 @@ import Footer from './Footer';
 import astronaut from '../resources/astronaut.svg'
 import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 import '../styles/App.css';
-import { FormattedMessage, FormattedHTMLMessage } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 
 window.apiUrl = 'https://instant-username-search-api.herokuapp.com/';
 const checkEndpoint = window.apiUrl + 'check';
