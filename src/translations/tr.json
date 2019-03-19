@@ -1,0 +1,8 @@
+{
+    "app.search.placeholder": "Kullanıcı adı ara",
+    "app.description.title": "Kullanıcı adınızın kullanılabilirliğini kontrol edin!",
+    "app.description.body": "{appName} 100'den fazla sosyal medya sitesini sizin için tarar ve sonuçları anında ekrana getirir.",
+    "app.contribute": "GitHub'ta forkla",
+    "card.available": "Uygun",
+    "card.taken": "Alınmış"
+}

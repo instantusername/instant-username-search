@@ -7,14 +7,17 @@ import { IntlProvider } from "react-intl";
 import { addLocaleData } from "react-intl";
 import locale_en from 'react-intl/locale-data/en';
 import locale_de from 'react-intl/locale-data/de';
+import locale_tr from 'react-intl/locale-data/tr';
 import messages_de from "./translations/de.json";
 import messages_en from "./translations/en.json";
+import messages_tr from "./translations/tr.json";
 
-addLocaleData([...locale_en, ...locale_de]);
+addLocaleData([...locale_en, ...locale_de, ...locale_tr]);
 
 const messages = {
     'de': messages_de,
-    'en': messages_en
+    'en': messages_en,
+    'tr': messages_tr
 };
 
 const language = navigator.language.split(/[-_]/)[0];  // language without region code
