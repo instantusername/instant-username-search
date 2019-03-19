@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Input, Icon } from 'antd';
+import { FormattedMessage } from 'react-intl';
 import '../styles/Search.css';
 
 export class Search extends Component {
@@ -28,14 +29,20 @@ export class Search extends Component {
         }
     }
     render() {
-
         return (
             <div className="search">
                 <div className="header">
                     <Icon type="thunderbolt" theme="filled" />
                     <h1>Instant Username Search</h1>
                 </div>
-                <Input placeholder="Search username" size="large" allowClear value={this.state.input} onChange={this.onChange} />
+                <FormattedMessage id="app.search.placeholder" defaultMessage="Search username">
+                    {
+                        placeholder => (
+                            <Input placeholder={placeholder} size="large" allowClear
+                                value={this.state.input} onChange={this.onChange} />
+                        )
+                    }
+                </FormattedMessage>
             </div>
         );
     }
