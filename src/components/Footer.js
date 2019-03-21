@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
-import { Link as Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import '../styles/Footer.css';
 
 class Footer extends Component {
