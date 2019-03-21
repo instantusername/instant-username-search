@@ -6,6 +6,29 @@
     float: left;
 }
 
+ul {
+    list-style-type: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+li:not(:last-child) {
+    margin-right: 1rem;
+}
+
+a{
+    background:none;
+    color:inherit !important;
+    border:none;
+    font: inherit;
+    transition: 0s !important;
+}
+
+a:hover{
+    color: black !important;
+}
+
 @media (max-width: 768px) {
     .footer {
         padding-top: 0.5rem;
