@@ -39,6 +39,11 @@ class App extends Component {
       });
   }
 
+  componentDidUpdate = () => {
+    const { match: { params } } = this.props;
+    console.log(params);
+  }
+
   componentWillUnmount = () => {
     // cancel all requests before unmounting
     this.cancelAllRequests();

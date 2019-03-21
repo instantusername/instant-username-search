@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './styles/index.css';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import { IntlProvider } from "react-intl";
 import { addLocaleData } from "react-intl";
 import locale_en from 'react-intl/locale-data/en';
@@ -24,8 +25,11 @@ const language = navigator.language.split(/[-_]/)[0];  // language without regio
 
 ReactDOM.render(
     <IntlProvider locale={language} messages={messages[language]}>
-        <App />
-    </IntlProvider>,
+        <Router>
+            <Route path="/:lang/" exact component={App} />
+        </Router>
+    </IntlProvider>
+    ,
     document.getElementById('root')
 );
 

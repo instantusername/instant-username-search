@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
+import { BrowserRouter as Link } from "react-router-dom";
 import '../styles/Footer.css';
 
 class Footer extends Component {
@@ -17,9 +18,9 @@ class Footer extends Component {
         </div>
         <div className='pull-right'>
           <ul>
-            <li><a href='en'>English</a></li>
-            <li><a href='de'>Deutsch</a></li>
-            <li><a href='tr'>Türkçe</a></li>
+            <li><Link to="/en">English</Link></li>
+            <li><Link to="/de">Deutsch</Link></li>
+            <li><Link to="/tr">Türkçe</Link></li>
           </ul>
         </div>
       </footer>
