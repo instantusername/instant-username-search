@@ -12,7 +12,7 @@ class Footer extends Component {
             <li><a href="https://github.com/umutcanbolat/instant-username-search/blob/master/LICENSE">{'© ' + new Date().getFullYear() + ' GPL 3.0'}</a></li>
             <li><a href="https://github.com/umutcanbolat/instant-username-search/">
               <FormattedMessage id="app.contribute"
-                defaultMessage="Fork me on GitHub" />
+                defaultMessage="Fork on GitHub" />
             </a></li>
           </ul>
         </div>

@@ -164,14 +164,18 @@ class App extends Component {
       <IntlProvider locale={language} messages={messages[language]}>
         <div>
           <div className="jumbotron">
-            <div className="container">
+            <div className="container" id="jumbotron">
               <Search onSearch={this.inputChanged} onEmpty={this.inputEmptied} />
             </div>
           </div>
-          <div className="container">
+          <div className="container" id="content">
             {content}
+          </div>
+          <div id="footer">
             <hr />
-            <Footer />
+            <div className="container">
+              <Footer />
+            </div>
           </div>
         </div>
       </IntlProvider>
