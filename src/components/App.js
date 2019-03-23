@@ -60,6 +60,11 @@ class App extends Component {
     language = params.lang;
   }
 
+  componentWillMount = () => {
+    const { match: { params } } = this.props;
+    language = params.lang;
+  }
+
   componentWillUnmount = () => {
     // cancel all requests before unmounting
     this.cancelAllRequests();
