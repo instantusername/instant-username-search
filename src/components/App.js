@@ -6,10 +6,26 @@ import Footer from './Footer';
 import astronaut from '../resources/astronaut.svg'
 import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 import '../styles/App.css';
+import { IntlProvider } from "react-intl";
 import { FormattedMessage } from 'react-intl';
+import { addLocaleData } from "react-intl";
+import locale_en from 'react-intl/locale-data/en';
+import locale_de from 'react-intl/locale-data/de';
+import locale_tr from 'react-intl/locale-data/tr';
+import messages_de from "../translations/de.json";
+import messages_en from "../translations/en.json";
+import messages_tr from "../translations/tr.json";
 
 window.apiUrl = 'https://instant-username-search-api.herokuapp.com/';
 const checkEndpoint = window.apiUrl + 'check';
+
+addLocaleData([...locale_en, ...locale_de, ...locale_tr]);
+const messages = {
+  'de': messages_de,
+  'en': messages_en,
+  'tr': messages_tr
+};
+var language = navigator.language.split(/[-_]/)[0];  // language without region code
 
 // AbortController and signal to cancel fetch requests
 var controller;
@@ -37,6 +53,16 @@ class App extends Component {
       .catch((e) => {
         console.log('error while fetching services list' + e.message);
       });
+  }
+
+  componentWillReceiveProps = (nextProps) => {
+    const { match: { params } } = nextProps;
+    language = params.lang;
+  }
+
+  componentWillMount = () => {
+    const { match: { params } } = this.props;
+    language = params.lang;
   }
 
   componentWillUnmount = () => {
@@ -135,18 +161,24 @@ class App extends Component {
     }
 
     return (
-      <div>
-        <div className="jumbotron">
-          <div className="container">
-            <Search onSearch={this.inputChanged} onEmpty={this.inputEmptied} />
+      <IntlProvider locale={language} messages={messages[language]}>
+        <div>
+          <div className="jumbotron">
+            <div className="container" id="jumbotron">
+              <Search onSearch={this.inputChanged} onEmpty={this.inputEmptied} />
+            </div>
+          </div>
+          <div className="container" id="content">
+            {content}
+          </div>
+          <div id="footer">
+            <hr />
+            <div className="container">
+              <Footer />
+            </div>
           </div>
         </div>
-        <div className="container">
-          {content}
-          <hr />
-          <Footer />
-        </div>
-      </div>
+      </IntlProvider>
     );
   }
 }

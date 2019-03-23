@@ -3,29 +3,15 @@ import ReactDOM from 'react-dom';
 import './styles/index.css';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
-import { IntlProvider } from "react-intl";
-import { addLocaleData } from "react-intl";
-import locale_en from 'react-intl/locale-data/en';
-import locale_de from 'react-intl/locale-data/de';
-import locale_tr from 'react-intl/locale-data/tr';
-import messages_de from "./translations/de.json";
-import messages_en from "./translations/en.json";
-import messages_tr from "./translations/tr.json";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
-addLocaleData([...locale_en, ...locale_de, ...locale_tr]);
 
-const messages = {
-    'de': messages_de,
-    'en': messages_en,
-    'tr': messages_tr
-};
 
-const language = navigator.language.split(/[-_]/)[0];  // language without region code
 
 ReactDOM.render(
-    <IntlProvider locale={language} messages={messages[language]}>
-        <App />
-    </IntlProvider>,
+    <Router basename="/instant-username-search">
+        <Route path="/:lang?" component={App} />
+    </Router>,
     document.getElementById('root')
 );
 

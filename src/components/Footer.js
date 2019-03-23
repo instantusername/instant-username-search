@@ -1,20 +1,27 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
+import { Link } from "react-router-dom";
 import '../styles/Footer.css';
 
 class Footer extends Component {
-
   render() {
     return (
       <footer className='footer'>
         <div className='pull-left'>
-          {'© ' + new Date().getFullYear()} <a href="https://github.com/umutcanbolat/instant-username-search/blob/master/LICENSE">GPL 3.0</a>
+          <ul>
+            <li><a href="https://github.com/umutcanbolat/instant-username-search/blob/master/LICENSE">{'© ' + new Date().getFullYear() + ' GPL 3.0'}</a></li>
+            <li><a href="https://github.com/umutcanbolat/instant-username-search/">
+              <FormattedMessage id="app.contribute"
+                defaultMessage="Fork on GitHub" />
+            </a></li>
+          </ul>
         </div>
         <div className='pull-right'>
-          <a href="https://github.com/umutcanbolat/instant-username-search/">
-            <FormattedMessage id="app.contribute"
-              defaultMessage="Fork me on GitHub" />
-          </a>
+          <ul>
+            <li><Link to="/en">English</Link></li>
+            <li><Link to="/de">Deutsch</Link></li>
+            <li><Link to="/tr">Türkçe</Link></li>
+          </ul>
         </div>
       </footer>
     );
