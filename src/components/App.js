@@ -71,27 +71,29 @@ class App extends Component {
   }
 
   search = (username) => {
-    // instantiniate a new controller for this cycle
-    controller = new AbortController();
-    signal = controller.signal;
+    if (this.state.isQueried) {
+      // instantiniate a new controller for this cycle
+      controller = new AbortController();
+      signal = controller.signal;
 
-    // loop through all sites and check the availability
-    for (let i = 0; i < this.state.sites.length; i++) {
-      const checkService = this.state.sites[i].endpoint;
-      const checkUser = checkService.replace('{username}', username);
+      // loop through all sites and check the availability
+      for (let i = 0; i < this.state.sites.length; i++) {
+        const checkService = this.state.sites[i].endpoint;
+        const checkUser = checkService.replace('{username}', username);
 
-      fetch(checkEndpoint + checkUser, { signal })
-        .then(response => response.json())
-        .then(responseJson => {
-          let newResults = [].concat(this.state.results);
-          newResults.push(responseJson);
-          this.setState({
-            results: newResults
+        fetch(checkEndpoint + checkUser, { signal })
+          .then(response => response.json())
+          .then(responseJson => {
+            let newResults = [].concat(this.state.results);
+            newResults.push(responseJson);
+            this.setState({
+              results: newResults
+            });
+          })
+          .catch((e) => {
+            //console.log(e.message);
           });
-        })
-        .catch((e) => {
-          //console.log(e.message);
-        });
+      }
     }
   }
 
