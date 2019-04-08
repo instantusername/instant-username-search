@@ -9,7 +9,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 
 ReactDOM.render(
-    <Router basename="/instant-username-search">
+    <Router basename="/instant-username-search/#/">
         <Route path="/:lang?" component={App} />
     </Router>,
     document.getElementById('root')

@@ -65,13 +65,13 @@ hr {
     height: 5rem;
   }
   #jumbotron{
-    height: 20vh;
+    height: 25vh;
   }
   #content{
-    min-height: 70vh;
+    min-height: 60vh;
   }
   #footer{
-    height: 10vh;
+    height: 15vh;
   }
 }
 @media (min-width: 768px) {
