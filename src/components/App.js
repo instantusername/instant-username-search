@@ -56,13 +56,17 @@ class App extends Component {
   }
 
   componentWillReceiveProps = (nextProps) => {
-    const { match: { params } } = nextProps;
-    language = params.lang;
+    const { match: { params: { lang } } } = nextProps;
+    if (lang) {
+      language = lang;
+    }
   }
 
   componentWillMount = () => {
-    const { match: { params } } = this.props;
-    language = params.lang;
+    const { match: { params: { lang } } } = this.props;
+    if (lang) {
+      language = lang;
+    }
   }
 
   componentWillUnmount = () => {
