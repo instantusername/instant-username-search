@@ -68,10 +68,10 @@ hr {
     height: 25vh;
   }
   #content{
-    min-height: 60vh;
+    min-height: 55vh;
   }
   #footer{
-    height: 15vh;
+    height: 20vh;
   }
 }
 @media (min-width: 768px) {

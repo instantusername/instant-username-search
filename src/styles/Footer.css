@@ -6,6 +6,11 @@
     float: left;
 }
 
+.coffee{
+    display: flex;
+    justify-content: center;
+}
+
 ul {
     list-style-type: none;
     display: flex;

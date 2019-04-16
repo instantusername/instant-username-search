@@ -14,6 +14,7 @@ class Footer extends Component {
               <FormattedMessage id="app.contribute"
                 defaultMessage="Fork on GitHub" />
             </a></li>
+
           </ul>
         </div>
         <div className='pull-right'>
@@ -22,6 +23,12 @@ class Footer extends Component {
             <li><Link to="/de">Deutsch</Link></li>
             <li><Link to="/tr">Türkçe</Link></li>
           </ul>
+        </div>
+        <div className='coffee'>
+          <a target="_blank" rel="noopener noreferrer" href="https://www.buymeacoffee.com/1ulP4IGFm">
+            <img src="https://www.buymeacoffee.com/assets/img/BMC-btn-logo.svg" alt="Buy me a coffee!" />
+            <span>Buy me a coffee!</span>
+          </a>
         </div>
       </footer>
     );
