@@ -3,6 +3,7 @@
     "app.description.title": "Check username availability as you type",
     "app.description.body": "{appName} will check more than 100 social media sites for you. Results will appear here as you type!",
     "app.contribute": "Fork on GitHub",
+    "app.coffee": "Buy me a coffee!",
     "card.available": "Available",
     "card.taken": "Taken"
 }

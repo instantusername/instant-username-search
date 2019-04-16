@@ -8,7 +8,9 @@
 
 .coffee{
     display: flex;
-    justify-content: center;
+}
+.coffee a{
+    margin-left: 1rem;
 }
 
 ul {
@@ -49,6 +51,12 @@ a:hover{
         width: max-content;
         margin-left: auto;
         margin-right: auto;
+    }
+    .coffee{
+        justify-content: center;
+    }
+    .coffee a{
+        margin-left: unset;
     }
 }
 @media (min-width: 768px) {

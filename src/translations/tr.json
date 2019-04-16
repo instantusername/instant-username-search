@@ -3,6 +3,7 @@
     "app.description.title": "Kullanıcı adınızın kullanılabilirliğini kontrol edin!",
     "app.description.body": "{appName} 100'den fazla sosyal medya sitesini sizin için tarar ve sonuçları anında ekrana getirir.",
     "app.contribute": "GitHub'ta forkla",
+    "app.coffee": "Bana kahve ısmarla!",
     "card.available": "Uygun",
     "card.taken": "Alınmış"
 }
