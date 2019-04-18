@@ -57,6 +57,7 @@ a:hover{
     }
     .coffee a{
         margin-left: unset;
+        padding-top: 0.6rem;
     }
 }
 @media (min-width: 768px) {

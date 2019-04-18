@@ -11,15 +11,14 @@
     border-color: #FFEB3B;
     border-width: 0.1rem;
     background-color: rgba(255,235,59, 0.05);
+    transition: all 0.2s;
 }
 
 .available > a > .ant-card-hoverable:hover{
-    box-shadow: 4px 6px 8px rgba(0, 0, 0, 0.09);
+    box-shadow: 4px 6px 8px rgba(0, 0, 0, 0.20);
     border-color: #FFEB3B;
-    background-color: rgba(255,235,59, 0.15);
+    background-color: rgba(255,235,59, 0.20);
 }
-
-
 
 .card {
     margin: 1%;
