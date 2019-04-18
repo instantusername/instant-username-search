@@ -45,6 +45,7 @@ a:hover{
         width: max-content;
         margin-left: auto;
         margin-right: auto;
+        padding-top: 0.6rem;
     }
     .pull-left{
         float: unset;
