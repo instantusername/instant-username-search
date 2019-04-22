@@ -1,0 +1,9 @@
+{
+    "app.search.placeholder": "Buscar nom d'usuari",
+    "app.description.title": "Comprova la disponibilitat d'un nom d'usuari a meusra que escrius",
+    "app.description.body": "{appName} comprovarà més de 100 llocs de mitjans socials per a tu. Els resultat apareixaran a mesura que escrius!",
+    "app.contribute": "Fork on GitHub",
+    "app.coffee": "Compra'm un cafè!",
+    "card.available": "Disponible",
+    "card.taken": "Pres"
+}
