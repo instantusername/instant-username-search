@@ -17,10 +17,12 @@ class Footer extends Component {
 
           </ul>
         </div>
-        <div className='pull-right'>
+        <div className='languages pull-right'>
           <ul>
-            <li><Link to="/en">English</Link></li>
+            <li><Link to="/ca">Català</Link></li>
             <li><Link to="/de">Deutsch</Link></li>
+            <li><Link to="/en">English</Link></li>
+            <li><Link to="/es">Español</Link></li>
             <li><Link to="/tr">Türkçe</Link></li>
           </ul>
         </div>

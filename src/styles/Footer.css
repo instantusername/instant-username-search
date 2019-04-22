@@ -40,18 +40,15 @@ a:hover{
     .footer {
         padding-top: 0.5rem;
     }
-    .pull-right{
+    .pull-right, .pull-left{
         float: unset;
         width: max-content;
         margin-left: auto;
         margin-right: auto;
-        padding-top: 0.6rem;
     }
-    .pull-left{
-        float: unset;
-        width: max-content;
-        margin-left: auto;
-        margin-right: auto;
+
+    .languages{
+        padding-top: 0.6rem;
     }
     .coffee{
         justify-content: center;

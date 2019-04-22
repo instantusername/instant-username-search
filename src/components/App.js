@@ -9,21 +9,29 @@ import '../styles/App.css';
 import { IntlProvider } from "react-intl";
 import { FormattedMessage } from 'react-intl';
 import { addLocaleData } from "react-intl";
+
 import locale_en from 'react-intl/locale-data/en';
 import locale_de from 'react-intl/locale-data/de';
 import locale_tr from 'react-intl/locale-data/tr';
+import locale_es from 'react-intl/locale-data/es';
+import locale_ca from 'react-intl/locale-data/ca';
+
 import messages_de from "../translations/de.json";
 import messages_en from "../translations/en.json";
 import messages_tr from "../translations/tr.json";
+import messages_es from "../translations/es.json";
+import messages_ca from "../translations/ca.json";
 
 window.apiUrl = 'https://instant-username-search-api.herokuapp.com/';
 const checkEndpoint = window.apiUrl + 'check';
 
-addLocaleData([...locale_en, ...locale_de, ...locale_tr]);
+addLocaleData([...locale_en, ...locale_de, ...locale_tr, ...locale_es, ...locale_ca]);
 const messages = {
   'de': messages_de,
   'en': messages_en,
-  'tr': messages_tr
+  'tr': messages_tr,
+  'ca': messages_ca,
+  'es': messages_es
 };
 var language = navigator.language.split(/[-_]/)[0];  // language without region code
 
