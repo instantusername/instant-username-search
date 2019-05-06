@@ -10,7 +10,7 @@ import { HashRouter as Router, Route } from "react-router-dom";
 
 ReactDOM.render(
     <Router>
-        <Route path="/:lang?" component={App} />
+        <Route path="/:lang?/:page?" component={App} />
     </Router>,
     document.getElementById('root')
 );
