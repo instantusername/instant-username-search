@@ -7,27 +7,22 @@ class Footer extends Component {
   render() {
     return (
       <footer className='footer'>
-        <div className='pull-left'>
-          <ul>
-            <li><a href="https://github.com/umutcanbolat/instant-username-search/blob/master/LICENSE">{'© ' + new Date().getFullYear() + ' GPL 3.0'}</a></li>
-            <li><a href="https://github.com/umutcanbolat/instant-username-search/">
-              <FormattedMessage id="app.contribute"
-                defaultMessage="Fork on GitHub" />
-            </a></li>
+        <div className='vessel pull-left'>
+          <a href="https://github.com/umutcanbolat/instant-username-search/blob/master/LICENSE">{'© ' + new Date().getFullYear() + ' GPL 3.0'}</a>
+          <a href="https://github.com/umutcanbolat/instant-username-search/">
+            <FormattedMessage id="app.contribute"
+              defaultMessage="Fork on GitHub" /></a>
 
-          </ul>
         </div>
         <div className='languages pull-right'>
-          <ul>
-            <li><Link to="/ca">Català</Link></li>
-            <li><Link to="/de">Deutsch</Link></li>
-            <li><Link to="/en">English</Link></li>
-            <li><Link to="/es">Español</Link></li>
-            <li><Link to="/fr">Français</Link></li>
-            <li><Link to="/tr">Türkçe</Link></li>
-          </ul>
+          <Link to="/ca">Català</Link>
+          <Link to="/de">Deutsch</Link>
+          <Link to="/en">English</Link>
+          <Link to="/es">Español</Link>
+          <Link to="/fr">Français</Link>
+          <Link to="/tr">Türkçe</Link>
         </div>
-        <div className='coffee'>
+        {/* <div className='coffee'>
           <a target="_blank" rel="noopener noreferrer" href="https://www.buymeacoffee.com/1ulP4IGFm">
             <img src="https://www.buymeacoffee.com/assets/img/BMC-btn-logo.svg" alt="Buy me a coffee!" />
             <span>
@@ -35,7 +30,7 @@ class Footer extends Component {
                 defaultMessage="Buy me a coffee" />
             </span>
           </a>
-        </div>
+        </div> */}
       </footer>
     );
   }

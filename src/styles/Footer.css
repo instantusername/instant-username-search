@@ -13,6 +13,16 @@
     margin-left: 1rem;
 }
 
+.languages, .vessel{
+    display: block;
+    width: auto !important;
+    text-align: center;
+}
+.languages a, .vessel a{
+    display: inline-block;
+    padding: 6px;
+}
+
 ul {
     list-style-type: none;
     display: flex;
