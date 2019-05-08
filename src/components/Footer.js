@@ -23,8 +23,8 @@ class Footer extends Component {
             <li><Link to="/de">Deutsch</Link></li>
             <li><Link to="/en">English</Link></li>
             <li><Link to="/es">Español</Link></li>
-            <li><Link to="/tr">Türkçe</Link></li>
             <li><Link to="/fr">Français</Link></li>
+            <li><Link to="/tr">Türkçe</Link></li>
           </ul>
         </div>
         <div className='coffee'>
