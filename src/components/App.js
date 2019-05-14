@@ -8,8 +8,8 @@ import Terms from './TermsAndConditions';
 import LandingPage from './Landing';
 
 import { IntlProvider, addLocaleData } from "react-intl";
-import { locale_ca, locale_de, locale_en, locale_es, locale_tr } from "../translations/locales"
-import { messages_ca, messages_de, messages_en, messages_es, messages_tr } from "../translations"
+import { locale_ca, locale_de, locale_en, locale_es, locale_fr, locale_tr } from "../translations/locales"
+import { messages_ca, messages_de, messages_en, messages_es, messages_fr, messages_tr } from "../translations"
 
 import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 import '../styles/App.css';
