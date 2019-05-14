@@ -4,10 +4,12 @@ import Search from './Search';
 import Results from './Results';
 import Footer from './Footer';
 import PrivacyPolicy from './PrivacyPolicy';
-import astronaut from '../resources/astronaut.svg'
-import { IntlProvider, FormattedMessage, addLocaleData } from "react-intl";
-import { locale_ca, locale_de, locale_en, locale_es, locale_fr, locale_tr } from "../translations/locales"
-import { messages_ca, messages_de, messages_en, messages_es, messages_fr, messages_tr } from "../translations"
+import Terms from './TermsAndConditions';
+import LandingPage from './Landing';
+
+import { IntlProvider, addLocaleData } from "react-intl";
+import { locale_ca, locale_de, locale_en, locale_es, locale_tr } from "../translations/locales"
+import { messages_ca, messages_de, messages_en, messages_es, messages_tr } from "../translations"
 
 import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 import '../styles/App.css';
@@ -134,27 +136,9 @@ class App extends Component {
   render() {
     const { match: { params: { page } } } = this.props;
 
-    const landingPage = (
-      <div className='landing'>
-        <img alt='astronaut' className='astronaut' src={astronaut} />
-        <div className='intro'>
-          <h2>
-            <FormattedMessage id="app.description.title"
-              defaultMessage="Check username availability as you type"
-              description="Description title on main page" />
-          </h2>
-          <p>
-            <FormattedMessage id="app.description.body"
-              defaultMessage="{appName} will check more than 100 social media sites for you. Results will appear here as you type!"
-              description="Description body on main page"
-              values={{ appName: 'Instant Username Search' }} />
-          </p>
-        </div>
-        {/* <PrivacyPolicy /> */}
-      </div>
-    );
-
+    // main content of page
     let content;
+
     if (this.state.isQueried) {
       if (this.state.results.length === 0) {
         // loading results
@@ -171,12 +155,13 @@ class App extends Component {
           break;
         case "terms":
           //terms and conditions
+          content = <Terms />
           break;
         case "contact":
           // contact info
           break;
         default:
-          content = landingPage;
+          content = <LandingPage />;
           break;
       }
     }
