@@ -26,20 +26,26 @@ const messages = {
   'es': messages_es,
   'fr': messages_fr
 };
-var language = navigator.language.split(/[-_]/)[0];  // language without region code
 
 // AbortController and signal to cancel fetch requests
 var controller;
 var signal;
 
+const initialState = {
+  sites: [],
+  results: [],
+  isQueried: false,
+  language: navigator.language.split(/[-_]/)[0]  // language without region code
+}
+
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      sites: [],
-      results: [],
-      isQueried: false
-    }
+    this.state = initialState;
+  }
+
+  reset = () => {
+    this.setState(initialState);
   }
 
   componentDidMount = () => {
@@ -59,14 +65,14 @@ class App extends Component {
   componentWillReceiveProps = (nextProps) => {
     const { match: { params: { lang } } } = nextProps;
     if (lang) {
-      language = lang;
+      this.setState({ language: lang });
     }
   }
 
   componentWillMount = () => {
     const { match: { params: { lang } } } = this.props;
     if (lang) {
-      language = lang;
+      this.setState({ language: lang });
     }
   }
 
@@ -164,11 +170,11 @@ class App extends Component {
     }
 
     return (
-      <IntlProvider locale={language} messages={messages[language]}>
+      <IntlProvider locale={this.state.language} messages={messages[this.state.language]}>
         <div>
           <div className="jumbotron">
             <div className="container" id="jumbotron">
-              <Search onSearch={this.inputChanged} onEmpty={this.inputEmptied} />
+              <Search onSearch={this.inputChanged} onEmpty={this.inputEmptied} reset={this.reset} />
             </div>
           </div>
           <div className="container" id="content">

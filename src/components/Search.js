@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 import { Input, Icon } from 'antd';
 import { FormattedMessage } from 'react-intl';
 import '../styles/Search.css';
@@ -32,8 +33,12 @@ export class Search extends Component {
         return (
             <div className="search">
                 <div className="header">
-                    <Icon type="thunderbolt" theme="filled" />
-                    <h1>Instant Username Search</h1>
+                    <Link to={"/"} onClick={this.props.reset}>
+                        <Icon type="thunderbolt" theme="filled" />
+                    </Link>
+                    <Link to={"/"} onClick={this.props.reset}>
+                        <h1>Instant Username Search</h1>
+                    </Link>
                 </div>
                 <FormattedMessage id="app.search.placeholder" defaultMessage="Search username">
                     {
