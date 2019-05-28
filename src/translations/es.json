@@ -4,6 +4,9 @@
     "app.description.body": "{appName} buscara en más de 100 redes sociales para ti. ¡Los resultados apareceran a medida que escribes!",
     "app.contribute": "Fork on GitHub",
     "app.coffee": "¡Comprame un café!",
+    "app.privacy": "Intimidad",
+    "app.terms": "Condiciones",
+    "app.contact": "Contactar",
     "card.available": "Disponible",
     "card.taken": "Cogido"
 }

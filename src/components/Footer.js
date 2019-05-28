@@ -5,7 +5,7 @@ import '../styles/Footer.css';
 
 class Footer extends Component {
   render() {
-    let { page } = this.props;
+    let { lang, page } = this.props;
     if (typeof page === "undefined") {
       page = ""
     }
@@ -17,7 +17,18 @@ class Footer extends Component {
           <a href="https://github.com/umutcanbolat/instant-username-search/">
             <FormattedMessage id="app.contribute"
               defaultMessage="Fork on GitHub" /></a>
-
+          <Link to={"/" + (lang ? lang : "en") + "/privacy"}>
+            <FormattedMessage id="app.privacy"
+              defaultMessage="Privacy" />
+          </Link>
+          <Link to={"/" + (lang ? lang : "en") + "/terms"}>
+            <FormattedMessage id="app.terms"
+              defaultMessage="Terms" />
+          </Link>
+          <a href="mailto:help@instantusername.com">
+            <FormattedMessage id="app.contact"
+              defaultMessage="Contact" />
+          </a>
         </div>
         <div className='languages pull-right'>
           <Link to={"/ca/" + page}>Català</Link>

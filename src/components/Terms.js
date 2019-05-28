@@ -1,9 +1,10 @@
 import React from 'react';
+import '../styles/SubPage.css';
 
-export default function TermsAndConditions() {
+export default function Terms() {
 
     return (
-        <>
+        <div className="sub">
             <h1>Terms of Service</h1>
             <h2>1. Terms</h2>
             <p>By accessing the website at <a href="https://instantusername.com">https://instantusername.com</a>, you are agreeing to be bound by these terms of service, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws. If you do not agree with any of these terms, you are prohibited from using or accessing this site. The materials contained in this website are protected by applicable copyright and trademark law.</p>
@@ -35,6 +36,6 @@ export default function TermsAndConditions() {
             <p>Instant Username Search may revise these terms of service for its website at any time without notice. By using this website you are agreeing to be bound by the then current version of these terms of service.</p>
             <h2>8. Governing Law</h2>
             <p>These terms and conditions are governed by and construed in accordance with the laws of Turkey and you irrevocably submit to the exclusive jurisdiction of the courts in that State or location.</p>
-        </>
+        </div>
     );
 }

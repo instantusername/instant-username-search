@@ -3,8 +3,8 @@ import { debounce } from "debounce";
 import Search from './Search';
 import Results from './Results';
 import Footer from './Footer';
-import PrivacyPolicy from './PrivacyPolicy';
-import Terms from './TermsAndConditions';
+import Privacy from './Privacy';
+import Terms from './Terms';
 import LandingPage from './Landing';
 
 import { IntlProvider, addLocaleData } from "react-intl";
@@ -134,7 +134,7 @@ class App extends Component {
   }
 
   render() {
-    const { match: { params: { page } } } = this.props;
+    const { match: { params: { lang, page } } } = this.props;
 
     // main content of page
     let content;
@@ -151,14 +151,11 @@ class App extends Component {
       // empty search
       switch (page) {
         case "privacy":
-          content = <PrivacyPolicy />
+          content = <Privacy />
           break;
         case "terms":
           //terms and conditions
           content = <Terms />
-          break;
-        case "contact":
-          // contact info
           break;
         default:
           content = <LandingPage />;
@@ -180,7 +177,7 @@ class App extends Component {
           <div id="footer">
             <hr />
             <div className="container">
-              <Footer page={page} />
+              <Footer page={page} lang={lang} />
             </div>
           </div>
         </div>
