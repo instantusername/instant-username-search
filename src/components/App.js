@@ -3,26 +3,16 @@ import { debounce } from "debounce";
 import Search from './Search';
 import Results from './Results';
 import Footer from './Footer';
-import astronaut from '../resources/astronaut.svg'
+import Privacy from './Privacy';
+import Terms from './Terms';
+import LandingPage from './Landing';
+
+import { IntlProvider, addLocaleData } from "react-intl";
+import { locale_ca, locale_de, locale_en, locale_es, locale_fr, locale_tr } from "../translations/locales"
+import { messages_ca, messages_de, messages_en, messages_es, messages_fr, messages_tr } from "../translations"
+
 import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 import '../styles/App.css';
-import { IntlProvider } from "react-intl";
-import { FormattedMessage } from 'react-intl';
-import { addLocaleData } from "react-intl";
-
-import locale_en from 'react-intl/locale-data/en';
-import locale_de from 'react-intl/locale-data/de';
-import locale_tr from 'react-intl/locale-data/tr';
-import locale_es from 'react-intl/locale-data/es';
-import locale_ca from 'react-intl/locale-data/ca';
-import locale_fr from 'react-intl/locale-data/fr';
-
-import messages_de from "../translations/de.json";
-import messages_en from "../translations/en.json";
-import messages_tr from "../translations/tr.json";
-import messages_es from "../translations/es.json";
-import messages_ca from "../translations/ca.json";
-import messages_fr from "../translations/fr.json";
 
 window.apiUrl = 'https://instant-username-search-api.herokuapp.com/';
 const checkEndpoint = window.apiUrl + 'check';
@@ -36,20 +26,26 @@ const messages = {
   'es': messages_es,
   'fr': messages_fr
 };
-var language = navigator.language.split(/[-_]/)[0];  // language without region code
 
 // AbortController and signal to cancel fetch requests
 var controller;
 var signal;
 
+const initialState = {
+  sites: [],
+  results: [],
+  isQueried: false,
+  language: navigator.language.split(/[-_]/)[0]  // language without region code
+}
+
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      sites: [],
-      results: [],
-      isQueried: false
-    }
+    this.state = initialState;
+  }
+
+  reset = () => {
+    this.setState(initialState);
   }
 
   componentDidMount = () => {
@@ -69,14 +65,14 @@ class App extends Component {
   componentWillReceiveProps = (nextProps) => {
     const { match: { params: { lang } } } = nextProps;
     if (lang) {
-      language = lang;
+      this.setState({ language: lang });
     }
   }
 
   componentWillMount = () => {
     const { match: { params: { lang } } } = this.props;
     if (lang) {
-      language = lang;
+      this.setState({ language: lang });
     }
   }
 
@@ -144,26 +140,11 @@ class App extends Component {
   }
 
   render() {
-    let landingPage = (
-      <div className='landing'>
-        <img alt='astronaut' className='astronaut' src={astronaut} />
-        <div className='intro'>
-          <h2>
-            <FormattedMessage id="app.description.title"
-              defaultMessage="Check username availability as you type"
-              description="Description title on main page" />
-          </h2>
-          <p>
-            <FormattedMessage id="app.description.body"
-              defaultMessage="{appName} will check more than 100 social media sites for you. Results will appear here as you type!"
-              description="Description body on main page"
-              values={{ appName: 'Instant Username Search' }} />
-          </p>
-        </div>
-      </div>
-    );
+    const { match: { params: { lang, page } } } = this.props;
 
+    // main content of page
     let content;
+
     if (this.state.isQueried) {
       if (this.state.results.length === 0) {
         // loading results
@@ -174,15 +155,26 @@ class App extends Component {
       }
     } else {
       // empty search
-      content = landingPage;
+      switch (page) {
+        case "privacy":
+          content = <Privacy />
+          break;
+        case "terms":
+          //terms and conditions
+          content = <Terms />
+          break;
+        default:
+          content = <LandingPage />;
+          break;
+      }
     }
 
     return (
-      <IntlProvider locale={language} messages={messages[language]}>
+      <IntlProvider locale={this.state.language} messages={messages[this.state.language]}>
         <div>
           <div className="jumbotron">
             <div className="container" id="jumbotron">
-              <Search onSearch={this.inputChanged} onEmpty={this.inputEmptied} />
+              <Search onSearch={this.inputChanged} onEmpty={this.inputEmptied} reset={this.reset} />
             </div>
           </div>
           <div className="container" id="content">
@@ -191,7 +183,7 @@ class App extends Component {
           <div id="footer">
             <hr />
             <div className="container">
-              <Footer />
+              <Footer page={page} lang={lang} />
             </div>
           </div>
         </div>

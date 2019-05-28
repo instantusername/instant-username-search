@@ -1,4 +1,5 @@
-# Instant Username Search [![Build Status](https://travis-ci.org/umutcanbolat/instant-username-search.svg?branch=master)](https://travis-ci.org/umutcanbolat/instant-username-search)
+# Instant Username Search
+[![Build Status](https://travis-ci.org/umutcanbolat/instant-username-search.svg?branch=master)](https://travis-ci.org/umutcanbolat/instant-username-search) <a href="https://www.buymeacoffee.com/1ulP4IGFm" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" height="20" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
 
 Instant Username Search helps users find out if their username is taken on more than 100 social media sites. It instantly lists results on the screen while the user is typing.
 
