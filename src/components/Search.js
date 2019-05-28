@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
 import { Input, Icon } from 'antd';
 import { FormattedMessage } from 'react-intl';
 import '../styles/Search.css';
