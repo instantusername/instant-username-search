@@ -46,6 +46,7 @@ class App extends Component {
 
   reset = () => {
     this.setState(initialState);
+    this.componentDidMount();
   }
 
   componentDidMount = () => {

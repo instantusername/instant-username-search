@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Input, Icon } from 'antd';
 import { FormattedMessage } from 'react-intl';
+import { Link } from "react-router-dom";
 import '../styles/Search.css';
 
 export class Search extends Component {
@@ -19,27 +20,37 @@ export class Search extends Component {
         if (niceInput !== this.state.input) {
             this.setState({
                 input: niceInput
-            }, () => {
-                if (niceInput !== '') {
-                    this.props.onSearch(niceInput);
-                } else {
-                    this.props.onEmpty();
-                }
             });
+
+            if (niceInput !== '') {
+                this.props.onSearch(niceInput);
+            } else {
+                this.props.onEmpty();
+            }
         }
     }
     render() {
         return (
             <div className="search">
                 <div className="header">
-                    {/* <Link to={"/"} onClick={this.props.reset}>
+                    <Link to={"/"} onClick={() => {
+                        this.setState({
+                            input: ''
+                        });
+                        this.props.reset();
+                    }}>
                         <Icon type="thunderbolt" theme="filled" />
                     </Link>
-                    <Link to={"/"} onClick={this.props.reset}>
+                    <Link to={"/"} onClick={() => {
+                        this.setState({
+                            input: ''
+                        });
+                        this.props.reset();
+                    }}>
                         <h1>Instant Username Search</h1>
-                    </Link> */}
-                    <Icon type="thunderbolt" theme="filled" />
-                    <h1>Instant Username Search</h1>
+                    </Link>
+                    {/* <Icon type="thunderbolt" theme="filled" />
+                    <h1>Instant Username Search</h1> */}
                 </div>
                 <FormattedMessage id="app.search.placeholder" defaultMessage="Search username">
                     {
