@@ -1,7 +1,9 @@
 # Instant Username Search
-[![Build Status](https://travis-ci.org/umutcanbolat/instant-username-search.svg?branch=master)](https://travis-ci.org/umutcanbolat/instant-username-search) <a href="https://www.buymeacoffee.com/1ulP4IGFm" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" height="20" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+[![Build Status](https://travis-ci.org/umutcanbolat/instant-username-search.svg?branch=master)](https://travis-ci.org/umutcanbolat/instant-username-search) <a href="https://www.buymeacoffee.com/1ulP4IGFm" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" height="30" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
 
 Instant Username Search helps users find out if their username is taken on more than 100 social media sites. It instantly lists results on the screen while the user is typing.
+
+<a href="https://www.producthunt.com/posts/instant-username-search?utm_source=badge-top-post-badge&utm_medium=badge&utm_souce=badge-instant-username-search" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/top-post-badge.svg?post_id=151501&theme=light&period=daily" alt="Instant Username Search - Check out if your username is available | Product Hunt Embed" style="width: 250px; height: 54px;" width="250px" height="54px" /></a>
 
 ## Server Repository
 
