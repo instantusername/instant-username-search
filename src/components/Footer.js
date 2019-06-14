@@ -36,7 +36,9 @@ class Footer extends Component {
           <Link to={"/en/" + page}>English</Link>
           <Link to={"/es/" + page}>Español</Link>
           <Link to={"/fr/" + page}>Français</Link>
+          <Link to={"/ru/" + page}>Pусский</Link>
           <Link to={"/tr/" + page}>Türkçe</Link>
+          <Link to={"/uk/" + page}>Українська</Link>
         </div>
         {/* <div className='coffee'>
           <a target="_blank" rel="noopener noreferrer" href="https://www.buymeacoffee.com/1ulP4IGFm">
