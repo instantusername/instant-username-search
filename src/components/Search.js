@@ -47,7 +47,8 @@ export class Search extends Component {
                         });
                         this.props.reset();
                     }}>
-                        <h1>Instant Username Search</h1>
+                        <h1><FormattedMessage id="app.name"
+                            defaultMessage="Instant Username Search" /></h1>
                     </Link>
                     {/* <Icon type="thunderbolt" theme="filled" />
                     <h1>Instant Username Search</h1> */}

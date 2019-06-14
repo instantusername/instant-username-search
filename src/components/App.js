@@ -8,8 +8,8 @@ import Terms from './Terms';
 import LandingPage from './Landing';
 
 import { IntlProvider, addLocaleData } from "react-intl";
-import { locale_ca, locale_de, locale_en, locale_es, locale_fr, locale_tr } from "../translations/locales"
-import { messages_ca, messages_de, messages_en, messages_es, messages_fr, messages_tr } from "../translations"
+import { locale_ca, locale_de, locale_en, locale_es, locale_fr, locale_ru, locale_tr, locale_uk } from "../translations/locales"
+import { messages_ca, messages_de, messages_en, messages_es, messages_fr, messages_ru, messages_tr, messages_uk } from "../translations"
 
 import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 import '../styles/App.css';
@@ -17,14 +17,16 @@ import '../styles/App.css';
 window.apiUrl = 'https://instant-username-search-api.herokuapp.com/';
 const checkEndpoint = window.apiUrl + 'check';
 
-addLocaleData([...locale_en, ...locale_de, ...locale_tr, ...locale_es, ...locale_ca, ...locale_fr]);
+addLocaleData([...locale_en, ...locale_de, ...locale_tr, ...locale_es, ...locale_ca, ...locale_fr, ...locale_uk, ...locale_ru]);
 const messages = {
   'de': messages_de,
   'en': messages_en,
   'tr': messages_tr,
   'ca': messages_ca,
   'es': messages_es,
-  'fr': messages_fr
+  'fr': messages_fr,
+  'uk': messages_uk,
+  'ru': messages_ru
 };
 
 // AbortController and signal to cancel fetch requests
