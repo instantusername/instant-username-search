@@ -17,11 +17,11 @@ class Footer extends Component {
           <a href="https://github.com/umutcanbolat/instant-username-search/">
             <FormattedMessage id="app.contribute"
               defaultMessage="Fork on GitHub" /></a>
-          <Link to={"/" + (lang ? lang : "en") + "/privacy"}>
+          <Link to={"/" + lang + "/privacy"}>
             <FormattedMessage id="app.privacy"
               defaultMessage="Privacy" />
           </Link>
-          <Link to={"/" + (lang ? lang : "en") + "/terms"}>
+          <Link to={"/" + lang + "/terms"}>
             <FormattedMessage id="app.terms"
               defaultMessage="Terms" />
           </Link>

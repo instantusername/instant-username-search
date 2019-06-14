@@ -186,7 +186,7 @@ class App extends Component {
           <div id="footer">
             <hr />
             <div className="container">
-              <Footer page={page} lang={lang} />
+              <Footer page={page} lang={this.state.language} />
             </div>
           </div>
         </div>
