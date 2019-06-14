@@ -18,20 +18,9 @@
     width: auto !important;
     text-align: center;
 }
-.languages a, .vessel a{
+.vessel a{
     display: inline-block;
     padding: 6px;
-}
-
-ul {
-    list-style-type: none;
-    display: flex;
-    padding: 0;
-    margin: 0;
-}
-
-li:not(:last-child) {
-    margin-right: 1rem;
 }
 
 a{
