@@ -1,13 +1,42 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom'
+import { Select } from 'antd';
 import { FormattedMessage } from 'react-intl';
 import { Link } from "react-router-dom";
 import '../styles/Footer.css';
 
 class Footer extends Component {
-  render() {
-    let { lang, page } = this.props;
+  handleChange = (value) => {
+    let { page } = this.props;
     if (typeof page === "undefined") {
       page = ""
+    }
+    this.props.history.push("/" + value + "/" + page)
+  }
+
+  render() {
+    let { lang } = this.props;
+
+    switch (lang) {
+      case "ca":
+        break;
+      case "de":
+        break;
+      case "en":
+        break;
+      case "es":
+        break;
+      case "fr":
+        break;
+      case "ru":
+        break;
+      case "tr":
+        break;
+      case "uk":
+        break;
+      default:
+        lang = undefined;
+        break;
     }
 
     return (
@@ -31,26 +60,29 @@ class Footer extends Component {
           </a>
         </div>
         <div className='languages pull-right'>
-          <Link to={"/ca/" + page}>Català</Link>
-          <Link to={"/de/" + page}>Deutsch</Link>
-          <Link to={"/en/" + page}>English</Link>
-          <Link to={"/es/" + page}>Español</Link>
-          <Link to={"/fr/" + page}>Français</Link>
-          <Link to={"/ru/" + page}>Pусский</Link>
-          <Link to={"/tr/" + page}>Türkçe</Link>
-          <Link to={"/uk/" + page}>Українська</Link>
+          <div className='coffee'>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.buymeacoffee.com/1ulP4IGFm">
+              <img src="https://www.buymeacoffee.com/assets/img/BMC-btn-logo.svg" alt="Buy me a coffee!" />
+              <span>
+                <FormattedMessage id="app.coffee"
+                  defaultMessage="Buy me a coffee" />
+              </span>
+            </a>
+          </div>
+          <Select style={{ width: 120 }} placeholder="Language" value={lang} onChange={this.handleChange}>
+            <Select.Option value="ca">Català</Select.Option>
+            <Select.Option value="de">Deutsch</Select.Option>
+            <Select.Option value="en">English</Select.Option>
+            <Select.Option value="es">Español</Select.Option>
+            <Select.Option value="fr">Français</Select.Option>
+            <Select.Option value="ru">Pусский</Select.Option>
+            <Select.Option value="tr">Türkçe</Select.Option>
+            <Select.Option value="uk">Українська</Select.Option>
+          </Select>
         </div>
-        {/* <div className='coffee'>
-          <a target="_blank" rel="noopener noreferrer" href="https://www.buymeacoffee.com/1ulP4IGFm">
-            <img src="https://www.buymeacoffee.com/assets/img/BMC-btn-logo.svg" alt="Buy me a coffee!" />
-            <span>
-              <FormattedMessage id="app.coffee"
-                defaultMessage="Buy me a coffee" />
-            </span>
-          </a>
-        </div> */}
+
       </footer>
     );
   }
 }
-export default Footer;
+export default withRouter(Footer);
