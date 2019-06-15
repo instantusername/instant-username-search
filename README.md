@@ -42,7 +42,13 @@ npm start
 
 
 ## Credits
-See the [contributors page](https://github.com/umutcanbolat/instant-username-search/graphs/contributors) for details.
+- Core Work: [Umut Canbolat](https://github.com/umutcanbolat)
+- Design improvements: [Emirhan K. Kösem](https://github.com/KemalEmirhan)
+- Translations in Catalan and Spanish: [Aniol Pagès](https://github.com/aniolpages)
+- Translation in French: [Régis Enguehard](https://github.com/regisenguehard)
+- Translations in Russian and Ukrainian: My friend Tanya from Ukraine.
+
+See the [contributors page](https://github.com/umutcanbolat/instant-username-search/graphs/contributors) for more details.
 
 ## License
 This project is licensed under the GNU General Public License v3.0 (GPL 3.0) - see the [LICENSE](LICENSE) file for details.

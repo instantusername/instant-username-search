@@ -143,7 +143,7 @@ class App extends Component {
   }
 
   render() {
-    const { match: { params: { lang, page } } } = this.props;
+    const { match: { params: { page } } } = this.props;
 
     // main content of page
     let content;
