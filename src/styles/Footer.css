@@ -7,10 +7,10 @@
 }
 
 .coffee{
-    display: flex;
+    display: inline-flex;
 }
 .coffee a{
-    margin-left: 1rem;
+    margin-right: 1rem;
 }
 
 .languages, .vessel{

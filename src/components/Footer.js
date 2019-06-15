@@ -60,7 +60,7 @@ class Footer extends Component {
           </a>
         </div>
         <div className='languages pull-right'>
-          {/* <div className='coffee'>
+          <div className='coffee'>
             <a target="_blank" rel="noopener noreferrer" href="https://www.buymeacoffee.com/1ulP4IGFm">
               <img src="https://www.buymeacoffee.com/assets/img/BMC-btn-logo.svg" alt="Buy me a coffee!" />
               <span>
@@ -68,7 +68,7 @@ class Footer extends Component {
                   defaultMessage="Buy me a coffee" />
               </span>
             </a>
-          </div> */}
+          </div>
           <Select style={{ width: 120 }} placeholder="Language" value={lang} onChange={this.handleChange}>
             <Select.Option value="ca">Català</Select.Option>
             <Select.Option value="de">Deutsch</Select.Option>
