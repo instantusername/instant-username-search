@@ -6,9 +6,10 @@
 }
 
 .jumbotron{
-  background-image: url("../resources/stars.png");
+  background-image: url("../resources/stars.webp");
   background-color: black;
   background-attachment: fixed;
+  background-size: auto;
 }
 
 hr {
