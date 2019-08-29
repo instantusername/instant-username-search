@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { debounce } from "debounce";
+import { debounce } from 'debounce';
 import Search from './Search';
 import Results from './Results';
 import Footer from './Footer';
@@ -7,26 +7,53 @@ import Privacy from './Privacy';
 import Terms from './Terms';
 import LandingPage from './Landing';
 
-import { IntlProvider, addLocaleData } from "react-intl";
-import { locale_ca, locale_de, locale_en, locale_es, locale_fr, locale_ru, locale_tr, locale_uk } from "../translations/locales"
-import { messages_ca, messages_de, messages_en, messages_es, messages_fr, messages_ru, messages_tr, messages_uk } from "../translations"
+import { IntlProvider, addLocaleData } from 'react-intl';
+import {
+  locale_ca,
+  locale_de,
+  locale_en,
+  locale_es,
+  locale_fr,
+  locale_ru,
+  locale_tr,
+  locale_uk,
+} from '../translations/locales';
+import {
+  messages_ca,
+  messages_de,
+  messages_en,
+  messages_es,
+  messages_fr,
+  messages_ru,
+  messages_tr,
+  messages_uk,
+} from '../translations';
 
-import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
+import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 import '../styles/App.css';
 
 window.apiUrl = 'https://instant-username-search-api.herokuapp.com/';
 const checkEndpoint = window.apiUrl + 'check';
 
-addLocaleData([...locale_en, ...locale_de, ...locale_tr, ...locale_es, ...locale_ca, ...locale_fr, ...locale_uk, ...locale_ru]);
+addLocaleData([
+  ...locale_en,
+  ...locale_de,
+  ...locale_tr,
+  ...locale_es,
+  ...locale_ca,
+  ...locale_fr,
+  ...locale_uk,
+  ...locale_ru,
+]);
 const messages = {
-  'de': messages_de,
-  'en': messages_en,
-  'tr': messages_tr,
-  'ca': messages_ca,
-  'es': messages_es,
-  'fr': messages_fr,
-  'uk': messages_uk,
-  'ru': messages_ru
+  de: messages_de,
+  en: messages_en,
+  tr: messages_tr,
+  ca: messages_ca,
+  es: messages_es,
+  fr: messages_fr,
+  uk: messages_uk,
+  ru: messages_ru,
 };
 
 // AbortController and signal to cancel fetch requests
@@ -37,8 +64,8 @@ const initialState = {
   sites: [],
   results: [],
   isQueried: false,
-  language: navigator.language.split(/[-_]/)[0]  // language without region code
-}
+  language: navigator.language.split(/[-_]/)[0], // language without region code
+};
 
 class App extends Component {
   constructor(props) {
@@ -49,7 +76,7 @@ class App extends Component {
   reset = () => {
     this.setState(initialState);
     this.componentDidMount();
-  }
+  };
 
   componentDidMount = () => {
     // fetch all the services available to check
@@ -57,34 +84,42 @@ class App extends Component {
       .then(response => response.json())
       .then(responseJson => {
         this.setState({
-          sites: responseJson
+          sites: responseJson,
         });
       })
-      .catch((e) => {
+      .catch(e => {
         console.log('error while fetching services list' + e.message);
       });
-  }
+  };
 
-  componentWillReceiveProps = (nextProps) => {
-    const { match: { params: { lang } } } = nextProps;
+  componentWillReceiveProps = nextProps => {
+    const {
+      match: {
+        params: { lang },
+      },
+    } = nextProps;
     if (lang) {
       this.setState({ language: lang });
     }
-  }
+  };
 
   componentWillMount = () => {
-    const { match: { params: { lang } } } = this.props;
+    const {
+      match: {
+        params: { lang },
+      },
+    } = this.props;
     if (lang) {
       this.setState({ language: lang });
     }
-  }
+  };
 
   componentWillUnmount = () => {
     // cancel all requests before unmounting
     this.cancelAllRequests();
-  }
+  };
 
-  search = (username) => {
+  search = username => {
     if (this.state.isQueried) {
       // instantiniate a new controller for this cycle
       controller = new AbortController();
@@ -101,49 +136,53 @@ class App extends Component {
             let newResults = [].concat(this.state.results);
             newResults.push(responseJson);
             this.setState({
-              results: newResults
+              results: newResults,
             });
           })
-          .catch((e) => {
+          .catch(e => {
             //console.log(e.message);
           });
       }
     }
-  }
+  };
 
   // debounce the search function
   debouncedSearch = debounce(this.search, 800);
 
   // search on input changes
-  inputChanged = (input) => {
+  inputChanged = input => {
     this.setState({
-      isQueried: true
+      isQueried: true,
     });
 
     this.cancelAllRequests();
     this.setState({
-      results: []
+      results: [],
     });
 
     // invoke debounced search
     this.debouncedSearch(input);
-  }
+  };
 
   inputEmptied = () => {
     this.cancelAllRequests();
     this.setState({
-      isQueried: false
+      isQueried: false,
     });
-  }
+  };
 
   cancelAllRequests = () => {
     if (controller !== undefined) {
       controller.abort();
     }
-  }
+  };
 
   render() {
-    const { match: { params: { page } } } = this.props;
+    const {
+      match: {
+        params: { page },
+      },
+    } = this.props;
 
     // main content of page
     let content;
@@ -154,17 +193,21 @@ class App extends Component {
         content = <Results loading={true} />;
       } else {
         // show results
-        content = <Results results={this.state.results} />;
+        const resultCards = this.state.results;
+        // if (resultCards.length === 1) {
+        //   resultCards.splice(1, 0, { cardType: 'ad' });
+        // }
+        content = <Results results={resultCards} />;
       }
     } else {
       // empty search
       switch (page) {
-        case "privacy":
-          content = <Privacy />
+        case 'privacy':
+          content = <Privacy />;
           break;
-        case "terms":
+        case 'terms':
           //terms and conditions
-          content = <Terms />
+          content = <Terms />;
           break;
         default:
           content = <LandingPage />;
