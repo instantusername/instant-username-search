@@ -6,7 +6,6 @@ class Results extends Component {
   render() {
     let results = [];
     let loadingCount = 12;
-    console.log(this.props.results);
 
     if (this.props.loading === true) {
       for (let i = 0; i < loadingCount; i++) {

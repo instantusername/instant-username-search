@@ -32,7 +32,7 @@ import {
 import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 import '../styles/App.css';
 
-window.apiUrl = 'https://instant-username-search-api.herokuapp.com/';
+window.apiUrl = process.env.REACT_APP_API_URL;
 const checkEndpoint = window.apiUrl + 'check';
 
 addLocaleData([
@@ -88,7 +88,9 @@ class App extends Component {
         });
       })
       .catch(e => {
-        console.log('error while fetching services list' + e.message);
+        console.error(
+          'Error while fetching services list from /services/getAll endpoint: ' + e.message,
+        );
       });
   };
 
@@ -140,7 +142,8 @@ class App extends Component {
             });
           })
           .catch(e => {
-            //console.log(e.message);
+            // console.log(e.message);
+            // Let's act like nothing happened :pp
           });
       }
     }
