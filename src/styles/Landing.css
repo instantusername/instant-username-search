@@ -1,34 +1,38 @@
-.landing{
-    display: flex;
-    flex-direction: row;
-    max-width: 800px;
-    padding-top: 2%;
-    margin-left: auto;
-    margin-right: auto;
+.landing {
+  display: flex;
+  flex-direction: row;
+  max-width: 800px;
+  padding-top: 2%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.landing .astronaut{
-    width: 7rem;
-    height: 7rem;
-    margin-top: auto;
-    margin-bottom: auto;
+.landing .astronaut {
+  width: 7rem;
+  height: 7rem;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
-.landing .intro h2{
-    font-weight: bold;
+.landing .intro h2 {
+  font-weight: bold;
+}
+
+.adsbygoogle {
+  margin: 2rem auto;
 }
 
 @media (max-width: 768px) {
-    .landing .intro h2{
-        font-size: 1rem;
-    }
-    .landing .astronaut{
-        width: 5rem;
-        height: 5rem;
-    }
+  .landing .intro h2 {
+    font-size: 1rem;
+  }
+  .landing .astronaut {
+    width: 5rem;
+    height: 5rem;
+  }
 }
 @media (min-width: 1200px) {
-    .landing .intro p{
-        font-size: 1rem;
-    }
+  .landing .intro p {
+    font-size: 1rem;
+  }
 }
