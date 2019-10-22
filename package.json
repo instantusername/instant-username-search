@@ -6,7 +6,7 @@
     "antd": "^3.12.1",
     "debounce": "^1.2.0",
     "gh-pages": "^2.0.1",
-    "react": "^16.7.0",
+    "react": "^16.10.2",
     "react-dom": "^16.7.0",
     "react-intl": "^2.8.0",
     "react-router-dom": "^5.0.0",
