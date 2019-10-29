@@ -34,12 +34,12 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/umutcanbolat/instant-username-search.git"
+    "url": "git+https://github.com/instant-username-search/instant-username-search.git"
   },
   "author": "Umut Canbolat",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/umutcanbolat/instant-username-search/issues"
+    "url": "https://github.com/instant-username-search/instant-username-search/issues"
   },
   "homepage": "https://instantusername.com/",
   "keywords": [
