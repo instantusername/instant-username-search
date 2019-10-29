@@ -34,6 +34,7 @@ import '../styles/App.css';
 
 window.apiUrl = process.env.REACT_APP_API_URL;
 const checkEndpoint = window.apiUrl + 'check';
+const initSearchEndpoint = window.apiUrl + 'initSearch';
 
 addLocaleData([
   ...locale_en,
@@ -123,6 +124,7 @@ class App extends Component {
 
   search = username => {
     if (this.state.isQueried) {
+      this.initSearchQuery(username);
       // instantiniate a new controller for this cycle
       controller = new AbortController();
       signal = controller.signal;
@@ -147,6 +149,29 @@ class App extends Component {
           });
       }
     }
+  };
+
+  initSearchQuery = username => {
+    const initData = {
+      username,
+      userAgent: navigator.userAgent,
+      language: this.state.language,
+      client: 'web',
+    };
+    console.log(initData);
+
+    fetch(initSearchEndpoint, {
+      method: 'POST',
+      // mode: 'cors', // no-cors, *cors, same-origin
+      cache: 'no-cache',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      redirect: 'follow',
+      referrer: 'no-referrer',
+      body: JSON.stringify(initData),
+    });
   };
 
   // debounce the search function
