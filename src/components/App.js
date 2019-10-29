@@ -158,7 +158,6 @@ class App extends Component {
       language: this.state.language,
       client: 'web',
     };
-    console.log(initData);
 
     fetch(initSearchEndpoint, {
       method: 'POST',
