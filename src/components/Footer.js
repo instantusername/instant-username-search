@@ -1,38 +1,40 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
 import { Select } from 'antd';
 import { FormattedMessage } from 'react-intl';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import '../styles/Footer.css';
 
 class Footer extends Component {
-  handleChange = (value) => {
+  handleChange = value => {
     let { page } = this.props;
-    if (typeof page === "undefined") {
-      page = ""
+    if (typeof page === 'undefined') {
+      page = '';
     }
-    this.props.history.push("/" + value + "/" + page)
-  }
+    this.props.history.push('/' + value + '/' + page);
+  };
 
   render() {
     let { lang } = this.props;
 
     switch (lang) {
-      case "ca":
+      case 'ca':
         break;
-      case "de":
+      case 'de':
         break;
-      case "en":
+      case 'en':
         break;
-      case "es":
+      case 'es':
         break;
-      case "fr":
+      case 'fr':
         break;
-      case "ru":
+      case 'ru':
         break;
-      case "tr":
+      case 'tr':
         break;
-      case "uk":
+      case 'uk':
+        break;
+      case 'zh':
         break;
       default:
         lang = undefined;
@@ -40,36 +42,46 @@ class Footer extends Component {
     }
 
     return (
-      <footer className='footer'>
-        <div className='vessel pull-left'>
-          <a href="https://github.com/umutcanbolat/instant-username-search/blob/master/LICENSE">{'© ' + new Date().getFullYear() + ' GPL 3.0'}</a>
+      <footer className="footer">
+        <div className="vessel pull-left">
+          <a href="https://github.com/umutcanbolat/instant-username-search/blob/master/LICENSE">
+            {'© ' + new Date().getFullYear() + ' GPL 3.0'}
+          </a>
           <a href="https://github.com/umutcanbolat/instant-username-search/">
-            <FormattedMessage id="app.contribute"
-              defaultMessage="Fork on GitHub" /></a>
-          <Link to={"/" + lang + "/privacy"}>
-            <FormattedMessage id="app.privacy"
-              defaultMessage="Privacy" />
+            <FormattedMessage id="app.contribute" defaultMessage="Fork on GitHub" />
+          </a>
+          <Link to={'/' + lang + '/privacy'}>
+            <FormattedMessage id="app.privacy" defaultMessage="Privacy" />
           </Link>
-          <Link to={"/" + lang + "/terms"}>
-            <FormattedMessage id="app.terms"
-              defaultMessage="Terms" />
+          <Link to={'/' + lang + '/terms'}>
+            <FormattedMessage id="app.terms" defaultMessage="Terms" />
           </Link>
           <a href="mailto:help@instantusername.com">
-            <FormattedMessage id="app.contact"
-              defaultMessage="Contact" />
+            <FormattedMessage id="app.contact" defaultMessage="Contact" />
           </a>
         </div>
-        <div className='languages pull-right'>
-          <div className='coffee'>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.buymeacoffee.com/1ulP4IGFm">
-              <img src="https://www.buymeacoffee.com/assets/img/BMC-btn-logo.svg" alt="Buy me a coffee!" />
+        <div className="languages pull-right">
+          <div className="coffee">
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.buymeacoffee.com/1ulP4IGFm"
+            >
+              <img
+                src="https://www.buymeacoffee.com/assets/img/BMC-btn-logo.svg"
+                alt="Buy me a coffee!"
+              />
               <span>
-                <FormattedMessage id="app.coffee"
-                  defaultMessage="Buy me a coffee" />
+                <FormattedMessage id="app.coffee" defaultMessage="Buy me a coffee" />
               </span>
             </a>
           </div>
-          <Select style={{ width: 120 }} placeholder="Language" value={lang} onChange={this.handleChange}>
+          <Select
+            style={{ width: 120 }}
+            placeholder="Language"
+            value={lang}
+            onChange={this.handleChange}
+          >
             <Select.Option value="ca">Català</Select.Option>
             <Select.Option value="de">Deutsch</Select.Option>
             <Select.Option value="en">English</Select.Option>
@@ -78,9 +90,9 @@ class Footer extends Component {
             <Select.Option value="ru">Pусский</Select.Option>
             <Select.Option value="tr">Türkçe</Select.Option>
             <Select.Option value="uk">Українська</Select.Option>
+            <Select.Option value="zh">中文</Select.Option>
           </Select>
         </div>
-
       </footer>
     );
   }

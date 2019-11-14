@@ -17,6 +17,7 @@ import {
   locale_ru,
   locale_tr,
   locale_uk,
+  locale_zh,
 } from '../translations/locales';
 import {
   messages_ca,
@@ -27,6 +28,7 @@ import {
   messages_ru,
   messages_tr,
   messages_uk,
+  messages_zh,
 } from '../translations';
 
 import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
@@ -45,6 +47,7 @@ addLocaleData([
   ...locale_fr,
   ...locale_uk,
   ...locale_ru,
+  ...locale_zh,
 ]);
 const messages = {
   de: messages_de,
@@ -55,6 +58,7 @@ const messages = {
   fr: messages_fr,
   uk: messages_uk,
   ru: messages_ru,
+  zh: messages_zh,
 };
 
 // AbortController and signal to cancel fetch requests
