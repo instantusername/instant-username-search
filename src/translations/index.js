@@ -1,9 +1,21 @@
-export { default as messages_ca } from './ca.json';
-export { default as messages_de } from './de.json';
-export { default as messages_en } from './en.json';
-export { default as messages_es } from './es.json';
-export { default as messages_fr } from './fr.json';
-export { default as messages_ru } from './ru.json';
-export { default as messages_tr } from './tr.json';
-export { default as messages_uk } from './uk.json';
-export { default as messages_zh } from './zh.json';
+import messages_ca from './ca.json';
+import messages_de from './de.json';
+import messages_es from './es.json';
+import messages_fr from './fr.json';
+import messages_ru from './ru.json';
+import messages_tr from './tr.json';
+import messages_en from './en.json';
+import messages_uk from './uk.json';
+import messages_zh from './zh.json';
+
+export default {
+  de: messages_de,
+  en: messages_en,
+  tr: messages_tr,
+  ca: messages_ca,
+  es: messages_es,
+  fr: messages_fr,
+  uk: messages_uk,
+  ru: messages_ru,
+  zh: messages_zh,
+};

@@ -1,5 +1,8 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/no-deprecated */
 import React, { Component } from 'react';
 import { debounce } from 'debounce';
+import { IntlProvider, addLocaleData } from 'react-intl';
 import Search from './Search';
 import Results from './Results';
 import Footer from './Footer';
@@ -7,59 +10,17 @@ import Privacy from './Privacy';
 import Terms from './Terms';
 import LandingPage from './Landing';
 
-import { IntlProvider, addLocaleData } from 'react-intl';
-import {
-  locale_ca,
-  locale_de,
-  locale_en,
-  locale_es,
-  locale_fr,
-  locale_ru,
-  locale_tr,
-  locale_uk,
-  locale_zh,
-} from '../translations/locales';
-import {
-  messages_ca,
-  messages_de,
-  messages_en,
-  messages_es,
-  messages_fr,
-  messages_ru,
-  messages_tr,
-  messages_uk,
-  messages_zh,
-} from '../translations';
+import locales from '../translations/locales';
+import translations from '../translations';
 
-import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
+import 'antd/dist/antd.css';
 import '../styles/App.css';
 
 window.apiUrl = process.env.REACT_APP_API_URL;
 const checkEndpoint = window.apiUrl + 'check';
 const initSearchEndpoint = window.apiUrl + 'initSearch';
 
-addLocaleData([
-  ...locale_en,
-  ...locale_de,
-  ...locale_tr,
-  ...locale_es,
-  ...locale_ca,
-  ...locale_fr,
-  ...locale_uk,
-  ...locale_ru,
-  ...locale_zh,
-]);
-const messages = {
-  de: messages_de,
-  en: messages_en,
-  tr: messages_tr,
-  ca: messages_ca,
-  es: messages_es,
-  fr: messages_fr,
-  uk: messages_uk,
-  ru: messages_ru,
-  zh: messages_zh,
-};
+addLocaleData(locales);
 
 // AbortController and signal to cancel fetch requests
 var controller;
@@ -79,7 +40,8 @@ class App extends Component {
   }
 
   reset = () => {
-    this.setState(initialState);
+    this.setState({ ...initialState, language: this.state.language });
+    this.componentWillUnmount();
     this.componentDidMount();
   };
 
@@ -247,7 +209,7 @@ class App extends Component {
     }
 
     return (
-      <IntlProvider locale={this.state.language} messages={messages[this.state.language]}>
+      <IntlProvider locale={this.state.language} messages={translations[this.state.language]}>
         <div>
           <div className="jumbotron">
             <div className="container" id="jumbotron">
