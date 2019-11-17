@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/no-deprecated */
 import React, { Component } from 'react';
 import { debounce } from 'debounce';
 import { IntlProvider, addLocaleData } from 'react-intl';
@@ -38,7 +40,8 @@ class App extends Component {
   }
 
   reset = () => {
-    this.setState(initialState);
+    this.setState({ ...initialState, language: this.state.language });
+    this.componentWillUnmount();
     this.componentDidMount();
   };
 

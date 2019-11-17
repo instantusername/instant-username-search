@@ -1,12 +1,13 @@
 {
-    "app.search.placeholder": "Rechercher un nom d'utilisateur",
-    "app.description.title": "Vérifier la disponibilité d'un nom d'utilisateur au fur et à mesure de la saisie",
-    "app.description.body": "{appName} va vérifier les noms d'utilisateurs dans plus de 100 réseaux sociaux pour vous. Les résultats s'afficheront au fur et à mesure de la saisie !",
-    "app.contribute": "Fork on GitHub",
-    "app.coffee": "Achète moi un café !",
-    "app.privacy": "Intimité",
-    "app.terms": "Termes",
-    "app.contact": "Contacter",
-    "card.available": "Disponible",
-    "card.taken": "Réservé"
+  "app.name": "Instant Username Search",
+  "app.search.placeholder": "Rechercher un nom d'utilisateur",
+  "app.description.title": "Vérifier la disponibilité d'un nom d'utilisateur au fur et à mesure de la saisie",
+  "app.description.body": "{appName} va vérifier les noms d'utilisateurs dans plus de 100 réseaux sociaux pour vous. Les résultats s'afficheront au fur et à mesure de la saisie !",
+  "app.contribute": "Fork on GitHub",
+  "app.coffee": "Achète moi un café !",
+  "app.privacy": "Intimité",
+  "app.terms": "Termes",
+  "app.contact": "Contacter",
+  "card.available": "Disponible",
+  "card.taken": "Réservé"
 }

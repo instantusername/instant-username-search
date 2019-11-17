@@ -1,83 +1,79 @@
 .ant-input.ant-input-lg {
-    width: 100%;
-    max-width: 720px;
-    text-align: center; 
-    border-radius: 36px;
-    height: 40px;
+  width: 100%;
+  max-width: 720px;
+  text-align: center !important;
+  border-radius: 36px;
+  height: 40px !important;
 }
 
-.search
- {
+.search {
   display: flex;
   flex-direction: column;
   align-items: center;
-
   width: 100%;
   max-width: 720px;
   margin-left: auto;
   margin-right: auto;
-
 }
 
-.header{
+.header {
   display: flex;
   flex-direction: row;
 }
 
-.header h1{
+.header h1 {
   align-self: center;
   color: white;
   font-weight: bold;
 }
 
-.anticon-thunderbolt{
-    color: #FFEB3B;
-    font-size: 4rem;
+.anticon-thunderbolt {
+  color: #ffeb3b !important;
+  font-size: 4rem !important;
 }
-
 
 @media (max-width: 768px) {
   .header {
     margin-bottom: 0.5rem;
   }
-  .header h1{
+  .header h1 {
     font-size: 1.2rem;
   }
-  .anticon-thunderbolt{
-    font-size: 2.4rem;
+  .anticon-thunderbolt {
+    font-size: 2.4rem !important;
   }
   .ant-input.ant-input-lg {
     font-size: 0.8rem;
-    height: 1.6rem;
+    height: 1.6rem !important;
   }
 }
 @media (min-width: 768px) {
   .header {
     margin-bottom: 1rem;
   }
-  .header h1{
+  .header h1 {
     font-size: 1.6rem;
   }
-  .anticon-thunderbolt{
-    font-size: 3.2rem;
+  .anticon-thunderbolt {
+    font-size: 3.2rem !important;
   }
   .ant-input.ant-input-lg {
     font-size: 1rem;
-    height: 2rem;
+    height: 2rem !important;
   }
 }
 @media (min-width: 992px) {
   .header {
     margin-bottom: 1rem;
   }
-  .header h1{
+  .header h1 {
     font-size: 1.9rem;
   }
-  .anticon-thunderbolt{
-    font-size: 3.8rem;
+  .anticon-thunderbolt {
+    font-size: 3.8rem !important;
   }
   .ant-input.ant-input-lg {
     font-size: 1.2rem;
-    height: 2.4rem;
+    height: 2.4rem !important;
   }
 }
