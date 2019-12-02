@@ -28,7 +28,7 @@ var signal;
 
 const initialState = {
   sites: [],
-  results: [],
+  username: '',
   isQueried: false,
   language: navigator.language.split(/[-_]/)[0], // language without region code
 };
@@ -89,7 +89,9 @@ class App extends Component {
   };
 
   search = username => {
-    if (this.state.isQueried) {
+    console.log(username);
+
+    if (this.state.isQueried && false) {
       this.initSearchQuery(username);
       // instantiniate a new controller for this cycle
       controller = new AbortController();
@@ -103,11 +105,7 @@ class App extends Component {
         fetch(checkEndpoint + checkUser, { signal })
           .then(response => response.json())
           .then(responseJson => {
-            let newResults = [].concat(this.state.results);
-            newResults.push(responseJson);
-            this.setState({
-              results: newResults,
-            });
+            // DO STUFF HERE
           })
           .catch(e => {
             // console.log(e.message);
@@ -148,10 +146,7 @@ class App extends Component {
       isQueried: true,
     });
 
-    this.cancelAllRequests();
-    this.setState({
-      results: [],
-    });
+    //this.cancelAllRequests();
 
     // invoke debounced search
     this.debouncedSearch(input);
@@ -181,17 +176,7 @@ class App extends Component {
     let content;
 
     if (this.state.isQueried) {
-      if (this.state.results.length === 0) {
-        // loading results
-        content = <Results loading={true} />;
-      } else {
-        // show results
-        const resultCards = this.state.results;
-        // if (resultCards.length === 1) {
-        //   resultCards.splice(1, 0, { cardType: 'ad' });
-        // }
-        content = <Results results={resultCards} />;
-      }
+      content = <Results loading={true} />;
     } else {
       // empty search
       switch (page) {
@@ -213,7 +198,18 @@ class App extends Component {
         <div>
           <div className="jumbotron">
             <div className="container" id="jumbotron">
-              <Search onSearch={this.inputChanged} onEmpty={this.inputEmptied} reset={this.reset} />
+              <Search
+                onChange={username => {
+                  this.setState({
+                    username: username,
+                  });
+                  console.log(username);
+                }}
+                onClickHeader={() => {
+                  console.log('clicked header');
+                }}
+                username={this.state.username}
+              />
             </div>
           </div>
           <div className="container" id="content">
