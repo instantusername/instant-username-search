@@ -2,15 +2,26 @@ sudo: false
 language: node_js
 node_js:
   - 10
+  - 'stable'
 cache:
-  bundle: true
   directories:
     - node_modules
 script:
+  - npm run build
   - npm test
-after_success:
-  - git config --global user.name "umutcanbolat"
-  - git config --global user.email "10065235+umutcanbolat@users.noreply.github.com"
-  - git remote rm origin
-  - git remote add origin https://umutcanbolat:${GITHUB_TOKEN}@github.com/umutcanbolat/instant-username-search.git
-  - test $TRAVIS_BRANCH = "master" && npm run deploy
+jobs:
+  include:
+    - stage: release gh-pages
+      script:
+        - echo "Deploying to GitHub pages ..."
+        - npm run build
+      deploy:
+        provider: pages
+        skip_cleanup: true # prevents travis from cleaning build files
+        github_token: $GITHUB_TOKEN
+        local_dir: build # deployment folder
+        target_branch: gh-pages
+        keep_history: false # force push
+        on:
+          branch: master
+          # tags: true
