@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/no-deprecated */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { IntlProvider, addLocaleData } from 'react-intl';
 import Search from './Search';
 import Results from './Results';
@@ -22,16 +22,28 @@ addLocaleData(locales);
 export default function App({ match }) {
   const { page, lang = 'en' } = match.params;
   const [username, setUsername] = useState('');
+  const [services, setServices] = useState([]);
+
+  useEffect(() => {
+    fetchServices();
+  }, []);
 
   function onReset() {
+    fetchServices();
     setUsername('');
+  }
+
+  async function fetchServices() {
+    const response = await fetch(window.apiUrl + 'services/getAll/');
+    const responseJSON = await response.json();
+    setServices(responseJSON);
   }
 
   // main content of page
   let content;
 
   if (username) {
-    content = <Results username={username} />;
+    content = <Results username={username} services={services} />;
   } else {
     // search is empty, show the page content
     switch (page) {
