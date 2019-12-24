@@ -8,10 +8,20 @@
 }
 
 .landing .astronaut {
-  width: 7rem;
-  height: 7rem;
+  min-width: 7rem;
+  min-height: 7rem;
   margin-top: auto;
   margin-bottom: auto;
+  position: relative;
+}
+
+#santa {
+  width: 2.6rem;
+  height: 2.6rem;
+  position: absolute;
+  top: -1.2rem;
+  left: 2.45rem;
+  transform: rotate(11deg);
 }
 
 .landing .intro h2 {
@@ -27,8 +37,14 @@
     font-size: 1rem;
   }
   .landing .astronaut {
-    width: 5rem;
-    height: 5rem;
+    min-width: 5rem;
+    min-height: 5rem;
+  }
+  #santa {
+    width: 2rem;
+    height: 2rem;
+    top: -1rem;
+    left: 1.8rem;
   }
 }
 @media (min-width: 1200px) {
