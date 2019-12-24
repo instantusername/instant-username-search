@@ -1,37 +1,28 @@
-import React, { Component } from 'react';
-import Resultcard from './ResultCard';
+/* eslint-disable react/prop-types */
+import React, { useEffect } from 'react';
 import '../styles/Results.css';
+import ResultCard from './ResultCard';
 
-class Results extends Component {
-  render() {
-    let results = [];
-    let loadingCount = 12;
-
-    if (this.props.loading === true) {
-      for (let i = 0; i < loadingCount; i++) {
-        results.push(<Resultcard key={i} loading={true} />);
-      }
-    } else {
-      results = this.props.results.map((res, i) => {
-        // message: error message from server
-        // if it exists, that means something went wrong on the server-side
-        if (res.message != null) {
-          return null;
-        }
-        return res.cardType !== 'ad' ? (
-          <Resultcard key={i} result={res} />
-        ) : (
-          <Resultcard key={i} ad={true} />
-        );
-      });
-      let i = 0;
-      while (results.length < loadingCount) {
-        results.push(<Resultcard key={results.length + i} loading={true} />);
-      }
-    }
-
-    return <div className="results">{results}</div>;
-  }
+export default function Results({ username }) {
+  useEffect(() => {
+    return () => {
+      console.log('results unmounted');
+    };
+  });
+  return (
+    <div className="results">
+      <ResultCard
+        username={username}
+        serviceName="Instagram"
+        endpoint={`http://localhost:8080/check/instagram/${username}/`}
+        key="Instagram"
+      />
+      <ResultCard
+        username={username}
+        serviceName="Facebook"
+        endpoint={`http://localhost:8080/check/facebook/${username}/`}
+        key="Facebook"
+      />
+    </div>
+  );
 }
-
-export default Results;
