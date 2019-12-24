@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Input, Icon } from 'antd';
 import { FormattedMessage } from 'react-intl';
 import { Link } from 'react-router-dom';
@@ -13,32 +13,34 @@ export default function Search({ onChange, onClickHeader, username }) {
     onChange(niceInput);
   }
 
-  return (
-    <div className="search">
-      <Link
-        to={'/'}
-        onClick={() => {
-          onClickHeader();
-        }}
-      >
-        <div className="header">
-          <Icon type="thunderbolt" theme="filled" />
-          <h1>
-            <FormattedMessage id="app.name" defaultMessage="Instant Username Search" />
-          </h1>
-        </div>
-      </Link>
-      <FormattedMessage id="app.search.placeholder" defaultMessage="Search username">
-        {placeholder => (
-          <Input
-            placeholder={placeholder}
-            size="large"
-            allowClear
-            value={username}
-            onChange={inputChanged}
-          />
-        )}
-      </FormattedMessage>
-    </div>
-  );
+  return useMemo(() => {
+    return (
+      <div className="search">
+        <Link
+          to={'/'}
+          onClick={() => {
+            onClickHeader();
+          }}
+        >
+          <div className="header">
+            <Icon type="thunderbolt" theme="filled" />
+            <h1>
+              <FormattedMessage id="app.name" defaultMessage="Instant Username Search" />
+            </h1>
+          </div>
+        </Link>
+        <FormattedMessage id="app.search.placeholder" defaultMessage="Search username">
+          {placeholder => (
+            <Input
+              placeholder={placeholder}
+              size="large"
+              allowClear
+              value={username}
+              onChange={inputChanged}
+            />
+          )}
+        </FormattedMessage>
+      </div>
+    );
+  }, [username]);
 }

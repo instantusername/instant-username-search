@@ -20,7 +20,6 @@ export default function ResultCard({ username, serviceName, endpoint }) {
 
       const response = await fetch(endpoint, { signal });
       const responseJSON = await response.json();
-      console.log(responseJSON);
       setResponse(responseJSON);
       setIsLoading(false);
     }
