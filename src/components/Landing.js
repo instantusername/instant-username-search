@@ -2,7 +2,6 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import '../styles/Landing.css';
 import astronaut from '../resources/astronaut.svg';
-import santa from '../resources/santa.svg';
 
 export default function Landing() {
   return (
@@ -10,7 +9,6 @@ export default function Landing() {
       <div className="landing">
         <div className="astronaut">
           <img alt="astronaut" id="astronaut" src={astronaut} />
-          <img alt="santa" id="santa" src={santa} />
         </div>
         <div className="intro">
           <h2>
