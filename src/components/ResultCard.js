@@ -6,7 +6,7 @@ import '../styles/ResultCard.css';
 
 const { Meta } = Card;
 
-export default function ResultCard({ username, serviceName, endpoint }) {
+export default function ResultCard({ username, serviceName, endpoint, spin }) {
   const [isLoading, setIsLoading] = useState(true);
   const [response, setResponse] = useState({});
 
@@ -18,12 +18,22 @@ export default function ResultCard({ username, serviceName, endpoint }) {
     async function fetchAvailability() {
       setIsLoading(true);
 
-      const response = await fetch(endpoint, { signal });
-      const responseJSON = await response.json();
-      setResponse(responseJSON);
+      await fetch(endpoint, { signal })
+        .then(response => response.json())
+        .then(responseJSON => {
+          setResponse(responseJSON);
+        })
+        .catch(e => {
+          // console.error(e.message);
+          // Let's act like nothing happened :pp
+        });
+
       setIsLoading(false);
     }
-    fetchAvailability();
+
+    if (!spin) {
+      fetchAvailability();
+    }
 
     return () => {
       // abort requests
@@ -31,24 +41,25 @@ export default function ResultCard({ username, serviceName, endpoint }) {
         controller.abort();
       }
     };
-  }, [username]);
+  }, [username, endpoint, spin]);
 
   return useMemo(() => {
     let classStatus = '';
-    if (!isLoading) {
+    if (!(isLoading || spin)) {
       // if the result is fetched already
       classStatus = response && response.available ? 'available' : 'taken';
     }
+
     return (
       <div className={'card ' + classStatus}>
         <a href={'/#'} target="_blank" rel="noopener noreferrer">
           <Card hoverable>
-            <Spin spinning={isLoading}>
+            <Spin spinning={isLoading || spin}>
               <Meta title={serviceName} description={'available'} />
             </Spin>
           </Card>
         </a>
       </div>
     );
-  }, [isLoading, response]);
+  }, [isLoading, response, serviceName, username, spin]);
 }

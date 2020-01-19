@@ -1,17 +1,28 @@
 /* eslint-disable react/prop-types */
-import React, { useMemo } from 'react';
+import React, { useMemo, useState, useCallback } from 'react';
 import { Input, Icon } from 'antd';
 import { FormattedMessage } from 'react-intl';
 import { Link } from 'react-router-dom';
 // TODO: use styled components instead
 import '../styles/Search.css';
 
-export default function Search({ onChange, onClickHeader, username }) {
-  function inputChanged({ target }) {
-    // niceInput is the url friendly version of the input
-    let niceInput = target.value.replace(/[^a-zA-Z0-9-_.]/g, '');
-    onChange(niceInput);
-  }
+export default function Search({ onChange }) {
+  const [input, setInput] = useState('');
+
+  const inputChanged = useCallback(
+    ({ target }) => {
+      // niceInput is the url friendly version of the input
+      let niceInput = target.value.replace(/[^a-zA-Z0-9-_.]/g, '');
+      setInput(niceInput);
+      onChange(niceInput);
+    },
+    [onChange],
+  );
+
+  const clearInput = useCallback(() => {
+    setInput('');
+    onChange('');
+  }, [onChange]);
 
   return useMemo(() => {
     return (
@@ -19,7 +30,7 @@ export default function Search({ onChange, onClickHeader, username }) {
         <Link
           to={'/'}
           onClick={() => {
-            onClickHeader();
+            clearInput();
           }}
         >
           <div className="header">
@@ -35,12 +46,12 @@ export default function Search({ onChange, onClickHeader, username }) {
               placeholder={placeholder}
               size="large"
               allowClear
-              value={username}
+              value={input}
               onChange={inputChanged}
             />
           )}
         </FormattedMessage>
       </div>
     );
-  }, [username]);
+  }, [input, clearInput, inputChanged]);
 }
