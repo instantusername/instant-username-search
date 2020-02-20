@@ -1,28 +1,20 @@
-/* eslint-disable react/prop-types */
-import React, { useMemo, useState, useCallback } from 'react';
+import React, { useMemo } from 'react';
 import { Input, Icon } from 'antd';
 import { FormattedMessage } from 'react-intl';
 import { Link } from 'react-router-dom';
 // TODO: use styled components instead
 import '../styles/Search.css';
 
-export default function Search({ onChange }) {
-  const [input, setInput] = useState('');
+export default function Search({ input, onChange }) {
+  const inputChanged = ({ target }) => {
+    // niceInput is the url friendly version of the input
+    let niceInput = target.value.replace(/[^a-zA-Z0-9-_.]/g, '');
+    onChange(niceInput);
+  };
 
-  const inputChanged = useCallback(
-    ({ target }) => {
-      // niceInput is the url friendly version of the input
-      let niceInput = target.value.replace(/[^a-zA-Z0-9-_.]/g, '');
-      setInput(niceInput);
-      onChange(niceInput);
-    },
-    [onChange],
-  );
-
-  const clearInput = useCallback(() => {
-    setInput('');
+  const clearInput = () => {
     onChange('');
-  }, [onChange]);
+  };
 
   return useMemo(() => {
     return (
@@ -53,5 +45,6 @@ export default function Search({ onChange }) {
         </FormattedMessage>
       </div>
     );
-  }, [input, clearInput, inputChanged]);
+    // eslint-disable-next-line
+  }, [input]);
 }
