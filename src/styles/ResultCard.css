@@ -3,6 +3,10 @@
   border: 1px solid #e8e8e8;
 }
 
+.card.loading {
+  cursor: default;
+}
+
 .taken > .card-body > .meta-title {
   text-decoration: line-through;
   color: rgba(0, 0, 0, 0.45) !important;

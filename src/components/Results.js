@@ -26,7 +26,7 @@ export default function Results({ username, services }) {
   const debouncedSetCards = useCallback(
     debounce((username, services) => {
       setCards(createCards(username, services));
-    }, 1000),
+    }, 800),
     [],
   );
 
