@@ -8,7 +8,7 @@ export default function Results({ username, services }) {
   const spinningCards = useMemo(
     () =>
       services.map(service => (
-        <ResultCard serviceName={service.service} key={service.service} spin />
+        <ResultCard serviceName={service.service} key={service.service + ' spin'} spin />
       )),
     [services],
   );

@@ -64,7 +64,6 @@ export default function App({ match }) {
     return (
       <IntlProvider locale={lang} messages={translations[lang]}>
         <>
-          {JSON.stringify({ username, length: username.length })}
           <div className="jumbotron">
             <div className="container" id="jumbotron">
               <Search input={username} onChange={inputChanged} />
