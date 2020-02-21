@@ -1,10 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState, useMemo } from 'react';
-import { Card, Spin } from 'antd';
 import { FormattedMessage } from 'react-intl';
 import '../styles/ResultCard.css';
-
-const { Meta } = Card;
 
 export default function ResultCard({ username, serviceName, spin }) {
   const [isLoading, setIsLoading] = useState(true);
@@ -16,24 +13,23 @@ export default function ResultCard({ username, serviceName, spin }) {
     let controller = new AbortController();
     let signal = controller.signal;
 
-    async function fetchAvailability() {
-      setIsLoading(true);
-
-      // await fetch(apiUrl, { signal })
-      //   .then(response => response.json())
-      //   .then(responseJSON => {
-      //     setResponse(responseJSON);
-      //   })
-      //   .catch(e => {
-      //     // console.error(e.message);
-      //     // Let's act like nothing happened :pp
-      //   });
-      console.log(username);
-
-      setIsLoading(false);
-    }
-
     if (!spin) {
+      async function fetchAvailability() {
+        setIsLoading(true);
+
+        await fetch(apiUrl, { signal })
+          .then(response => response.json())
+          .then(responseJSON => {
+            setResponse(responseJSON);
+          })
+          .catch(e => {
+            // console.error(e.message);
+            // Let's act like nothing happened :pp
+          });
+
+        setIsLoading(false);
+      }
+
       fetchAvailability();
     }
 
@@ -46,34 +42,32 @@ export default function ResultCard({ username, serviceName, spin }) {
   }, [username, serviceName, spin]);
 
   return useMemo(() => {
-    let classStatus = '';
-    if (!isLoading) {
+    let classStatus = 'loading';
+    if (!isLoading && !spin) {
       // if the result is fetched already
       classStatus = response && response.available ? 'available' : 'taken';
     }
 
     return spin ? (
-      <div className={'card ' + classStatus}>
-        <a href={'/#'} target="_blank" rel="noopener noreferrer">
-          {/* <Card hoverable>
-            <Spin spinning={isLoading}>
-              <Meta title={serviceName + '' + username} description={'available'} />
-            </Spin>
-          </Card> */}
-          {spin + '' + serviceName}
-        </a>
-      </div>
+      <a className={'card loading'} href={'/#'} target="_blank" rel="noopener noreferrer">
+        <div className="card-body">
+          <div className="meta-title">{serviceName}</div>
+          <div className="description">
+            <span>Loading...</span>
+          </div>
+        </div>
+      </a>
     ) : (
-      <div className={'card ' + classStatus}>
-        <a href={'/#'} target="_blank" rel="noopener noreferrer">
-          {/* <Card hoverable>
-            <Spin spinning={isLoading}>
-              <Meta title={serviceName + '' + username} description={'available'} />
-            </Spin>
-          </Card> */}
-          {isLoading + ' ' + username + ' ' + serviceName + ': ' + response.available}
-        </a>
-      </div>
+      <a className={'card ' + classStatus} href={'/#'} target="_blank" rel="noopener noreferrer">
+        <div className="card-body">
+          <div className="meta-title">{serviceName}</div>
+          <div className="description">
+            <span>
+              {isLoading ? 'Loading...' : classStatus === 'available' ? 'Available' : 'Taken'}
+            </span>
+          </div>
+        </div>
+      </a>
     );
   }, [isLoading, response, serviceName, username, spin]);
 }
