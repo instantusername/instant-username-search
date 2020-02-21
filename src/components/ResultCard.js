@@ -42,29 +42,33 @@ export default function ResultCard({ username, serviceName, spin }) {
   }, [username, serviceName, spin]);
 
   return useMemo(() => {
+    const cardLoading = spin || isLoading;
     let classStatus = 'loading';
-    if (!isLoading && !spin) {
-      // if the result is fetched already
-      classStatus = response && response.available ? 'available' : 'taken';
+    let description = 'Loading...';
+
+    if (!cardLoading && response) {
+      // if loading state is ended
+      // and the result is fetched already
+      if (response.available) {
+        classStatus = 'available';
+        description = 'Available';
+      } else {
+        classStatus = 'taken';
+        description = 'Taken';
+      }
     }
 
-    return spin ? (
-      <a className={'card loading'} href={'/#'} target="_blank" rel="noopener noreferrer">
+    return (
+      <a
+        className={'card ' + classStatus}
+        href={cardLoading ? undefined : '/#'}
+        target={cardLoading ? undefined : '_blank'}
+        rel={cardLoading ? undefined : 'noopener noreferrer'}
+      >
         <div className="card-body">
           <div className="meta-title">{serviceName}</div>
           <div className="description">
-            <span>Loading...</span>
-          </div>
-        </div>
-      </a>
-    ) : (
-      <a className={'card ' + classStatus} href={'/#'} target="_blank" rel="noopener noreferrer">
-        <div className="card-body">
-          <div className="meta-title">{serviceName}</div>
-          <div className="description">
-            <span>
-              {isLoading ? 'Loading...' : classStatus === 'available' ? 'Available' : 'Taken'}
-            </span>
+            <span>{description}</span>
           </div>
         </div>
       </a>
