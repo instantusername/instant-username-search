@@ -1,3 +1,4 @@
+import locale_ar from 'react-intl/locale-data/ar';
 import locale_ca from 'react-intl/locale-data/ca';
 import locale_de from 'react-intl/locale-data/de';
 import locale_en from 'react-intl/locale-data/en';
@@ -9,6 +10,7 @@ import locale_uk from 'react-intl/locale-data/uk';
 import locale_zh from 'react-intl/locale-data/zh';
 
 export default [
+  ...locale_ar,
   ...locale_en,
   ...locale_de,
   ...locale_tr,
