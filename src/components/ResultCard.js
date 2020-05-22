@@ -44,7 +44,7 @@ export default function ResultCard({ username, serviceName, spin }) {
   return useMemo(() => {
     const cardLoading = spin || isLoading;
     let classStatus = 'loading';
-    let description = 'Loading...';
+    let description = 'Checking...';
 
     if (!cardLoading && response) {
       // if loading state is ended

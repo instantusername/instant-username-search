@@ -1,6 +1,9 @@
-.taken,
-.loading {
+.taken {
   border: 1px solid #e8e8e8;
+}
+
+.loading {
+  border: 2px dashed #ffeb3b;
 }
 
 .card.loading {
@@ -49,6 +52,9 @@
 
 .card > .card-body > .description {
   color: rgba(0, 0, 0, 0.45);
+}
+.loading > .card-body > .description {
+  color: black;
 }
 
 @media (max-width: 768px) {
