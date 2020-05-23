@@ -7,6 +7,7 @@ import locale_ru from 'react-intl/locale-data/ru';
 import locale_tr from 'react-intl/locale-data/tr';
 import locale_uk from 'react-intl/locale-data/uk';
 import locale_zh from 'react-intl/locale-data/zh';
+import locale_pt from 'react-intl/locale-data/pt';
 
 export default [
   ...locale_en,
@@ -18,4 +19,5 @@ export default [
   ...locale_uk,
   ...locale_ru,
   ...locale_zh,
+  ...locale_pt,
 ];
