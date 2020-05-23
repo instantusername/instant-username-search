@@ -44,24 +44,26 @@ export default function ResultCard({ username, serviceName, spin }) {
   return useMemo(() => {
     const cardLoading = spin || isLoading;
     let classStatus = 'loading';
-    let description = 'Checking...';
+    let description = <FormattedMessage id="card.loading" defaultMessage="Checking..." />;
+    let link;
 
     if (!cardLoading && response) {
       // if loading state is ended
       // and the result is fetched already
       if (response.available) {
         classStatus = 'available';
-        description = 'Available';
+        description = <FormattedMessage id="card.available" defaultMessage="Available" />;
       } else {
         classStatus = 'taken';
-        description = 'Taken';
+        description = <FormattedMessage id="card.taken" defaultMessage="Taken" />;
       }
+      link = response.url;
     }
 
     return (
       <a
         className={'card ' + classStatus}
-        href={cardLoading ? undefined : '/#'}
+        href={link}
         target={cardLoading ? undefined : '_blank'}
         rel={cardLoading ? undefined : 'noopener noreferrer'}
       >
