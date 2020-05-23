@@ -39,6 +39,7 @@ export default function ResultCard({ username, serviceName, spin }) {
         controller.abort();
       }
     };
+    // eslint-disable-next-line
   }, [username, serviceName, spin]);
 
   return useMemo(() => {
@@ -75,5 +76,6 @@ export default function ResultCard({ username, serviceName, spin }) {
         </div>
       </a>
     );
+    // eslint-disable-next-line
   }, [isLoading, response, serviceName, username, spin]);
 }

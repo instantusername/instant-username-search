@@ -81,5 +81,6 @@ export default function App({ match }) {
         </>
       </IntlProvider>
     );
+    // eslint-disable-next-line
   }, [username, page, lang]);
 }
