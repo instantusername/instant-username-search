@@ -3,7 +3,11 @@ import { withRouter } from 'react-router-dom';
 import { Select } from 'antd';
 import { FormattedMessage } from 'react-intl';
 import { Link } from 'react-router-dom';
+import translations from '../translations';
 import '../styles/Footer.css';
+
+// ["en", "de", "tr", ...]
+const supportedLocaleStrings = Object.keys(translations);
 
 class Footer extends Component {
   handleChange = value => {
@@ -17,28 +21,9 @@ class Footer extends Component {
   render() {
     let { lang } = this.props;
 
-    switch (lang) {
-      case 'ca':
-        break;
-      case 'de':
-        break;
-      case 'en':
-        break;
-      case 'es':
-        break;
-      case 'fr':
-        break;
-      case 'ru':
-        break;
-      case 'tr':
-        break;
-      case 'uk':
-        break;
-      case 'zh':
-        break;
-      default:
-        lang = undefined;
-        break;
+    // if user's default language (or the lang param read from url) is not supported, let's fallback to English.
+    if (!supportedLocaleStrings.includes(lang)) {
+      lang = 'en';
     }
 
     return (
@@ -87,6 +72,7 @@ class Footer extends Component {
             <Select.Option value="en">English</Select.Option>
             <Select.Option value="es">Español</Select.Option>
             <Select.Option value="fr">Français</Select.Option>
+            <Select.Option value="pt">Portuguesa</Select.Option>
             <Select.Option value="ru">Pусский</Select.Option>
             <Select.Option value="tr">Türkçe</Select.Option>
             <Select.Option value="uk">Українська</Select.Option>
