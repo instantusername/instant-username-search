@@ -9,5 +9,6 @@
   "app.terms": "Şartlar",
   "app.contact": "İletişim",
   "card.available": "Uygun",
-  "card.taken": "Alınmış"
+  "card.taken": "Alınmış",
+  "card.loading": "Kontrol ediliyor..."
 }
