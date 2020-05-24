@@ -19,8 +19,11 @@ window.apiUrl = process.env.REACT_APP_API_URL;
 
 addLocaleData(locales);
 
+const defaultLanguage = navigator.language || navigator.userLanguage;
+
 export default function App({ match }) {
-  const { page, lang = 'en' } = match.params;
+  const { page, lang = defaultLanguage } = match.params;
+  console.log(match.params);
   const [services, setServices] = useState([]);
   const [username, setUsername] = useState('');
 
