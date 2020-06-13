@@ -23,7 +23,6 @@ const defaultLanguage = navigator.language || navigator.userLanguage;
 
 export default function App({ match }) {
   const { page, lang = defaultLanguage } = match.params;
-  console.log(match.params);
   const [services, setServices] = useState([]);
   const [username, setUsername] = useState('');
 
