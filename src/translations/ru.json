@@ -9,5 +9,6 @@
   "app.terms": "Условия",
   "app.contact": "Контакт",
   "card.available": "Доступен",
-  "card.taken": "Взято"
+  "card.taken": "Взято",
+  "card.loading": "Проверяю..."
 }

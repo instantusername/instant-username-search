@@ -9,5 +9,6 @@
   "app.terms": "Termos",
   "app.contact": "Contato",
   "card.available": "Disponível",
-  "card.taken": "Registrado"
+  "card.taken": "Registrado",
+  "card.loading": "Verificando..."
 }

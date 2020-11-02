@@ -1,45 +1,60 @@
-.taken
-  > a
-  > .ant-card
-  > .ant-card-body
-  > .ant-card-meta
-  > .ant-card-meta-detail
-  > .ant-card-meta-title {
+.taken {
+  border: 1px solid #e8e8e8;
+}
+
+.loading {
+  border: 2px dashed #ffeb3b;
+}
+
+.card.loading {
+  cursor: default;
+}
+
+.taken > .card-body > .meta-title {
   text-decoration: line-through;
-  color: rgba(0, 0, 0, 0.45);
+  color: rgba(0, 0, 0, 0.45) !important;
 }
 
-.taken > a > .ant-card-hoverable:hover {
-  box-shadow: 0 0px 0px rgba(0, 0, 0, 0.09);
-}
-
-.available > a > .ant-card {
+.available {
   border-color: #ffeb3b;
+  border-style: solid;
   border-width: 0.1rem;
   background-color: rgba(255, 235, 59, 0.05);
-  transition: all 0.2s;
 }
 
-.available > a > .ant-card-hoverable:hover {
+.available:hover {
   box-shadow: 4px 6px 8px rgba(0, 0, 0, 0.2);
-  border-color: #ffeb3b;
   background-color: rgba(255, 235, 59, 0.2);
 }
 
 .card {
   margin: 1%;
-}
-
-.card > .ant-card {
   border-radius: 0.4rem;
   max-height: 6rem;
   min-height: 6rem;
+  padding: 24px;
+  transition: all 0.15s !important;
 }
 
-.card > a > .ant-card {
-  border-radius: 0.4rem;
-  max-height: 6rem;
-  min-height: 6rem;
+.card > .card-body {
+  margin: -4px 0;
+}
+
+.card > .card-body > .meta-title {
+  overflow: hidden;
+  color: rgba(0, 0, 0, 0.85);
+  font-weight: 500;
+  font-size: 16px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-bottom: 8px;
+}
+
+.card > .card-body > .description {
+  color: rgba(0, 0, 0, 0.45);
+}
+.loading > .card-body > .description {
+  color: black;
 }
 
 @media (max-width: 768px) {

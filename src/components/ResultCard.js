@@ -1,60 +1,81 @@
-import React, { Component } from 'react';
-import { Card } from 'antd';
+/* eslint-disable react/prop-types */
+import React, { useEffect, useState, useMemo } from 'react';
 import { FormattedMessage } from 'react-intl';
 import '../styles/ResultCard.css';
 
-const { Meta } = Card;
+export default function ResultCard({ username, serviceName, spin }) {
+  const [isLoading, setIsLoading] = useState(true);
+  const [response, setResponse] = useState({});
+  const apiUrl = `${window.apiUrl}check/${serviceName}/${username}/`;
 
-class ResultCard extends Component {
-  render() {
-    if (this.props.loading) {
-      return (
-        <div className={'loading card'}>
-          <Card hoverable loading={true}></Card>
-        </div>
-      );
-    } else if (this.props.ad) {
-      return (
-        <div className={'card ad'}>
-          <script
-            async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-          ></script>
+  useEffect(() => {
+    // instantiniate a new controller for this cycle
+    let controller = new AbortController();
+    let signal = controller.signal;
 
-          <ins
-            className="adsbygoogle"
-            style={{
-              display: 'inlineBlock',
-              width: '214px',
-              minHeight: '93px',
-            }}
-            data-ad-client="ca-pub-2749239984003144"
-            data-ad-slot="2583466004"
-          ></ins>
-          <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-        </div>
-      );
-    } else {
-      let classStatus, status;
-      if (this.props.result.available) {
-        classStatus = 'available';
-        status = <FormattedMessage id="card.available" defaultMessage="Available" />;
-      } else {
-        classStatus = 'taken';
-        status = <FormattedMessage id="card.taken" defaultMessage="Taken" />;
+    if (!spin) {
+      async function fetchAvailability() {
+        setIsLoading(true);
+
+        await fetch(apiUrl, { signal })
+          .then(response => response.json())
+          .then(responseJSON => {
+            setResponse(responseJSON);
+          })
+          .catch(e => {
+            // console.error(e.message);
+            // Let's act like nothing happened :pp
+          });
+
+        setIsLoading(false);
       }
 
-      return (
-        <div className={'card ' + classStatus}>
-          <a href={this.props.result.url} target="_blank" rel="noopener noreferrer">
-            <Card hoverable>
-              <Meta title={this.props.result.service} description={status} />
-            </Card>
-          </a>
-        </div>
-      );
+      fetchAvailability();
     }
-  }
-}
 
-export default ResultCard;
+    return () => {
+      // abort requests
+      if (controller !== undefined) {
+        controller.abort();
+      }
+    };
+    // eslint-disable-next-line
+  }, [username, serviceName, spin]);
+
+  return useMemo(() => {
+    const cardLoading = spin || isLoading;
+    let classStatus = 'loading';
+    let description = <FormattedMessage id="card.loading" defaultMessage="Checking..." />;
+    let link;
+
+    if (!cardLoading && response) {
+      // if loading state is ended
+      // and the result is fetched already
+      if (response.available) {
+        classStatus = 'available';
+        description = <FormattedMessage id="card.available" defaultMessage="Available" />;
+      } else {
+        classStatus = 'taken';
+        description = <FormattedMessage id="card.taken" defaultMessage="Taken" />;
+      }
+      link = response.url;
+    }
+
+    return (
+      <a
+        className={'card ' + classStatus}
+        href={link}
+        target={cardLoading ? undefined : '_blank'}
+        rel={cardLoading ? undefined : 'noopener noreferrer'}
+      >
+        <div className="card-body">
+          <div className="meta-title">{serviceName}</div>
+          <div className="description">
+            <span>{description}</span>
+          </div>
+        </div>
+      </a>
+    );
+    // eslint-disable-next-line
+  }, [isLoading, response, serviceName, username, spin]);
+}

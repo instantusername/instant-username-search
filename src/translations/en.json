@@ -9,5 +9,6 @@
   "app.terms": "Terms",
   "app.contact": "Contact",
   "card.available": "Available",
-  "card.taken": "Taken"
+  "card.taken": "Taken",
+  "card.loading": "Checking..."
 }

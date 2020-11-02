@@ -7,6 +7,7 @@ import messages_tr from './tr.json';
 import messages_en from './en.json';
 import messages_uk from './uk.json';
 import messages_zh from './zh.json';
+import messages_pt from './pt.json';
 
 export default {
   de: messages_de,
@@ -18,4 +19,5 @@ export default {
   uk: messages_uk,
   ru: messages_ru,
   zh: messages_zh,
+  pt: messages_pt,
 };

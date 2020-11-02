@@ -1,37 +1,47 @@
-import React, { Component } from 'react';
-import Resultcard from './ResultCard';
+import React, { useMemo, useEffect, useState, useCallback } from 'react';
+import debounce from 'debounce';
 import '../styles/Results.css';
+import ResultCard from './ResultCard';
 
-class Results extends Component {
-  render() {
-    let results = [];
-    let loadingCount = 12;
+export default function Results({ username, services }) {
+  // these are cards with loading state enabled. Create once, use many times
+  const spinningCards = useMemo(
+    () =>
+      services.map(service => (
+        <ResultCard serviceName={service.service} key={service.service + ' spin'} spin />
+      )),
+    [services],
+  );
 
-    if (this.props.loading === true) {
-      for (let i = 0; i < loadingCount; i++) {
-        results.push(<Resultcard key={i} loading={true} />);
-      }
-    } else {
-      results = this.props.results.map((res, i) => {
-        // message: error message from server
-        // if it exists, that means something went wrong on the server-side
-        if (res.message != null) {
-          return null;
-        }
-        return res.cardType !== 'ad' ? (
-          <Resultcard key={i} result={res} />
-        ) : (
-          <Resultcard key={i} ad={true} />
-        );
-      });
-      let i = 0;
-      while (results.length < loadingCount) {
-        results.push(<Resultcard key={results.length + i} loading={true} />);
-      }
-    }
+  // cards to render in this component
+  const [cards, setCards] = useState(spinningCards);
 
-    return <div className="results">{results}</div>;
-  }
+  // returns real functional cards
+  const createCards = (username, services) =>
+    services.map(service => (
+      <ResultCard username={username} serviceName={service.service} key={service.service} />
+    ));
+
+  // sets the cards with a debounce. This allows us not to calculate real cards while user keeps typing
+  const debouncedSetCards = useCallback(
+    debounce((username, services) => {
+      setCards(createCards(username, services));
+    }, 800),
+    [],
+  );
+
+  // use spinning cards until user stops typing (debounce)
+  useEffect(() => {
+    setCards(spinningCards);
+    debouncedSetCards(username, services);
+    return () => {
+      debouncedSetCards.clear();
+    };
+    // eslint-disable-next-line
+  }, [username, services]);
+
+  // render cards
+  return useMemo(() => {
+    return <div className="results">{cards}</div>;
+  }, [cards]);
 }
-
-export default Results;

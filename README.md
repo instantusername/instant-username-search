@@ -48,9 +48,10 @@ npm start
 - Core Work: [Umut Canbolat](https://github.com/umutcanbolat)
 - Design improvements: [Emirhan K. Kösem](https://github.com/KemalEmirhan)
 - Translations in Catalan and Spanish: [Aniol Pagès](https://github.com/aniolpages)
-- Translation in French: [Régis Enguehard](https://github.com/regisenguehard)
-- Translations in Russian and Ukrainian: My friend Tanya from Ukraine.
-- Translation in Chinese: My co-workers at Huawei.
+- Translations in French: [Régis Enguehard](https://github.com/regisenguehard)
+- Translations in Russian and Ukrainian: My friends Tanya and Ira from Ukraine.
+- Translations in Chinese: My co-workers at Huawei.
+- Translations in Portuguese: [Gustavo Guerra](https://github.com/GGustavoGuerra)
 
 See the [contributors page](https://github.com/umutcanbolat/instant-username-search/graphs/contributors) for more details.
 
