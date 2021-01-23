@@ -3,10 +3,10 @@ import React, { useEffect, useState, useMemo } from 'react';
 import { FormattedMessage } from 'react-intl';
 import '../styles/ResultCard.css';
 
-export default function ResultCard({ username, serviceName, spin }) {
+export default function ResultCard({ serviceName, checkEndpoint, spin }) {
   const [isLoading, setIsLoading] = useState(true);
   const [response, setResponse] = useState({});
-  const apiUrl = `${window.apiUrl}check/${serviceName}/${username}/`;
+  const checkUrl = window.apiUrl + checkEndpoint;
 
   useEffect(() => {
     // instantiniate a new controller for this cycle
@@ -17,7 +17,7 @@ export default function ResultCard({ username, serviceName, spin }) {
       async function fetchAvailability() {
         setIsLoading(true);
 
-        await fetch(apiUrl, { signal })
+        await fetch(checkUrl, { signal })
           .then(response => response.json())
           .then(responseJSON => {
             setResponse(responseJSON);
@@ -39,8 +39,7 @@ export default function ResultCard({ username, serviceName, spin }) {
         controller.abort();
       }
     };
-    // eslint-disable-next-line
-  }, [username, serviceName, spin]);
+  }, [checkEndpoint, spin]);
 
   return useMemo(() => {
     const cardLoading = spin || isLoading;
@@ -76,6 +75,5 @@ export default function ResultCard({ username, serviceName, spin }) {
         </div>
       </a>
     );
-    // eslint-disable-next-line
-  }, [isLoading, response, serviceName, username, spin]);
+  }, [isLoading, response, serviceName, spin]);
 }
