@@ -6,12 +6,13 @@ import '../styles/ResultCard.css';
 export default function ResultCard({ serviceName, checkEndpoint, spin }) {
   const [isLoading, setIsLoading] = useState(true);
   const [response, setResponse] = useState({});
-  const checkUrl = window.apiUrl + checkEndpoint;
 
   useEffect(() => {
     // instantiniate a new controller for this cycle
     let controller = new AbortController();
     let signal = controller.signal;
+
+    const checkUrl = window.apiUrl + checkEndpoint;
 
     if (!spin) {
       async function fetchAvailability() {
