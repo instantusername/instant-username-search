@@ -4,14 +4,11 @@
 name: Deploy
 
 on:
-  workflow_run:
-    workflows:
-      - Build
-    types:
-      - completed
+  push:
+    branches: master
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
