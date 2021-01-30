@@ -40,13 +40,17 @@ jobs:
     needs: build
     if: github.ref == 'refs/heads/master'
     steps:
+      - uses: actions/checkout@v2
+
       - name: setup commit user
         run: |
           git config user.name "Github Actions Bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
       - name: Bump a new version
-        run: yarn ci:release
+        run: |
+          yarn
+          yarn ci:release
 
       - run: git push --follow-tags origin master
 
