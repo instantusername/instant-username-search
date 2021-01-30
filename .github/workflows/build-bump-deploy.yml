@@ -31,7 +31,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
-      - run: yarn install
+      - run: yarn
       - run: yarn test
       - run: yarn build
 
@@ -59,7 +59,12 @@ jobs:
     needs: [build, bump]
     if: github.ref == 'refs/heads/master'
     steps:
-      - run: yarn build # necessary after version bump
+      - uses: actions/checkout@v2
+
+      - name: Build with bumped version # necessary after the version bump
+        run: |
+          yarn
+          yarn build
 
       - name: Deploy to Github Pages
         uses: peaceiris/actions-gh-pages@v3
