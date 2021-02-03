@@ -1,6 +1,6 @@
 # Instant Username Search
 
-![Test](https://github.com/instant-username-search/instant-username-search/workflows/build-bump-deploy/badge.svg?branch=master&event=push)
+![build-bump-deploy](https://github.com/instant-username-search/instant-username-search/workflows/build-bump-deploy/badge.svg?branch=master&event=push)
 <a href="https://www.buymeacoffee.com/1ulP4IGFm" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" height="30" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
 
 Instant Username Search helps users find out if their username is taken on more than 100 social media sites. It instantly lists results on the screen while the user is typing.
@@ -13,36 +13,16 @@ This application needs the RESTful web service [instant-username-search-api](htt
 
 ## Installation
 
-### For Debian based distros, Ubuntu
+Just run the following command in the project directory. You need [node](nodejs.org) and [yarn](https://yarnpkg.com/) installed in the system.
 
-You need nodejs and npm installed on your system to run the project. If you don't have, go for the following commands to install. Otherwise pass this step.
-
-```sh
-sudo apt install curl
-curl -sL https://deb.nodesource.com/setup_8.x | sudo bash -
-sudo apt install nodejs
-```
-
-cd into the application directory and run the commands below. The browser will open the application on http://localhost:3000 automatically.
-
-```sh
-npm install
-npm start
-```
-
-### For Windows
-
-Download and install nodejs from https://nodejs.org/en/download/ and run the following commands in the project directory:
-
-```sh
-npm install
-npm start
+```shell
+yarn && yarn start
 ```
 
 ## Screenshots
 
-- Desktop version <br> <img src="https://user-images.githubusercontent.com/10065235/52743024-24565080-2fea-11e9-8d96-0c38603c4621.png" width="720" height="405"> <br>
-- Mobile version <br> <img src="https://user-images.githubusercontent.com/10065235/52743025-24eee700-2fea-11e9-8834-09831c8a8a17.png" width="300" height="533"> <br>
+- Desktop <br> <img src="https://user-images.githubusercontent.com/10065235/52743024-24565080-2fea-11e9-8d96-0c38603c4621.png" width="720" height="405"> <br>
+- Mobile <br> <img src="https://user-images.githubusercontent.com/10065235/52743025-24eee700-2fea-11e9-8834-09831c8a8a17.png" width="300" height="533"> <br>
 
 ## Credits
 
