@@ -41,6 +41,8 @@ jobs:
     if: github.ref == 'refs/heads/master'
     steps:
       - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.RELEASE_TOKEN }}
 
       - name: setup commit user
         run: |
@@ -69,5 +71,5 @@ jobs:
       - name: Deploy to Github Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.RELEASE_TOKEN }}
           publish_dir: ./build
