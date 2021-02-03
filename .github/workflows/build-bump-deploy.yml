@@ -3,6 +3,7 @@ name: build-bump-deploy
 on:
   push:
     branches: '*'
+    tags-ignore: '*' # to ignore the automated release commits
   pull_request:
     branches: master
 
