@@ -42,3 +42,6 @@ jobs:
         with:
           github_token: ${{ secrets.RELEASE_TOKEN }}
           publish_dir: ./build
+          user_name: 'Releaser Astronaut'
+          user_email: '78322057+ius-release-bot@users.noreply.github.com'
+          allow_empty_commit: true
