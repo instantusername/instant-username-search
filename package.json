@@ -1,6 +1,6 @@
 {
   "name": "instant-username-search",
-  "version": "1.4.14",
+  "version": "1.4.15",
   "private": true,
   "dependencies": {
     "antd": "^3.12.1",
