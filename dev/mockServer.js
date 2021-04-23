@@ -15,7 +15,7 @@ server.get('/check/:platform/:username', (req, res) => {
     res.json({
       service: targetPlatfrom,
       url: 'https://instantusername.com/',
-      available: false,
+      available: Math.random() < 0.5,
       message: null,
     });
   }, 1000 * +(Math.random() * 2).toFixed(3));
