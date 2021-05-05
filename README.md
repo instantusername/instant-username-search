@@ -8,15 +8,15 @@ Instant Username Search helps users find out if their username is taken on more 
 <a href="https://www.producthunt.com/posts/instant-username-search?utm_source=badge-top-post-badge&utm_medium=badge&utm_souce=badge-instant-username-search" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/top-post-badge.svg?post_id=151501&theme=light&period=daily" alt="Instant Username Search - Check out if your username is available | Product Hunt Embed" style="width: 250px; height: 54px;" width="250px" height="54px" /></a>
 
 ## Development
+You need [node](nodejs.org) and [yarn](https://yarnpkg.com/) installed to run the application.
 
-Instant Username Search local instance expects to have a dev server running at `http://localhost:8080`. This value is set in [.env.development](.env.development) file.
+Running the following commands will; 
+- start the application on http://localhost:3000/.
+- start the dev server at http://localhost:8080/.
 
-Since there is no dev server implementation ready yet, development API can be replaced with the production API that is in [.env.production](.env.production) file to be able to run the application locally.
-
-After that the following commands can be used the start the dev instance. You need [node](nodejs.org) and [yarn](https://yarnpkg.com/) installed for this.
 
 ```shell
-yarn && yarn start
+yarn && yarn dev
 ```
 
 ## Credits
