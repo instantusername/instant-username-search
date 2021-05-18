@@ -1,0 +1,55 @@
+.whyus-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.whyus-header {
+    padding: 40px 20px 40px 20px;
+    text-align: center;
+}
+
+.whyus-header h2 {
+    color: #4a4a4a;
+    font-weight: 500;
+    font-size: 2rem;
+    line-height: 1.5;
+}
+
+.whyus-header h3 {
+    color: #8d8d8d;
+    font-weight: 300;
+    line-height: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.whyus-row {
+    display: flex;
+}
+
+.reverse-row {
+    flex-direction: row-reverse;
+}
+
+.whyus-column {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.whyus-column img {
+    max-height: 200px;
+}
+
+@media (max-width: 768px) {
+    .reverse-row, .whyus-row {
+        flex-direction: column;
+    }
+
+    .whyus-column {
+        width: 100%;
+        text-align: center;
+    }
+
+}

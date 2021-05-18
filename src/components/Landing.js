@@ -1,32 +1,44 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
+
+import WhyUs from './WhyUs';
+
 import '../styles/Landing.css';
-import astronaut from '../resources/astronaut.svg';
 
 export default function Landing() {
+  const whyUsHeader = {
+    enabled: true,
+    headerText: 'Find your next username',
+    subText: 'Expand your brand across the web',
+  };
+
+  const whyUsRows = [
+    {
+      id: 'benefits',
+      header: 'A new idea? We got your back!',
+      details: 'You can easily test & find the best suitable username for your next endevour',
+      image: require('../resources/idea.svg'),
+    },
+    {
+      id: 'platforms',
+      header: 'One click to see them all',
+      details:
+        'You can easily search on 100+ platforms for your username. Also, you can use advanced search to narrow down your results',
+      image: require('../resources/search.svg'),
+    },
+    {
+      id: 'instant',
+      header: 'Ready to start?',
+      details:
+        'So, you found your new username and would love to register them. If you like, we can automate it for you!',
+      image: require('../resources/servant.svg'),
+    },
+  ];
+
   return (
     <>
       <div className="landing">
-        <div className="astronaut">
-          <img alt="astronaut" id="astronaut" src={astronaut} />
-        </div>
-        <div className="intro">
-          <h2>
-            <FormattedMessage
-              id="app.description.title"
-              defaultMessage="Check username availability as you type"
-              description="Description title on main page"
-            />
-          </h2>
-          <p>
-            <FormattedMessage
-              id="app.description.body"
-              defaultMessage="{appName} will check more than 100 social media sites for you. Results will appear here as you type!"
-              description="Description body on main page"
-              values={{ appName: 'Instant Username Search' }}
-            />
-          </p>
-        </div>
+        <WhyUs headerConfig={whyUsHeader} rows={whyUsRows} />
       </div>
 
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
