@@ -1,7 +1,8 @@
 .whyus-container {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 80%;
+    margin: 0 auto;
 }
 .whyus-header {
     padding: 40px 20px 40px 20px;
@@ -24,6 +25,7 @@
 
 .whyus-row {
     display: flex;
+    align-items: center;
 }
 
 .reverse-row {

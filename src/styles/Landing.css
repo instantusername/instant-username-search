@@ -1,7 +1,5 @@
 .landing {
-  display: flex;
-  flex-direction: row;
-  max-width: 800px;
+
   padding-top: 2%;
   margin-left: auto;
   margin-right: auto;

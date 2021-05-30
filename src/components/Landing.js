@@ -2,6 +2,7 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import WhyUs from './WhyUs';
+import NewsletterSubscription from './NewsletterSubscription';
 
 import '../styles/Landing.css';
 
@@ -39,6 +40,7 @@ export default function Landing() {
     <>
       <div className="landing">
         <WhyUs headerConfig={whyUsHeader} rows={whyUsRows} />
+        <NewsletterSubscription illustrationEnabled />
       </div>
 
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
