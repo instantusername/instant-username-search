@@ -1,0 +1,84 @@
+.frequentQuestions-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.frequentQuestions-container h2 {
+  color: #4a4a4a;
+  font-weight: 500;
+  font-size: 1.7rem;
+  line-height: 1.2;
+}
+
+.frequentQuestions-body {
+  display: flex;
+  position: relative;
+  min-height: 250px;
+}
+
+.frequentQuestions-illustration {
+  width: fit-content;
+}
+
+.frequentQuestions-collapse {
+  width: calc(100% - 300px);
+  background-color: white!important;
+}
+
+.frequentQuestions-illustration img {
+  position: absolute;
+  width: 300px;
+}
+
+.frequentQuestions-illustration.mobile {
+  display: none;
+}
+
+/*
+    Overrides
+*/
+.ant-collapse-item {
+  border-bottom: none !important;
+}
+
+@media (max-width: 992px) {
+  .frequentQuestions-container {
+    width: 100%;
+  }
+
+  .frequentQuestions-illustration img {
+    width: 250px;
+  }
+
+  .frequentQuestions-body {
+    min-height: 210px;
+  }
+}
+
+@media (max-width: 790px) {
+  .frequentQuestions-illustration.mobile {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .frequentQuestions-illustration.mobile img {
+    position: initial;
+    width: 210px;
+  }
+
+  .frequentQuestions-illustration {
+    display: none;
+  }
+
+  .frequentQuestions-collapse {
+    width: 100%;
+  }
+
+  .frequentQuestions-container h2 {
+    text-align: center;
+  }
+
+  .frequentQuestions-footer {
+    text-align: center;
+  }
+}
