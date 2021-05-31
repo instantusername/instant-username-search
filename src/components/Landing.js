@@ -3,6 +3,7 @@ import { FormattedMessage } from 'react-intl';
 
 import WhyUs from './WhyUs';
 import NewsletterSubscription from './NewsletterSubscription';
+import FrequentQuestions from './FrequentQuestions';
 
 import '../styles/Landing.css';
 
@@ -36,11 +37,35 @@ export default function Landing() {
     },
   ];
 
+  const frequentlyAskedQuestions = [
+    {
+      question: 'Some question',
+      answer:
+        'Think of the name you want to register. The answer is typically your company or website name. It is best to keep your domain name short and easy to understand. Say it out loud, and make sure it sounds great. Next, search to see if it is available. If the name you desire is taken with the .com top-level domain, there are hundreds of others available. Finally, add the top choices to your cart and complete the domain registration.',
+    },
+    {
+      question: 'Another question',
+      answer:
+        'Think of the name you want to register. The answer is typically your company or website name. It is best to keep your domain name short and easy to understand. Say it out loud, and make sure it sounds great. Next, search to see if it is available. If the name you desire is taken with the .com top-level domain, there are hundreds of others available. Finally, add the top choices to your cart and complete the domain registration.',
+    },
+    {
+      question: 'Another question with another answer',
+      answer:
+        'Think of the name you want to register. The answer is typically your company or website name. It is best to keep your domain name short and easy to understand. Say it out loud, and make sure it sounds great. Next, search to see if it is available. If the name you desire is taken with the .com top-level domain, there are hundreds of others available. Finally, add the top choices to your cart and complete the domain registration.',
+    },
+    {
+      question: 'Another question with different answer',
+      answer:
+        'Think of the name you want to register. The answer is typically your company or website name. It is best to keep your domain name short and easy to understand. Say it out loud, and make sure it sounds great. Next, search to see if it is available. If the name you desire is taken with the .com top-level domain, there are hundreds of others available. Finally, add the top choices to your cart and complete the domain registration.',
+    },
+  ];
+
   return (
     <>
       <div className="landing">
         <WhyUs headerConfig={whyUsHeader} rows={whyUsRows} />
         <NewsletterSubscription illustrationEnabled />
+        <FrequentQuestions questions={frequentlyAskedQuestions} />
       </div>
 
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
