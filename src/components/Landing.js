@@ -4,6 +4,7 @@ import { FormattedMessage } from 'react-intl';
 import WhyUs from './WhyUs';
 import NewsletterSubscription from './NewsletterSubscription';
 import FrequentQuestions from './FrequentQuestions';
+import Donations from './Donation';
 
 import '../styles/Landing.css';
 
@@ -66,6 +67,7 @@ export default function Landing() {
         <WhyUs headerConfig={whyUsHeader} rows={whyUsRows} />
         <NewsletterSubscription illustrationEnabled />
         <FrequentQuestions questions={frequentlyAskedQuestions} />
+        <Donations />
       </div>
 
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
