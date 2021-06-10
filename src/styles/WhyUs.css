@@ -26,6 +26,7 @@
 .whyus-row {
     display: flex;
     align-items: center;
+    margin-bottom: 3em;
 }
 
 .reverse-row {
@@ -38,6 +39,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    font-size: 115%;
 }
 
 .whyus-column img {

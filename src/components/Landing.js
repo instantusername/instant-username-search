@@ -33,7 +33,7 @@ export default function Landing() {
       id: 'instant',
       header: 'Ready to start?',
       details:
-        'So, you found your new username and would love to register them. If you like, we can automate it for you!',
+        'So, you found your new username and would love to register them. If you like, we can automate it for you! (Coming soon)',
       image: require('../resources/servant.svg'),
     },
   ];
@@ -66,7 +66,7 @@ export default function Landing() {
       <div className="landing">
         <WhyUs headerConfig={whyUsHeader} rows={whyUsRows} />
         <NewsletterSubscription illustrationEnabled />
-        <FrequentQuestions questions={frequentlyAskedQuestions} />
+        {/* <FrequentQuestions questions={frequentlyAskedQuestions} /> */}
         <Donations />
       </div>
 

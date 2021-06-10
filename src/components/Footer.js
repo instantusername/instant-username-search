@@ -46,21 +46,6 @@ class Footer extends Component {
           </a>
         </div>
         <div className="languages pull-right">
-          <div className="coffee">
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://www.buymeacoffee.com/1ulP4IGFm"
-            >
-              <img
-                src="https://www.buymeacoffee.com/assets/img/BMC-btn-logo.svg"
-                alt="Buy me a coffee!"
-              />
-              <span>
-                <FormattedMessage id="app.coffee" defaultMessage="Buy me a coffee" />
-              </span>
-            </a>
-          </div>
           <Select
             style={{ width: 120 }}
             placeholder="Language"

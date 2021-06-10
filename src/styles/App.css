@@ -7,7 +7,7 @@
 
 .jumbotron{
   background-image: url("../resources/stars.webp");
-  background-color: black;
+  background-color: #4ca1ff;
   background-attachment: fixed;
   background-size: auto;
 }
