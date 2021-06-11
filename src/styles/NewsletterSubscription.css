@@ -47,6 +47,16 @@
   left: 0px;
 }
 
+.newsletterSubscription-flashMessage {
+  line-height: 3em;
+  font-weight: 500;
+  visibility: hidden;
+}
+
+.messageReceived {
+  visibility: visible;
+}
+
 @media (max-width: 992px) {
   .newsletterSubscription-container {
     flex-direction: column;
