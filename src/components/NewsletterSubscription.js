@@ -1,12 +1,23 @@
 import React, { useState, useCallback } from 'react';
 import { Input } from 'antd';
 
+import { validateEmail } from '../utils/validators';
+
 import '../styles/NewsletterSubscription.css';
 
 export default function NewsletterSubscription({ illustrationEnabled = false }) {
   const [subscriptionInfo, setSubscriptionInfo] = useState(null);
+  const [isInputValid, setInputValid] = useState(true);
 
   const handleNewsletterSubscription = useCallback(async email => {
+    if (!email || !validateEmail(email)) {
+      setInputValid(false);
+
+      return;
+    }
+
+    setInputValid(true);
+
     // send request to subscriptionHandler
     const subscriptionStatus = await new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -23,6 +34,7 @@ export default function NewsletterSubscription({ illustrationEnabled = false }) 
 
     setSubscriptionInfo(subscriptionStatus);
 
+    // clears the flash message
     setTimeout(() => {
       setSubscriptionInfo(null);
     }, 2000);
@@ -45,6 +57,7 @@ export default function NewsletterSubscription({ illustrationEnabled = false }) 
       </div>
       <div className="newsletterSubscription-input">
         <Input.Search
+          className={`ant-newsletterInput ${!isInputValid ? 'invalidInput' : ''}`}
           placeholder="Your mail address"
           enterButton="Subscribe"
           onSearch={handleNewsletterSubscription}
