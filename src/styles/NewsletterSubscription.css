@@ -57,6 +57,10 @@
   visibility: visible;
 }
 
+.ant-newsletterInput.invalidInput input:focus {
+  border-color: red;
+}
+
 @media (max-width: 992px) {
   .newsletterSubscription-container {
     flex-direction: column;
