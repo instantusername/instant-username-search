@@ -27,7 +27,7 @@ const whyUsRows = [
     details: (
       <FormattedMessage
         id="whyUs.row.benefit.details"
-        defaultMessage="You can easily test & find the best suitable username for your next endevour"
+        defaultMessage="Easily test & find the most suitable username for your next endevour."
       />
     ),
     image: require('../resources/idea.svg'),
@@ -43,7 +43,7 @@ const whyUsRows = [
     details: (
       <FormattedMessage
         id="whyUs.row.platforms.details"
-        defaultMessage="You can easily search on 100+ platforms for your username. Also, you can use advanced search to narrow down your results"
+        defaultMessage="Instantly search on 100+ platforms for your username. Register the same username everywhere."
       />
     ),
     image: require('../resources/search.svg'),
@@ -54,7 +54,7 @@ const whyUsRows = [
     details: (
       <FormattedMessage
         id="whyUs.row.instant.details"
-        defaultMessage="So, you found your new username and would love to register them. If you like, we can automate it for you! (Coming soon)"
+        defaultMessage="So, you found your new username and would love to register them? Let us do the dirty work for you! (Coming soon)"
       />
     ),
     image: require('../resources/servant.svg'),
