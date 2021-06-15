@@ -1,7 +1,9 @@
 import React, { useState, useCallback } from 'react';
+import { FormattedMessage } from 'react-intl';
 import { Input } from 'antd';
 
 import { validateEmail } from '../utils/validators';
+import config from '../config';
 
 import '../styles/NewsletterSubscription.css';
 
@@ -18,19 +20,23 @@ export default function NewsletterSubscription({ illustrationEnabled = false }) 
 
     setInputValid(true);
 
-    // send request to subscriptionHandler
-    const subscriptionStatus = await new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve({ status: true, message: 'subscribed' });
-      }, 1500);
+    let subscriptionStatus;
 
-      // case: email address already subscribed
-      // setTimeout(() => {
-      //   resolve({ status: true, message: 'existing_subscription' });
-      // }, 1500);
-    }).catch(err => {
-      return { status: false, message: 'server_exception' };
-    });
+    try {
+      subscriptionStatus = await (
+        await fetch(config.endpoints.newsletterSubscription, {
+          method: 'POST',
+          mode: 'cors',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email }),
+        })
+      ).json();
+    } catch (error) {
+      subscriptionStatus = { status: false, message: 'server_exception' };
+    }
 
     setSubscriptionInfo(subscriptionStatus);
 
@@ -67,7 +73,10 @@ export default function NewsletterSubscription({ illustrationEnabled = false }) 
             subscriptionInfo ? 'messageReceived' : ''
           }`}
         >
-          {(subscriptionInfo && subscriptionInfo.message) || 'Placeholder'}
+          <FormattedMessage
+            id={`newsletterSubscription.${subscriptionInfo?.message}`}
+            defaultMessage="Unkown error occured"
+          />
         </span>
       </div>
     </div>

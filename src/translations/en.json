@@ -10,5 +10,8 @@
   "app.contact": "Contact",
   "card.available": "Available",
   "card.taken": "Taken",
-  "card.loading": "Checking..."
+  "card.loading": "Checking...",
+  "newsletterSubscription.subscribed": "Yay! You have subscribed to our newsletter",
+  "newsletterSubscription.existing_subscription": "You already have an existing subscription to our newsletter",
+  "newsletterSubscription.server_exception": "Something went wrong, we are working on it..."
 }
