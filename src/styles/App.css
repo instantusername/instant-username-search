@@ -5,9 +5,9 @@
   margin-left: auto;
 }
 
-.jumbotron{
-  background-image: url("../resources/stars.webp");
-  background-color: #4ca1ff;
+.jumbotron {
+  background-image: url('../resources/stars.webp');
+  background-color: #004490;
   background-attachment: fixed;
   background-size: auto;
 }
@@ -21,30 +21,30 @@ hr {
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-#jumbotron{
+#jumbotron {
   height: 25vh;
   display: flex;
   align-items: center;
 }
 
-#content{
+#content {
   padding-top: 2%;
-  padding-bottom: 2%; 
+  padding-bottom: 2%;
   min-height: 60vh;
 }
 
-#footer{
+#footer {
   height: 15vh;
 }
 
 @media (max-width: 768px) {
-  #jumbotron{
+  #jumbotron {
     height: 25vh;
   }
-  #content{
+  #content {
     min-height: 52vh;
   }
-  #footer{
+  #footer {
     height: 23vh;
   }
 }
