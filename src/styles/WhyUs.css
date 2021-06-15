@@ -1,59 +1,60 @@
 .whyus-container {
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-    margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 0 auto;
 }
 .whyus-header {
-    padding: 40px 20px 40px 20px;
-    text-align: center;
+  padding: 40px 20px 40px 20px;
+  text-align: center;
+  margin-bottom: 5em;
 }
 
 .whyus-header h2 {
-    color: #4a4a4a;
-    font-weight: 500;
-    font-size: 2rem;
-    line-height: 1.5;
+  color: #4a4a4a;
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 1.5;
 }
 
 .whyus-header h3 {
-    color: #8d8d8d;
-    font-weight: 300;
-    line-height: 1.5rem;
-    font-size: 1.5rem;
+  color: #8d8d8d;
+  font-weight: 300;
+  line-height: 1.5rem;
+  font-size: 1.5rem;
 }
 
 .whyus-row {
-    display: flex;
-    align-items: center;
-    margin-bottom: 3em;
+  display: flex;
+  align-items: center;
+  margin-bottom: 6em;
 }
 
 .reverse-row {
-    flex-direction: row-reverse;
+  flex-direction: row-reverse;
 }
 
 .whyus-column {
-    width: 50%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    font-size: 115%;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 115%;
 }
 
 .whyus-column img {
-    max-height: 200px;
+  max-height: 200px;
 }
 
 @media (max-width: 768px) {
-    .reverse-row, .whyus-row {
-        flex-direction: column;
-    }
+  .reverse-row,
+  .whyus-row {
+    flex-direction: column;
+  }
 
-    .whyus-column {
-        width: 100%;
-        text-align: center;
-    }
-
+  .whyus-column {
+    width: 100%;
+    text-align: center;
+  }
 }
