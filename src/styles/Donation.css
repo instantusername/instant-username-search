@@ -64,6 +64,11 @@
   width: 13%;
 }
 
+#donations {
+  margin-top: 8rem;
+  margin-bottom: 8rem;
+}
+
 @media (max-width: 790px) {
   .donation-illustration img {
     width: 210px;
