@@ -24,13 +24,14 @@
   font-size: 1.5rem;
 }
 
-.whyus-row {
+.whyus-row,
+.whyus-reverse-row {
   display: flex;
   align-items: center;
-  margin-bottom: 6em;
+  margin-bottom: 10em;
 }
 
-.reverse-row {
+.whyus-reverse-row {
   flex-direction: row-reverse;
 }
 
@@ -44,12 +45,24 @@
 }
 
 .whyus-column img {
-  max-height: 200px;
+  max-height: 300px;
+}
+
+.whyus-row img {
+  margin-right: auto;
+}
+
+.whyus-reverse-row img {
+  margin-left: auto;
+}
+
+.whyus-column h3 {
+  font-size: 1.7rem;
 }
 
 @media (max-width: 768px) {
-  .reverse-row,
-  .whyus-row {
+  .whyus-row,
+  .whyus-reverse-row {
     flex-direction: column;
   }
 
