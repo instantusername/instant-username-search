@@ -71,9 +71,7 @@ export default function App({ match }) {
               <Search input={username} onChange={inputChanged} />
             </div>
           </div>
-          <div className="container" id="content">
-            {content}
-          </div>
+          {content}
           <div id="footer">
             <hr />
             <div className="container">

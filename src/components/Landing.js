@@ -64,9 +64,17 @@ const whyUsRows = [
 export default function Landing() {
   return (
     <div className="landing">
-      <WhyUs headerConfig={whyUsHeader} rows={whyUsRows} />
-      <NewsletterSubscription illustrationEnabled />
-      <Donations />
+      <div className="container" id="whyUs">
+        <WhyUs headerConfig={whyUsHeader} rows={whyUsRows} />
+      </div>
+      <div id="newsletter-wrapper">
+        <div className="container" id="newsLetter">
+          <NewsletterSubscription illustrationEnabled />
+        </div>
+      </div>
+      <div className="container" id="donations">
+        <Donations />
+      </div>
     </div>
   );
 }

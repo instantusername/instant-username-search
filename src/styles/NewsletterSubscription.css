@@ -2,9 +2,8 @@
   display: flex;
   width: 100%;
   align-items: center;
-  box-shadow: rgb(0 0 0 / 10%) 0px 10px 15px;
-  margin-top: 8em;
-  margin-bottom: 5em;
+  padding-top: 8em;
+  padding-bottom: 5em;
   border-radius: 0.5em;
 }
 
@@ -59,6 +58,10 @@
 
 .ant-newsletterInput.invalidInput input:focus {
   border-color: red;
+}
+
+#newsletter-wrapper {
+  background: #e4ffee;
 }
 
 @media (max-width: 992px) {
