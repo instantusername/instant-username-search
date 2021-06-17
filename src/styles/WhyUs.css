@@ -36,7 +36,6 @@
 }
 
 .whyus-column {
-  width: 50%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -44,8 +43,16 @@
   font-size: 115%;
 }
 
+.whyus-image-column {
+  width: 40%;
+}
+
+.whyus-text-column {
+  width: 60%;
+}
+
 .whyus-column img {
-  max-height: 300px;
+  height: 16rem;
 }
 
 .whyus-row img {

@@ -14,10 +14,10 @@ export default function WhyUs({ headerConfig, rows }) {
 
       {rows.map((r, i) => (
         <div key={r.id} className={i % 2 === 0 ? 'whyus-row' : 'whyus-reverse-row'}>
-          <div className="whyus-column">
+          <div className="whyus-column whyus-image-column">
             <img src={r.image} alt={r.header} />
           </div>
-          <div className="whyus-column">
+          <div className="whyus-column whyus-text-column">
             <h3>{r.header}</h3>
             <p>{r.details}</p>
           </div>

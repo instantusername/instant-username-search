@@ -30,7 +30,7 @@ const whyUsRows = [
         defaultMessage="Easily test & find the most suitable username for your next endevour."
       />
     ),
-    image: require('../resources/idea.svg'),
+    image: require('../resources/sun.svg'),
   },
   {
     id: 'platforms',
@@ -46,7 +46,7 @@ const whyUsRows = [
         defaultMessage="Instantly search on 100+ platforms for your username. Register the same username everywhere."
       />
     ),
-    image: require('../resources/search.svg'),
+    image: require('../resources/telescope.svg'),
   },
   {
     id: 'instant',
@@ -57,7 +57,7 @@ const whyUsRows = [
         defaultMessage="So, you found your new username and would love to register them? Let us do the dirty work for you! (Coming soon)"
       />
     ),
-    image: require('../resources/servant.svg'),
+    image: require('../resources/moon-rover.svg'),
   },
 ];
 

@@ -51,7 +51,7 @@ export default function NewsletterSubscription({ illustrationEnabled = false }) 
       {illustrationEnabled && (
         <div className="newsletterSubscription-illustration">
           <div className="newsletterSubscription-imageWrapper">
-            <img src={require('../resources/newsletter.png')} alt="Newsletter illustration" />
+            <img src={require('../resources/radar-1.svg')} alt="Newsletter illustration" />
           </div>
         </div>
       )}
