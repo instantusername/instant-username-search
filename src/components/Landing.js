@@ -57,7 +57,7 @@ const whyUsRows = [
         defaultMessage="So, you found your new username and would love to register them? Let us do the dirty work for you! (Coming soon)"
       />
     ),
-    image: require('../resources/moon-rover.svg'),
+    image: require('../resources/space-shuttle-2.svg'),
   },
 ];
 
