@@ -4,7 +4,6 @@
 }
 
 .frequentQuestions-container h2 {
-  color: #4a4a4a;
   font-weight: 500;
   font-size: 1.7rem;
   line-height: 1.2;
@@ -21,8 +20,7 @@
 }
 
 .frequentQuestions-collapse {
-  width: calc(100% - 300px);
-  background-color: white!important;
+  background-color: white !important;
 }
 
 .frequentQuestions-illustration img {

@@ -4,10 +4,10 @@
 }
 
 .donation-container h2 {
-  color: #4a4a4a;
   font-weight: 500;
   font-size: 1.7rem;
   line-height: 1.2;
+  margin: 1.4rem 0;
 }
 
 .donation-illustration {
@@ -15,42 +15,23 @@
 }
 
 .donation-illustration img {
-  width: 300px;
+  width: 12rem;
 }
 
 .donation-body {
   text-align: center;
+  margin-bottom: 3rem;
 }
 
 .donation-body p {
-  color: #8d8d8d;
   font-weight: 400;
   line-height: 1.5rem;
   font-size: 1rem;
 }
 
 .donation-optionsRow {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-column-gap: 10px;
-  min-height: 100px;
-}
-
-.donation-option {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: rgb(0 0 0 / 10%) 0px 10px 15px;
-}
-
-.donation-option .bmc > a {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.donation-option .bmc > a > img {
-  width: 60%;
+  justify-content: space-evenly;
 }
 
 .donation-option .cryptocurrency {
@@ -60,13 +41,20 @@
   filter: grayscale(1);
 }
 
-.donation-option .cryptocurrency > img {
-  width: 13%;
-}
-
 #donations {
   margin-top: 8rem;
   margin-bottom: 8rem;
+}
+
+.donation-option img {
+  height: 2rem;
+  width: 2rem;
+  margin: 0.2rem;
+}
+
+.donation-option {
+  width: 27%;
+  text-align: center;
 }
 
 @media (max-width: 790px) {
