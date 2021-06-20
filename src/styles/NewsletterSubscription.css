@@ -2,9 +2,10 @@
   display: flex;
   width: 100%;
   align-items: center;
-  padding-top: 8em;
-  padding-bottom: 5em;
+  padding-top: 5em;
+  padding-bottom: 3em;
   border-radius: 0.5em;
+  justify-content: space-between;
 }
 
 .newsletterSubscription-body h2 {
@@ -26,10 +27,6 @@
   margin-right: 2em;
 }
 
-.newsletterSubscription-input {
-  width: calc(100% - 650px);
-}
-
 .newsletterSubscription-illustration {
   width: 280px;
 }
@@ -42,7 +39,7 @@
 .newsletterSubscription-illustration img {
   max-width: 280px;
   position: absolute;
-  top: -85px;
+  top: -1rem;
   left: 0px;
 }
 
