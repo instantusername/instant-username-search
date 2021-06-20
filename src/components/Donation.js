@@ -13,10 +13,10 @@ export default function Donation() {
       <div className="donation-body">
         <h2>Enjoying the service?</h2>
         <p>
-          We are more than happy to help you to find your online usernames with ease. In order to
-          sustain it, we are accepting donations. It will help us to pay various expenses to run
-          this service and provide it to everyone. If you find our service helpful, consider
-          supporting us!
+          We are more than happy to help you find your online usernames with ease. In order to
+          sustain the service, we are accepting donations. It will help us pay various expenses to
+          run this service and provide it to everyone for free. If you find our service helpful,
+          consider supporting us!
         </p>
       </div>
       <div className="donation-optionsRow">
@@ -31,9 +31,7 @@ export default function Donation() {
                 src="https://www.buymeacoffee.com/assets/img/BMC-btn-logo.svg"
                 alt="Buy me a coffee!"
               />
-              <span>
-                <FormattedMessage id="app.coffee" defaultMessage="Buy me a coffee" />
-              </span>
+              <span>Buy us a coffee!</span>
             </Card>
           </a>
         </div>

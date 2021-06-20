@@ -11,16 +11,16 @@
 }
 
 .whyus-header h2 {
-  font-weight: 500;
+  font-weight: bold;
   font-size: 2rem;
   line-height: 1.5;
 }
 
-.whyus-header h3 {
+.whyus-header p {
   color: #4a4a4a;
   font-weight: 300;
   line-height: 1.5rem;
-  font-size: 1.5rem;
+  font-size: 20px;
 }
 
 .whyus-row,

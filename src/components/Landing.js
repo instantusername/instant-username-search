@@ -1,5 +1,4 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
 
 import WhyUs from './WhyUs';
 import NewsletterSubscription from './NewsletterSubscription';
@@ -9,54 +8,30 @@ import '../styles/Landing.css';
 
 const whyUsHeader = {
   enabled: true,
-  headerText: (
-    <FormattedMessage id="whyUs.header.header" defaultMessage="Expand your brand across the web" />
-  ),
-  subText: <FormattedMessage id="whyUs.header.sub" defaultMessage="Find your next username" />,
+  headerText: 'Get the same username everywhere!',
+  subText:
+    'Instant Username Search will check more than 100 social media sites and let you know if your dream username is available there. Results will appear here as you type.',
 };
 
 const whyUsRows = [
   {
     id: 'benefits',
-    header: (
-      <FormattedMessage
-        id="whyUs.row.benefit.header"
-        defaultMessage="A new idea? We got your back!"
-      />
-    ),
-    details: (
-      <FormattedMessage
-        id="whyUs.row.benefit.details"
-        defaultMessage="Easily test & find the most suitable username for your next endevour."
-      />
-    ),
+    header: 'A new idea? We got your back!',
+    details: 'Easily test and find the most suitable username for your next endevour.',
     image: require('../resources/sun.svg'),
   },
   {
     id: 'platforms',
-    header: (
-      <FormattedMessage
-        id="whyUs.row.platforms.header"
-        defaultMessage="One click to see them all"
-      />
-    ),
-    details: (
-      <FormattedMessage
-        id="whyUs.row.platforms.details"
-        defaultMessage="Instantly search on 100+ platforms for your username. Register the same username everywhere."
-      />
-    ),
+    header: 'One click to see them all',
+    details:
+      'Instantly search on more than 100 platforms for your next username. Register the same username on every social media platform to get easily recognized.',
     image: require('../resources/telescope.svg'),
   },
   {
     id: 'instant',
-    header: <FormattedMessage id="whyUs.row.instant.header" defaultMessage="Ready to start?" />,
-    details: (
-      <FormattedMessage
-        id="whyUs.row.instant.details"
-        defaultMessage="So, you found your new username and would love to register them? Let us do the dirty work for you! (Coming soon)"
-      />
-    ),
+    header: 'Ready to start?',
+    details:
+      'So, you found your new username and would love to register them? Let us do the dirty work for you! (Coming soon)',
     image: require('../resources/space-shuttle-2.svg'),
   },
 ];

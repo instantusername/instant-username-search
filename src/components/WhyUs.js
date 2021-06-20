@@ -8,7 +8,7 @@ export default function WhyUs({ headerConfig, rows }) {
       {headerConfig?.enabled && (
         <div className="whyus-header">
           <h2>{headerConfig?.headerText}</h2>
-          <h3>{headerConfig?.subText}</h3>
+          <p>{headerConfig?.subText}</p>
         </div>
       )}
 
