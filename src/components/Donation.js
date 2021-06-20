@@ -38,7 +38,7 @@ export default function Donation() {
           </a>
         </div>
         <div className="donation-option">
-          <a target="_blank" rel="noopener noreferrer" href="#">
+          <a target="_blank" rel="noopener noreferrer" href="https://instantusername.com/#/">
             <Card className="donation-card" hoverable>
               <img src={require('../resources/bitcoin.svg')} alt="Buy me a coffee!" />
               <span>Donate cryptocurrency</span>
