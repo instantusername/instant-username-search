@@ -46,16 +46,28 @@ export default function App({ match }) {
     let content;
 
     if (username.length > 0) {
-      content = <Results username={username} services={services} />;
+      content = (
+        <div className="container" id="content">
+          <Results username={username} services={services} />;
+        </div>
+      );
     } else {
       // search is empty, show the page content
       switch (page) {
         case 'privacy':
-          content = <Privacy />;
+          content = (
+            <div className="container" id="content">
+              <Privacy />
+            </div>
+          );
           break;
         case 'terms':
           //terms and conditions
-          content = <Terms />;
+          content = (
+            <div className="container" id="content">
+              <Terms />
+            </div>
+          );
           break;
         default:
           content = <LandingPage />;
