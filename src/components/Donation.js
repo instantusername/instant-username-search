@@ -1,6 +1,5 @@
 import React from 'react';
 import { Card } from 'antd';
-import { FormattedMessage } from 'react-intl';
 
 import '../styles/Donation.css';
 
