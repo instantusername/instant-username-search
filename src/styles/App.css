@@ -25,6 +25,7 @@ hr {
   height: 25vh;
   display: flex;
   align-items: center;
+  height: 40vh;
 }
 
 #content {
@@ -38,9 +39,6 @@ hr {
 }
 
 @media (max-width: 768px) {
-  #jumbotron {
-    height: 25vh;
-  }
   #content {
     min-height: 52vh;
   }

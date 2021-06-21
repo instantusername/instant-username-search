@@ -32,34 +32,55 @@
   font-size: 4rem !important;
 }
 
-@media (max-width: 768px) {
+.ant-input-suffix svg {
+  font-size: 0.8rem;
+}
+
+@media (max-width: 360px) {
   .header {
     margin-bottom: 0.5rem;
   }
   .header h1 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
   .anticon-thunderbolt {
     font-size: 2.4rem !important;
   }
   .ant-input.ant-input-lg {
-    font-size: 0.8rem;
-    height: 1.6rem !important;
+    font-size: 1rem;
+    height: 2.1rem !important;
   }
 }
+
+@media (min-width: 360px) {
+  .header {
+    margin-bottom: 0.5rem;
+  }
+  .header h1 {
+    font-size: 1.45rem;
+  }
+  .anticon-thunderbolt {
+    font-size: 3rem !important;
+  }
+  .ant-input.ant-input-lg {
+    font-size: 1.05rem;
+    height: 2.1rem !important;
+  }
+}
+
 @media (min-width: 768px) {
   .header {
     margin-bottom: 1rem;
   }
   .header h1 {
-    font-size: 1.6rem;
+    font-size: 2.1rem;
   }
   .anticon-thunderbolt {
-    font-size: 3.2rem !important;
+    font-size: 3.7rem !important;
   }
   .ant-input.ant-input-lg {
-    font-size: 1rem;
-    height: 2rem !important;
+    font-size: 1.3rem;
+    height: 2.6rem !important;
   }
 }
 @media (min-width: 992px) {
