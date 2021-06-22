@@ -22,10 +22,9 @@ hr {
 }
 
 #jumbotron {
-  height: 25vh;
+  height: 40vh;
   display: flex;
   align-items: center;
-  height: 40vh;
 }
 
 #content {
@@ -39,6 +38,11 @@ hr {
 }
 
 @media (max-width: 768px) {
+  #jumbotron {
+    height: 30vh;
+    display: flex;
+    align-items: center;
+  }
   #content {
     min-height: 52vh;
   }
