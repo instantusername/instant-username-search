@@ -22,7 +22,7 @@ const whyUsRows = [
   },
   {
     id: 'platforms',
-    header: 'One click to see them all',
+    header: 'One tool to check them all',
     details:
       'Instantly search on more than 100 platforms for your next username. Register the same username on every social media platform to get easily recognized.',
     image: require('../resources/telescope.svg'),
