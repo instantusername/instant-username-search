@@ -17,7 +17,7 @@
 }
 
 .whyus-header p {
-  color: #4a4a4a;
+  color: #333333;
   font-weight: 300;
   line-height: 1.5rem;
   font-size: 20px;
@@ -76,11 +76,11 @@
   }
 
   .whyus-header h2 {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
 
   .whyus-header p {
-    font-size: unset;
+    font-size: 1.15rem;
   }
 
   .whyus-row,
@@ -100,7 +100,7 @@
   .whyus-column {
     width: 100%;
     text-align: center;
-    font-size: 0.8rem;
+    font-size: 1.1rem;
   }
 
   .whyus-column img {
@@ -108,7 +108,7 @@
   }
 
   .whyus-column h3 {
-    font-size: 1.15rem;
+    font-size: 1.4rem;
     margin-top: 1.2rem;
   }
 }

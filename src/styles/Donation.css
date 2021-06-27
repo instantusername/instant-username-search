@@ -33,6 +33,7 @@
 .donation-optionsRow {
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
 }
 
 .donation-option .cryptocurrency {
@@ -58,13 +59,18 @@
   text-align: center;
 }
 
-@media (max-width: 790px) {
+.donation-content {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
   .donation-illustration img {
     width: 9rem;
   }
 
   .donation-container h2 {
-    font-size: 1.15rem;
+    font-size: 1.4rem;
     line-height: unset;
     margin-top: 1.2rem;
     margin-bottom: 0.5em;
@@ -73,7 +79,7 @@
   .donation-body p {
     font-weight: unset;
     line-height: unset;
-    font-size: 0.8rem;
+    font-size: 1.1rem;
   }
 
   #donations {
@@ -84,16 +90,16 @@
   .donation-illustration {
     margin-bottom: unset;
   }
-}
 
-@media (max-width: 490px) {
   .donation-optionsRow {
-    grid-template-columns: unset;
-    min-height: 300px;
+    flex-direction: column;
   }
 
   .donation-option {
     width: 80%;
-    margin: 0 auto;
+  }
+
+  .donation-option:not(:last-child) {
+    margin-bottom: 1rem;
   }
 }

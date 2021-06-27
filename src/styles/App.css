@@ -46,9 +46,6 @@ hr {
   #content {
     min-height: 52vh;
   }
-  #footer {
-    height: 23vh;
-  }
 }
 @media (min-width: 768px) {
   .container {

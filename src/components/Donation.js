@@ -26,19 +26,20 @@ export default function Donation() {
             href="https://www.buymeacoffee.com/1ulP4IGFm"
           >
             <Card className="donation-card" hoverable>
-              <img
-                src="https://www.buymeacoffee.com/assets/img/BMC-btn-logo.svg"
-                alt="Buy me a coffee!"
-              />
-              <span>Buy us a coffee!</span>
+              <div className="donation-content">
+                <img src={require('../resources/bmc-coffee.svg')} alt="Buy me a coffee!" />
+                <span>Buy us a coffee!</span>
+              </div>
             </Card>
           </a>
         </div>
         <div className="donation-option">
           <a target="_blank" rel="noopener noreferrer" href="https://instantusername.com/#/">
-            <Card className="donation-card" hoverable>
-              <img src={require('../resources/bitcoin.svg')} alt="Buy me a coffee!" />
-              <span>Donate cryptocurrency</span>
+            <Card hoverable>
+              <div className="donation-content">
+                <img src={require('../resources/bitcoin.svg')} alt="Donate cryptocurrency" />
+                <span>Donate cryptocurrency</span>
+              </div>
             </Card>
           </a>
         </div>

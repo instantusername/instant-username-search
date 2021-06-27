@@ -103,7 +103,7 @@
 
   .newsletterSubscription-input {
     width: 100%;
-    transform: scale(0.8);
+    transform: scale(0.9);
   }
 
   .newsletterSubscription-illustration img {
@@ -118,12 +118,12 @@
   }
 
   .newsletterSubscription-body h2 {
-    font-size: 1.15rem;
+    font-size: 1.4rem;
     line-height: unset;
   }
 
   .newsletterSubscription-body p {
-    font-size: 0.75rem;
+    font-size: 1.1rem;
     line-height: unset;
   }
 }
