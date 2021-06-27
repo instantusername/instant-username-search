@@ -60,7 +60,29 @@
 
 @media (max-width: 790px) {
   .donation-illustration img {
-    width: 210px;
+    width: 9rem;
+  }
+
+  .donation-container h2 {
+    font-size: 1.15rem;
+    line-height: unset;
+    margin-top: 1.2rem;
+    margin-bottom: 0.5em;
+  }
+
+  .donation-body p {
+    font-weight: unset;
+    line-height: unset;
+    font-size: 0.8rem;
+  }
+
+  #donations {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+  }
+
+  .donation-illustration {
+    margin-bottom: unset;
   }
 }
 
