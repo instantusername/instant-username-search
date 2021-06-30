@@ -36,20 +36,21 @@
 
 .newsletterSubscription-illustration img {
   position: absolute;
-  top: -1rem;
+  top: -3.5rem;
   left: 0px;
 }
 
 .newsletterSubscription-flashMessage {
-  line-height: 3em;
   font-weight: 500;
-  display: none;
+  visibility: hidden;
 }
 
 .messageReceived {
-  display: block;
-  position: absolute;
-  bottom: -35px;
+  visibility: visible;
+}
+
+.ant-newsletterInput {
+  margin-bottom: 0.5em;
 }
 
 .ant-newsletterInput.invalidInput input:focus {
@@ -68,6 +69,10 @@
 .ant-input-group-addon .ant-btn {
   border-top-right-radius: 1rem !important;
   border-bottom-right-radius: 1rem !important;
+}
+
+.newsletterSubscription-input {
+  width: 40%;
 }
 
 @media (max-width: 992px) {
@@ -90,7 +95,7 @@
   }
 
   .newsletterSubscription-input {
-    width: 60%;
+    width: 80%;
   }
 }
 
