@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card } from 'antd';
+import { Card, Tooltip } from 'antd';
 
 import '../styles/Donation.css';
 
@@ -34,14 +34,21 @@ export default function Donation() {
           </a>
         </div>
         <div className="donation-option">
-          <a target="_blank" rel="noopener noreferrer" href="https://instantusername.com/#/">
+          <Tooltip
+            title={
+              <div className="donation-btc-address-tooltip">
+                <img src={require('../resources/btcDepositAddress.png')} alt="Bitcoin Address" />
+                <span>1Mg7xc6eHqo9QsTAQeTu8DcrFHcNpTfkNa</span>
+              </div>
+            }
+          >
             <Card hoverable>
               <div className="donation-content">
                 <img src={require('../resources/bitcoin.svg')} alt="Donate cryptocurrency" />
                 <span>Donate cryptocurrency</span>
               </div>
             </Card>
-          </a>
+          </Tooltip>
         </div>
       </div>
     </div>

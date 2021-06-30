@@ -64,6 +64,10 @@
   align-items: center;
 }
 
+.donation-btc-address-tooltip {
+  text-align: center;
+}
+
 @media (max-width: 768px) {
   .donation-illustration img {
     width: 9rem;
