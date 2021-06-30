@@ -14,12 +14,12 @@
   "newsletterSubscription.subscribed": "Yay! You have subscribed to our newsletter",
   "newsletterSubscription.existing_subscription": "You already have an existing subscription to our newsletter",
   "newsletterSubscription.server_exception": "Something went wrong, we are working on it...",
-  "whyUs.header.header": "Find your next username",
-  "whyUs.header.sub": "Expand your brand across the web",
+  "whyUs.header.header": "Expand your brand across the web",
+  "whyUs.header.sub": "Find your next username",
   "whyUs.row.benefit.header": "A new idea? We got your back!",
-  "whyUs.row.benefit.details": "You can easily test & find the best suitable username for your next endevour",
+  "whyUs.row.benefit.details": "Easily test & find the most suitable username for your next endevour.",
   "whyUs.row.platforms.header": "One click to see them all",
-  "whyUs.row.platforms.details": "You can easily search on 100+ platforms for your username. Also, you can use advanced search to narrow down your results",
+  "whyUs.row.platforms.details": "Instantly search on 100+ platforms for your username. Register the same username everywhere.",
   "whyUs.row.instant.header": "Ready to start?",
-  "whyUs.row.instant.details": "So, you found your new username and would love to register them. If you like, we can automate it for you! (Coming soon)"
+  "whyUs.row.instant.details": "So, you found your new username and would love to register them? Let us do the dirty work for you!"
 }

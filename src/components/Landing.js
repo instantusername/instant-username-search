@@ -1,5 +1,4 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
 
 import WhyUs from './WhyUs';
 import NewsletterSubscription from './NewsletterSubscription';
@@ -7,103 +6,50 @@ import Donations from './Donation';
 
 import '../styles/Landing.css';
 
+const whyUsHeader = {
+  enabled: true,
+  headerText: 'Get the same username everywhere!',
+  subText:
+    'Instant Username Search will check more than 100 social media sites and let you know if your dream username is available there. Results will appear here as you type.',
+};
+
+const whyUsRows = [
+  {
+    id: 'benefits',
+    header: 'A new idea? We got your back!',
+    details: 'Easily test and find the most suitable username for your next endevour.',
+    image: require('../resources/sun.svg'),
+  },
+  {
+    id: 'platforms',
+    header: 'One tool to check them all',
+    details:
+      'Instantly search on more than 100 platforms for your next username. Register the same username on every social media platform to get easily recognized.',
+    image: require('../resources/telescope.svg'),
+  },
+  {
+    id: 'instant',
+    header: 'Ready to start?',
+    details:
+      'So, you found your new username and would love to register them? Let us do the dirty work for you! (Coming soon)',
+    image: require('../resources/space-shuttle-2.svg'),
+  },
+];
+
 export default function Landing() {
-  const whyUsHeader = {
-    enabled: true,
-    headerText: <FormattedMessage id="whyUs.header.header" default="Find your next username" />,
-    subText: (
-      <FormattedMessage id="whyUs.header.sub" defaultMessage="Expand your brand across the web" />
-    ),
-  };
-
-  const whyUsRows = [
-    {
-      id: 'benefits',
-      header: (
-        <FormattedMessage
-          id="whyUs.row.benefit.header"
-          defaultMessage="A new idea? We got your back!"
-        />
-      ),
-      details: (
-        <FormattedMessage
-          id="whyUs.row.benefit.details"
-          defaultMessage="You can easily test & find the best suitable username for your next endevour"
-        />
-      ),
-      image: require('../resources/idea.svg'),
-    },
-    {
-      id: 'platforms',
-      header: (
-        <FormattedMessage
-          id="whyUs.row.platforms.header"
-          defaultMessage="One click to see them all"
-        />
-      ),
-      details: (
-        <FormattedMessage
-          id="whyUs.row.platforms.details"
-          defaultMessage="You can easily search on 100+ platforms for your username. Also, you can use advanced search to narrow down your results"
-        />
-      ),
-      image: require('../resources/search.svg'),
-    },
-    {
-      id: 'instant',
-      header: <FormattedMessage id="whyUs.row.instant.header" defaultMessage="Ready to start?" />,
-      details: (
-        <FormattedMessage
-          id="whyUs.row.instant.details"
-          defaultMessage="So, you found your new username and would love to register them. If you like, we can automate it for you! (Coming soon)"
-        />
-      ),
-      image: require('../resources/servant.svg'),
-    },
-  ];
-
-  // const frequentlyAskedQuestions = [
-  //   {
-  //     question: 'Some question',
-  //     answer:
-  //       'Think of the name you want to register. The answer is typically your company or website name. It is best to keep your domain name short and easy to understand. Say it out loud, and make sure it sounds great. Next, search to see if it is available. If the name you desire is taken with the .com top-level domain, there are hundreds of others available. Finally, add the top choices to your cart and complete the domain registration.',
-  //   },
-  //   {
-  //     question: 'Another question',
-  //     answer:
-  //       'Think of the name you want to register. The answer is typically your company or website name. It is best to keep your domain name short and easy to understand. Say it out loud, and make sure it sounds great. Next, search to see if it is available. If the name you desire is taken with the .com top-level domain, there are hundreds of others available. Finally, add the top choices to your cart and complete the domain registration.',
-  //   },
-  //   {
-  //     question: 'Another question with another answer',
-  //     answer:
-  //       'Think of the name you want to register. The answer is typically your company or website name. It is best to keep your domain name short and easy to understand. Say it out loud, and make sure it sounds great. Next, search to see if it is available. If the name you desire is taken with the .com top-level domain, there are hundreds of others available. Finally, add the top choices to your cart and complete the domain registration.',
-  //   },
-  //   {
-  //     question: 'Another question with different answer',
-  //     answer:
-  //       'Think of the name you want to register. The answer is typically your company or website name. It is best to keep your domain name short and easy to understand. Say it out loud, and make sure it sounds great. Next, search to see if it is available. If the name you desire is taken with the .com top-level domain, there are hundreds of others available. Finally, add the top choices to your cart and complete the domain registration.',
-  //   },
-  // ];
-
   return (
-    <>
-      <div className="landing">
+    <div className="landing">
+      <div className="container" id="whyUs">
         <WhyUs headerConfig={whyUsHeader} rows={whyUsRows} />
-        <NewsletterSubscription illustrationEnabled />
-        {/* <FrequentQuestions questions={frequentlyAskedQuestions} /> */}
+      </div>
+      <div id="newsletter-wrapper">
+        <div className="container" id="newsLetter">
+          <NewsletterSubscription illustrationEnabled />
+        </div>
+      </div>
+      <div className="container" id="donations">
         <Donations />
       </div>
-
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-      <ins
-        className="adsbygoogle"
-        style={{ display: 'block' }}
-        data-ad-client="ca-pub-2749239984003144"
-        data-ad-slot="2360118035"
-        data-ad-format="auto"
-        data-full-width-responsive="true"
-      ></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </>
+    </div>
   );
 }

@@ -1,59 +1,114 @@
 .whyus-container {
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-    margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 0 auto;
 }
 .whyus-header {
-    padding: 40px 20px 40px 20px;
-    text-align: center;
+  padding: 40px 20px 40px 20px;
+  text-align: center;
+  margin-bottom: 5em;
 }
 
 .whyus-header h2 {
-    color: #4a4a4a;
-    font-weight: 500;
-    font-size: 2rem;
-    line-height: 1.5;
+  font-weight: bold;
+  font-size: 2rem;
+  line-height: 1.5;
 }
 
-.whyus-header h3 {
-    color: #8d8d8d;
-    font-weight: 300;
-    line-height: 1.5rem;
-    font-size: 1.5rem;
+.whyus-header p {
+  color: #333333;
+  font-weight: 300;
+  line-height: 1.5rem;
+  font-size: 20px;
 }
 
-.whyus-row {
-    display: flex;
-    align-items: center;
-    margin-bottom: 3em;
+.whyus-row,
+.whyus-reverse-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8rem;
 }
 
-.reverse-row {
-    flex-direction: row-reverse;
+.whyus-reverse-row {
+  flex-direction: row-reverse;
 }
 
 .whyus-column {
-    width: 50%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    font-size: 115%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 115%;
+}
+
+.whyus-image-column {
+  width: 30%;
+}
+
+.whyus-text-column {
+  width: 70%;
 }
 
 .whyus-column img {
-    max-height: 200px;
+  height: 13rem;
+}
+
+.whyus-row img {
+  margin-right: auto;
+}
+
+.whyus-reverse-row img {
+  margin-left: auto;
+}
+
+.whyus-column h3 {
+  font-size: 1.7rem;
 }
 
 @media (max-width: 768px) {
-    .reverse-row, .whyus-row {
-        flex-direction: column;
-    }
+  .whyus-container {
+    width: unset;
+  }
 
-    .whyus-column {
-        width: 100%;
-        text-align: center;
-    }
+  .whyus-header {
+    margin-bottom: 2rem;
+  }
 
+  .whyus-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .whyus-header p {
+    font-size: 1.15rem;
+  }
+
+  .whyus-row,
+  .whyus-reverse-row {
+    flex-direction: column;
+    margin-bottom: 5rem;
+  }
+
+  .whyus-row img {
+    margin-right: unset;
+  }
+
+  .whyus-reverse-row img {
+    margin-left: unset;
+  }
+
+  .whyus-column {
+    width: 100%;
+    text-align: center;
+    font-size: 1.1rem;
+  }
+
+  .whyus-column img {
+    height: 8rem;
+  }
+
+  .whyus-column h3 {
+    font-size: 1.4rem;
+    margin-top: 1.2rem;
+  }
 }

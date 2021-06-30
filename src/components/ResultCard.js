@@ -66,7 +66,7 @@ export default function ResultCard({ serviceName, checkEndpoint, spin }) {
         className={'card ' + classStatus}
         href={link}
         target={cardLoading ? undefined : '_blank'}
-        rel={cardLoading ? undefined : 'noopener noreferrer'}
+        rel="noopener noreferrer"
       >
         <div className="card-body">
           <div className="meta-title">{serviceName}</div>

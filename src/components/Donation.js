@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import { Card, Tooltip } from 'antd';
 
 import '../styles/Donation.css';
 
@@ -7,40 +7,48 @@ export default function Donation() {
   return (
     <div className="donation-container">
       <div className="donation-illustration">
-        <img src={require('../resources/thumbs-up.png')} alt="Donation illustration" />
+        <img src={require('../resources/astronaut.svg')} alt="Donation illustration" />
       </div>
       <div className="donation-body">
         <h2>Enjoying the service?</h2>
         <p>
-          We are more than happy to help you to find your online usernames with ease. In order to
-          sustain it, we are accepting donations. It will help us to pay various expenses to run
-          this service and provide it to everyone. So, if you find our service helpful please
+          We are more than happy to help you find your online usernames with ease. In order to
+          sustain the service, we are accepting donations. It will help us pay various expenses to
+          run this service and provide it to everyone for free. If you find our service helpful,
           consider supporting us!
         </p>
-        <div className="donation-optionsRow">
-          <div className="donation-option">
-            <div className="bmc">
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://www.buymeacoffee.com/1ulP4IGFm"
-              >
-                <img
-                  src="https://www.buymeacoffee.com/assets/img/BMC-btn-logo.svg"
-                  alt="Buy me a coffee!"
-                />
-                <span>
-                  <FormattedMessage id="app.coffee" defaultMessage="Buy me a coffee" />
-                </span>
-              </a>
-            </div>
-          </div>
-          <div className="donation-option">
-            <div className="cryptocurrency">
-              <img src={require('../resources/bitcoin.svg')} alt="Buy me a coffee!" />
-              Donate cryptocurrency <br></br> (Coming soon)
-            </div>
-          </div>
+      </div>
+      <div className="donation-optionsRow">
+        <div className="donation-option">
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.buymeacoffee.com/1ulP4IGFm"
+          >
+            <Card className="donation-card" hoverable>
+              <div className="donation-content">
+                <img src={require('../resources/bmc-coffee.svg')} alt="Buy me a coffee!" />
+                <span>Buy us a coffee!</span>
+              </div>
+            </Card>
+          </a>
+        </div>
+        <div className="donation-option">
+          <Tooltip
+            title={
+              <div className="donation-btc-address-tooltip">
+                <img src={require('../resources/btcDepositAddress.png')} alt="Bitcoin Address" />
+                <span>1Mg7xc6eHqo9QsTAQeTu8DcrFHcNpTfkNa</span>
+              </div>
+            }
+          >
+            <Card hoverable>
+              <div className="donation-content">
+                <img src={require('../resources/bitcoin.svg')} alt="Donate cryptocurrency" />
+                <span>Donate cryptocurrency</span>
+              </div>
+            </Card>
+          </Tooltip>
         </div>
       </div>
     </div>

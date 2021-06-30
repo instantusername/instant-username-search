@@ -4,53 +4,36 @@
 }
 
 .donation-container h2 {
-  color: #4a4a4a;
   font-weight: 500;
   font-size: 1.7rem;
   line-height: 1.2;
+  margin: 1.4rem 0;
 }
 
 .donation-illustration {
   text-align: center;
+  margin-bottom: 2.5rem;
 }
 
 .donation-illustration img {
-  width: 300px;
+  width: 12rem;
 }
 
 .donation-body {
   text-align: center;
+  margin-bottom: 3rem;
 }
 
 .donation-body p {
-  color: #8d8d8d;
   font-weight: 400;
   line-height: 1.5rem;
   font-size: 1rem;
 }
 
 .donation-optionsRow {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-column-gap: 10px;
-  min-height: 100px;
-}
-
-.donation-option {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
-  box-shadow: rgb(0 0 0 / 10%) 0px 10px 15px;
-}
-
-.donation-option .bmc > a {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.donation-option .bmc > a > img {
-  width: 60%;
 }
 
 .donation-option .cryptocurrency {
@@ -60,24 +43,67 @@
   filter: grayscale(1);
 }
 
-.donation-option .cryptocurrency > img {
-  width: 13%;
+#donations {
+  margin-top: 8rem;
+  margin-bottom: 8rem;
 }
 
-@media (max-width: 790px) {
+.donation-option img {
+  height: 2rem;
+  width: 2rem;
+  margin: 0.2rem;
+}
+
+.donation-option {
+  width: 27%;
+  text-align: center;
+}
+
+.donation-content {
+  display: flex;
+  align-items: center;
+}
+
+.donation-btc-address-tooltip {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
   .donation-illustration img {
-    width: 210px;
+    width: 9rem;
   }
-}
 
-@media (max-width: 490px) {
+  .donation-container h2 {
+    font-size: 1.4rem;
+    line-height: unset;
+    margin-top: 1.2rem;
+    margin-bottom: 0.5em;
+  }
+
+  .donation-body p {
+    font-weight: unset;
+    line-height: unset;
+    font-size: 1.1rem;
+  }
+
+  #donations {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+  }
+
+  .donation-illustration {
+    margin-bottom: unset;
+  }
+
   .donation-optionsRow {
-    grid-template-columns: unset;
-    min-height: 300px;
+    flex-direction: column;
   }
 
   .donation-option {
     width: 80%;
-    margin: 0 auto;
+  }
+
+  .donation-option:not(:last-child) {
+    margin-bottom: 1rem;
   }
 }
