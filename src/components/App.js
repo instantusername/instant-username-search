@@ -40,7 +40,7 @@ export default function App({ match }) {
     if (username.length > 0) {
       content = (
         <div className="container" id="content">
-          <Results username={username} services={services} />;
+          <Results username={username} services={services} />
         </div>
       );
     } else {
