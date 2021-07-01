@@ -1,5 +1,4 @@
-import React, { useState, useCallback } from 'react';
-import { FormattedMessage } from 'react-intl';
+import React, { useState, useCallback, useEffect } from 'react';
 import { Input } from 'antd';
 
 import { validateEmail } from '../utils/validators';
@@ -9,6 +8,7 @@ import '../styles/NewsletterSubscription.css';
 
 export default function NewsletterSubscription({ illustrationEnabled = false }) {
   const [subscriptionInfo, setSubscriptionInfo] = useState(null);
+  const [subscriptionMessage, setSubscriptionMessage] = useState('');
   const [isInputValid, setInputValid] = useState(true);
 
   const handleNewsletterSubscription = useCallback(async email => {
@@ -46,6 +46,26 @@ export default function NewsletterSubscription({ illustrationEnabled = false }) 
     }, 2000);
   }, []);
 
+  useEffect(() => {
+    // const { message } = subscriptionInfo;
+    switch (subscriptionInfo?.message) {
+      case 'subscribed':
+        setSubscriptionMessage('Yay! You have subscribed to our newsletter');
+        break;
+      case 'existing_subscription':
+        setSubscriptionMessage('You already have an existing subscription to our newsletter');
+        break;
+      case 'server_exception':
+        setSubscriptionMessage('Something went wrong, we are working on it...');
+        break;
+      default:
+        setSubscriptionMessage('An error happened ¯\\_(ツ)_/¯');
+        break;
+    }
+  }, [subscriptionInfo]);
+
+  console.log();
+
   return (
     <div className="newsletterSubscription-container">
       {illustrationEnabled && (
@@ -73,10 +93,7 @@ export default function NewsletterSubscription({ illustrationEnabled = false }) 
             subscriptionInfo ? 'messageReceived' : ''
           }`}
         >
-          <FormattedMessage
-            id={`newsletterSubscription.${subscriptionInfo?.message}`}
-            defaultMessage="Unkown error occured"
-          />
+          {subscriptionMessage}
         </span>
       </div>
     </div>

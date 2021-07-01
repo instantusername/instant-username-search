@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState, useMemo } from 'react';
-import { FormattedMessage } from 'react-intl';
 import '../styles/ResultCard.css';
 
 export default function ResultCard({ serviceName, checkEndpoint, spin }) {
@@ -45,7 +44,7 @@ export default function ResultCard({ serviceName, checkEndpoint, spin }) {
   return useMemo(() => {
     const cardLoading = spin || isLoading;
     let classStatus = 'loading';
-    let description = <FormattedMessage id="card.loading" defaultMessage="Checking..." />;
+    let description = 'Checking...';
     let link;
 
     if (!cardLoading && response) {
@@ -53,10 +52,10 @@ export default function ResultCard({ serviceName, checkEndpoint, spin }) {
       // and the result is fetched already
       if (response.available) {
         classStatus = 'available';
-        description = <FormattedMessage id="card.available" defaultMessage="Available" />;
+        description = 'Available';
       } else {
         classStatus = 'taken';
-        description = <FormattedMessage id="card.taken" defaultMessage="Taken" />;
+        description = 'Taken';
       }
       link = response.url;
     }

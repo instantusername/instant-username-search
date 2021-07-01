@@ -1,6 +1,5 @@
 import React, { useMemo } from 'react';
 import { Input, Icon } from 'antd';
-import { FormattedMessage } from 'react-intl';
 import { Link } from 'react-router-dom';
 // TODO: use styled components instead
 import '../styles/Search.css';
@@ -27,22 +26,17 @@ export default function Search({ input, onChange }) {
         >
           <div className="header">
             <Icon type="thunderbolt" theme="filled" />
-            <h1>
-              <FormattedMessage id="app.name" defaultMessage="Instant Username Search" />
-            </h1>
+            <h1>{'Instant Username Search'}</h1>
           </div>
         </Link>
-        <FormattedMessage id="app.search.placeholder" defaultMessage="Search username">
-          {placeholder => (
-            <Input
-              placeholder={placeholder}
-              size="large"
-              allowClear
-              value={input}
-              onChange={inputChanged}
-            />
-          )}
-        </FormattedMessage>
+        <Input
+          placeholder={'Search username'}
+          size="large"
+          allowClear
+          value={input}
+          onChange={inputChanged}
+          autoFocus
+        />
       </div>
     );
     // eslint-disable-next-line
