@@ -45,7 +45,7 @@ export default function Donation() {
             <Card hoverable>
               <div className="donation-content">
                 <img src={require('../resources/bitcoin.svg')} alt="Donate cryptocurrency" />
-                <span>Donate cryptocurrency</span>
+                <span>Donate Bitcoin</span>
               </div>
             </Card>
           </Tooltip>

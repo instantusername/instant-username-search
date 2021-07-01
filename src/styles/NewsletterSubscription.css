@@ -69,6 +69,7 @@
 .ant-input-group-addon .ant-btn {
   border-top-right-radius: 1rem !important;
   border-bottom-right-radius: 1rem !important;
+  min-width: 6rem !important;
 }
 
 .newsletterSubscription-input {

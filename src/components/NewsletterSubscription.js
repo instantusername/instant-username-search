@@ -10,15 +10,18 @@ export default function NewsletterSubscription({ illustrationEnabled = false }) 
   const [subscriptionInfo, setSubscriptionInfo] = useState(null);
   const [subscriptionMessage, setSubscriptionMessage] = useState('');
   const [isInputValid, setInputValid] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const handleNewsletterSubscription = useCallback(async email => {
     if (!email || !validateEmail(email)) {
       setInputValid(false);
+      setSubscriptionInfo({ message: 'invalid' });
 
       return;
     }
 
     setInputValid(true);
+    setLoading(true);
 
     let subscriptionStatus;
 
@@ -44,6 +47,8 @@ export default function NewsletterSubscription({ illustrationEnabled = false }) 
     setTimeout(() => {
       setSubscriptionInfo(null);
     }, 2000);
+
+    setLoading(false);
   }, []);
 
   useEffect(() => {
@@ -57,6 +62,9 @@ export default function NewsletterSubscription({ illustrationEnabled = false }) 
         break;
       case 'server_exception':
         setSubscriptionMessage('Something went wrong, we are working on it...');
+        break;
+      case 'invalid':
+        setSubscriptionMessage('Email seems to be invalid.');
         break;
       default:
         setSubscriptionMessage('An error happened ¯\\_(ツ)_/¯');
@@ -87,6 +95,8 @@ export default function NewsletterSubscription({ illustrationEnabled = false }) 
           placeholder="Your mail address"
           enterButton="Subscribe"
           onSearch={handleNewsletterSubscription}
+          loading={loading}
+          disabled={loading}
         ></Input.Search>
         <span
           className={`newsletterSubscription-flashMessage ${
