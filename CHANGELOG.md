@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.5.1 (2021-07-01)
+
+
+### Bug Fixes
+
+* remove semicolon ([758be85](https://github.com/instant-username-search/instant-username-search/commit/758be85fa0c2b675eae13bac9e15417f011590e4))
+
 ## 1.5.0 (2021-07-01)
 
 
