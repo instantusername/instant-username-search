@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 1.5.0 (2021-07-01)
+
+
+### Features
+
+* 🎸 landing page's interface revamped ([#55](https://github.com/instant-username-search/instant-username-search/issues/55)) ([e10b5d6](https://github.com/instant-username-search/instant-username-search/commit/e10b5d6e032dcf3f503e3d9792b9498fcbe14ab9)), closes [#56](https://github.com/instant-username-search/instant-username-search/issues/56)
+
 ### 1.4.24 (2021-06-25)
 
 ### 1.4.23 (2021-06-14)
