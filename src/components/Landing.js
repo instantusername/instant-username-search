@@ -1,44 +1,55 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+
+import WhyUs from './WhyUs';
+import NewsletterSubscription from './NewsletterSubscription';
+import Donations from './Donation';
+
 import '../styles/Landing.css';
-import astronaut from '../resources/astronaut.svg';
+
+const whyUsHeader = {
+  enabled: true,
+  headerText: 'Get the same username everywhere!',
+  subText:
+    'Instant Username Search will check more than 100 social media sites and let you know if your dream username is available there. Results will appear here as you type.',
+};
+
+const whyUsRows = [
+  {
+    id: 'benefits',
+    header: 'A new idea? We got your back!',
+    details: 'Easily test and find the most suitable username for your next endevour.',
+    image: require('../resources/sun.svg'),
+  },
+  {
+    id: 'platforms',
+    header: 'One tool to check them all',
+    details:
+      'Instantly search on more than 100 platforms for your next username. Register the same username on every social media platform to get easily recognized.',
+    image: require('../resources/telescope.svg'),
+  },
+  {
+    id: 'instant',
+    header: 'Ready to start?',
+    details:
+      'So, you found your new username and would love to register them? Let us do the dirty work for you! (Coming soon)',
+    image: require('../resources/space-shuttle-2.svg'),
+  },
+];
 
 export default function Landing() {
   return (
-    <>
-      <div className="landing">
-        <div className="astronaut">
-          <img alt="astronaut" id="astronaut" src={astronaut} />
-        </div>
-        <div className="intro">
-          <h2>
-            <FormattedMessage
-              id="app.description.title"
-              defaultMessage="Check username availability as you type"
-              description="Description title on main page"
-            />
-          </h2>
-          <p>
-            <FormattedMessage
-              id="app.description.body"
-              defaultMessage="{appName} will check more than 100 social media sites for you. Results will appear here as you type!"
-              description="Description body on main page"
-              values={{ appName: 'Instant Username Search' }}
-            />
-          </p>
+    <div className="landing">
+      <div className="container" id="whyUs">
+        <WhyUs headerConfig={whyUsHeader} rows={whyUsRows} />
+      </div>
+      <div id="newsletter-wrapper">
+        <div className="container" id="newsLetter">
+          <NewsletterSubscription illustrationEnabled />
         </div>
       </div>
-
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-      <ins
-        className="adsbygoogle"
-        style={{ display: 'block' }}
-        data-ad-client="ca-pub-2749239984003144"
-        data-ad-slot="2360118035"
-        data-ad-format="auto"
-        data-full-width-responsive="true"
-      ></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </>
+      <div className="container" id="donations">
+        <Donations />
+      </div>
+    </div>
   );
 }

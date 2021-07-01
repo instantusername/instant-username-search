@@ -1,0 +1,109 @@
+.donation-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.donation-container h2 {
+  font-weight: 500;
+  font-size: 1.7rem;
+  line-height: 1.2;
+  margin: 1.4rem 0;
+}
+
+.donation-illustration {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.donation-illustration img {
+  width: 12rem;
+}
+
+.donation-body {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.donation-body p {
+  font-weight: 400;
+  line-height: 1.5rem;
+  font-size: 1rem;
+}
+
+.donation-optionsRow {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.donation-option .cryptocurrency {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  filter: grayscale(1);
+}
+
+#donations {
+  margin-top: 8rem;
+  margin-bottom: 8rem;
+}
+
+.donation-option img {
+  height: 2rem;
+  width: 2rem;
+  margin: 0.2rem;
+}
+
+.donation-option {
+  width: 27%;
+  text-align: center;
+}
+
+.donation-content {
+  display: flex;
+  align-items: center;
+}
+
+.donation-btc-address-tooltip {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .donation-illustration img {
+    width: 9rem;
+  }
+
+  .donation-container h2 {
+    font-size: 1.4rem;
+    line-height: unset;
+    margin-top: 1.2rem;
+    margin-bottom: 0.5em;
+  }
+
+  .donation-body p {
+    font-weight: unset;
+    line-height: unset;
+    font-size: 1.1rem;
+  }
+
+  #donations {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+  }
+
+  .donation-illustration {
+    margin-bottom: unset;
+  }
+
+  .donation-optionsRow {
+    flex-direction: column;
+  }
+
+  .donation-option {
+    width: 80%;
+  }
+
+  .donation-option:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+}

@@ -6,13 +6,6 @@
     float: left;
 }
 
-.coffee{
-    display: inline-flex;
-}
-.coffee a{
-    margin-right: 1rem;
-}
-
 .languages, .vessel{
     display: block;
     width: auto !important;

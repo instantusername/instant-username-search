@@ -1,0 +1,135 @@
+.newsletterSubscription-container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding-top: 5em;
+  padding-bottom: 3em;
+  border-radius: 0.5em;
+  justify-content: space-between;
+}
+
+.newsletterSubscription-body h2 {
+  font-weight: 500;
+  font-size: 1.7rem;
+  line-height: 1.2;
+}
+
+.newsletterSubscription-body p {
+  font-weight: 400;
+  line-height: 1.5rem;
+  font-size: 1rem;
+}
+
+.newsletterSubscription-body {
+  max-width: 270px;
+  margin-right: 2em;
+}
+
+.newsletterSubscription-illustration {
+  width: 280px;
+}
+
+.newsletterSubscription-imageWrapper {
+  position: relative;
+  height: 200px;
+}
+
+.newsletterSubscription-illustration img {
+  position: absolute;
+  top: -3.5rem;
+  left: 0px;
+}
+
+.newsletterSubscription-flashMessage {
+  font-weight: 500;
+  visibility: hidden;
+}
+
+.messageReceived {
+  visibility: visible;
+}
+
+.ant-newsletterInput {
+  margin-bottom: 0.5em;
+}
+
+.ant-newsletterInput.invalidInput input:focus {
+  border-color: red;
+}
+
+#newsletter-wrapper {
+  background: #e4ffee;
+}
+
+.ant-input-group .ant-input {
+  border-top-left-radius: 1rem !important;
+  border-bottom-left-radius: 1rem !important;
+}
+.ant-input-group-addon,
+.ant-input-group-addon .ant-btn {
+  border-top-right-radius: 1rem !important;
+  border-bottom-right-radius: 1rem !important;
+  min-width: 6rem !important;
+}
+
+.newsletterSubscription-input {
+  width: 40%;
+}
+
+@media (max-width: 992px) {
+  .newsletterSubscription-container {
+    flex-direction: column;
+    box-shadow: unset;
+  }
+
+  .newsletterSubscription-body {
+    max-width: unset;
+    margin-right: unset;
+    text-align: center;
+  }
+
+  .newsletterSubscription-illustration img {
+    top: -88px;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+
+  .newsletterSubscription-input {
+    width: 80%;
+  }
+}
+
+@media (max-width: 660px) {
+  .newsletterSubscription-container {
+    margin-top: 4rem;
+    padding-top: unset;
+    padding-bottom: 2rem;
+  }
+
+  .newsletterSubscription-input {
+    width: 100%;
+    transform: scale(0.9);
+  }
+
+  .newsletterSubscription-illustration img {
+    top: -55px;
+    transform: translateX(14px);
+  }
+
+  .newsletterSubscription-illustration {
+    height: 10rem;
+    width: 10rem;
+    margin-bottom: -1.4rem;
+  }
+
+  .newsletterSubscription-body h2 {
+    font-size: 1.4rem;
+    line-height: unset;
+  }
+
+  .newsletterSubscription-body p {
+    font-size: 1.1rem;
+    line-height: unset;
+  }
+}
