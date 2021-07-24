@@ -8,10 +8,10 @@ class Footer extends Component {
     return (
       <footer className="footer">
         <div className="vessel pull-left">
-          <a href="https://github.com/umutcanbolat/instant-username-search/blob/master/LICENSE">
+          <a href="https://github.com/instantusername/instant-username-search/blob/master/LICENSE">
             {'© ' + new Date().getFullYear() + ' GPL 3.0'}
           </a>
-          <a href="https://github.com/umutcanbolat/instant-username-search/">Fork on GitHub</a>
+          <a href="https://github.com/instantusername/instant-username-search/">Fork on GitHub</a>
           <Link to={'/privacy'}>Privacy</Link>
           <Link to={'/terms'}>Terms</Link>
           <a href="mailto:help@instantusername.com">Contact</a>
