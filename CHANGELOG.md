@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.5.3 (2021-07-28)
+
+
+### Bug Fixes
+
+* 🐛 lint error resolved ([aa76420](https://github.com/instantusername/instant-username-search/commit/aa76420b719ef492c6cf4281233bc4b0b2a1d849))
+
 ### 1.5.2 (2021-07-25)
 
 ### 1.5.1 (2021-07-01)
