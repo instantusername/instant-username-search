@@ -15,10 +15,11 @@ export default function ResultCard({ serviceName, checkEndpoint, spin }) {
         setIsCardVisible(true);
       }
     });
+    const element = cardRef.current;
 
-    observer.observe(cardRef.current);
+    observer.observe(element);
     return () => {
-      observer.unobserve(cardRef.current);
+      observer.unobserve(element);
     };
   }, []);
 
