@@ -1,10 +1,26 @@
 /* eslint-disable react/prop-types */
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useEffect, useState, useMemo, useRef } from 'react';
 import '../styles/ResultCard.css';
+import { observeElement } from '../utils/observerUtil';
 
 export default function ResultCard({ serviceName, checkEndpoint, spin }) {
   const [isLoading, setIsLoading] = useState(true);
   const [response, setResponse] = useState({});
+  const [isCardVisible, setIsCardVisible] = useState(false);
+  const cardRef = useRef();
+
+  useEffect(() => {
+    const observer = observeElement(([entry]) => {
+      if (entry.isIntersecting) {
+        setIsCardVisible(true);
+      }
+    });
+
+    observer.observe(cardRef.current);
+    return () => {
+      observer.unobserve(cardRef.current);
+    };
+  }, []);
 
   useEffect(() => {
     // instantiniate a new controller for this cycle
@@ -13,7 +29,7 @@ export default function ResultCard({ serviceName, checkEndpoint, spin }) {
 
     const checkUrl = window.apiUrl + checkEndpoint;
 
-    if (!spin) {
+    if (!spin && isCardVisible) {
       async function fetchAvailability() {
         setIsLoading(true);
 
@@ -39,7 +55,7 @@ export default function ResultCard({ serviceName, checkEndpoint, spin }) {
         controller.abort();
       }
     };
-  }, [checkEndpoint, spin]);
+  }, [checkEndpoint, spin, isCardVisible]);
 
   return useMemo(() => {
     const cardLoading = spin || isLoading;
@@ -62,6 +78,7 @@ export default function ResultCard({ serviceName, checkEndpoint, spin }) {
 
     return (
       <a
+        ref={cardRef}
         className={'card ' + classStatus}
         href={link}
         target={cardLoading ? undefined : '_blank'}
