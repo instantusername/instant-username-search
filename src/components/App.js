@@ -84,5 +84,5 @@ export default function App({ match }) {
       </>
     );
     // eslint-disable-next-line
-  }, [username, page]);
+  }, [username, services, page]);
 }
