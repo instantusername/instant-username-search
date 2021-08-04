@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 1.6.0 (2021-08-04)
+
+
+### Features
+
+* show spinner while /services call is made ([9af80f5](https://github.com/instantusername/instant-username-search/commit/9af80f58592bf7bd75d6febf4690842b4b80e336))
+
 ### 1.5.3 (2021-07-28)
 
 
