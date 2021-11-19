@@ -16,6 +16,7 @@ window.apiUrl = process.env.REACT_APP_API_URL;
 export default function App({ match }) {
   const { page } = match.params;
   const [services, setServices] = useState([]);
+  const [filteredServices, setFilteredServices] = useState();
   const [username, setUsername] = useState('');
 
   const fetchServices = async () => {
@@ -33,6 +34,12 @@ export default function App({ match }) {
     setUsername(text);
   };
 
+  // Can not listen localstorage changes on the same window
+  // Had to use callback
+  const onFilterChange = filters => {
+    setFilteredServices(filters);
+  };
+
   return useMemo(() => {
     // main content of page
     let content;
@@ -40,7 +47,7 @@ export default function App({ match }) {
     if (username.length > 0) {
       content = (
         <div className="container" id="content">
-          <Results username={username} services={services} />
+          <Results username={username} services={services} filteredServices={filteredServices} />
         </div>
       );
     } else {
@@ -71,7 +78,12 @@ export default function App({ match }) {
       <>
         <div className="jumbotron">
           <div className="container" id="jumbotron">
-            <Search input={username} onChange={inputChanged} />
+            <Search
+              input={username}
+              onChange={inputChanged}
+              onFilterChange={onFilterChange}
+              services={services}
+            />
           </div>
         </div>
         {content}

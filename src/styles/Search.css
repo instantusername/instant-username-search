@@ -16,6 +16,21 @@
   margin-right: auto;
 }
 
+.advancedSearchWrapper {
+  color: white;
+  font-size: 1.125rem;
+  padding: 0.25em;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.targetSelector {
+  width: 100%;
+  background: transparent;
+}
+
 .header {
   display: flex;
   flex-direction: row;
