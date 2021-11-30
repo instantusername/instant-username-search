@@ -1,4 +1,4 @@
-import React, { useMemo, useRef, useEffect, useState } from 'react';
+import React, { useMemo, useRef, useEffect, useState, useCallback } from 'react';
 import { Input, Icon, Select, Button } from 'antd';
 import { Link } from 'react-router-dom';
 import { SettingOutlined } from '@ant-design/icons';
@@ -16,28 +16,33 @@ export default function Search({ input, onChange, services, onFilterChange }) {
     onFilterChange(selectedObjects);
   }, [onFilterChange, selectedObjects]);
 
-  const prettifyInput = input => {
+  const prettifyInput = useCallback(input => {
     // niceInput is the url friendly version of the input
     return input.replace(/[^a-zA-Z0-9-_.]/g, '');
-  };
+  }, []);
 
-  const inputChanged = ({ target }) => {
-    onChange(prettifyInput(target.value));
-  };
+  const inputChanged = useCallback(
+    ({ target }) => {
+      onChange(prettifyInput(target.value));
+    },
+    [onChange, prettifyInput],
+  );
 
-  const clearInput = () => {
-    onChange('');
-  };
+  const findServiceObjects = useCallback(
+    selections => {
+      return services?.filter(s => selections?.includes(s.service));
+    },
+    [services],
+  );
 
-  const findServiceObjects = selections => {
-    return services?.filter(s => selections?.includes(s.service));
-  };
-
-  const onSearchTargetChange = values => {
-    setFilters(values);
-    setSelectedObjects(findServiceObjects(values));
-    clearInput();
-  };
+  const onSearchTargetChange = useCallback(
+    values => {
+      setFilters(values);
+      setSelectedObjects(findServiceObjects(values));
+      onChange('');
+    },
+    [onChange, setSelectedObjects, setFilters, findServiceObjects],
+  );
 
   const onSearchOptionButtonClick = () => {
     setFilterActive(oldState => !oldState);
@@ -49,7 +54,7 @@ export default function Search({ input, onChange, services, onFilterChange }) {
         <Link
           to={'/'}
           onClick={() => {
-            clearInput();
+            onChange('');
           }}
         >
           <div className="header">
@@ -69,7 +74,7 @@ export default function Search({ input, onChange, services, onFilterChange }) {
         />
       </>
     );
-  }, [input]);
+  }, [input, onChange, inputChanged]);
 
   const filterContent = useMemo(() => {
     return (
@@ -92,7 +97,7 @@ export default function Search({ input, onChange, services, onFilterChange }) {
         </Button>
       </>
     );
-  }, [services]);
+  }, [services, filters, onSearchTargetChange]);
 
   const filterContentWrapper = useMemo(() => {
     return (

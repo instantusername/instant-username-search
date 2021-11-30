@@ -12,7 +12,7 @@ export default function Results({ username, services, filteredServices }) {
       (selectedServices?.length ? selectedServices : services).map(({ service: serviceName }) => (
         <ResultCard serviceName={serviceName} key={`${serviceName} spin`} spin />
       )),
-    [services],
+    [services, selectedServices],
   );
 
   // cards to render in this component
