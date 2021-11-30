@@ -16,14 +16,38 @@
   margin-right: auto;
 }
 
+.searchInput {
+  z-index: 1;
+}
+
 .advancedSearchWrapper {
+  position: relative;
+  width: 90%;
   color: white;
   font-size: 1.125rem;
   padding: 0.25em;
-  width: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
+  top: -45px;
+  transition: 0.3s;
+}
+
+.advancedSearchWrapper > div.ant-select {
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.advancedSearchWrapper.active > div.ant-select {
+  opacity: 1;
+}
+
+.advancedSearchWrapper.active {
+  top: 0;
+}
+
+.searchOptionButton {
+  margin-top: 4.5px;
 }
 
 .targetSelector {
@@ -61,10 +85,10 @@
   .anticon-thunderbolt {
     font-size: 2.4rem !important;
   }
-  .ant-input.ant-input-lg {
+  /* .ant-input.ant-input-lg {
     font-size: 0.9rem;
     height: 1.8rem !important;
-  }
+  } */
 }
 
 @media (min-width: 360px) {
@@ -77,10 +101,10 @@
   .anticon-thunderbolt {
     font-size: 3rem !important;
   }
-  .ant-input.ant-input-lg {
+  /* .ant-input.ant-input-lg {
     font-size: 1.05rem;
     height: 2.1rem !important;
-  }
+  } */
 }
 
 @media (min-width: 768px) {
@@ -93,10 +117,10 @@
   .anticon-thunderbolt {
     font-size: 3.7rem !important;
   }
-  .ant-input.ant-input-lg {
+  /* .ant-input.ant-input-lg {
     font-size: 1.3rem;
     height: 2.6rem !important;
-  }
+  } */
 }
 @media (min-width: 992px) {
   .header {
@@ -108,8 +132,8 @@
   .anticon-thunderbolt {
     font-size: 3.8rem !important;
   }
-  .ant-input.ant-input-lg {
+  /* .ant-input.ant-input-lg {
     font-size: 1.25rem;
     height: 2.7rem !important;
-  }
+  } */
 }

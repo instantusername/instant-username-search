@@ -1,14 +1,16 @@
-import React, { useMemo, useRef, useEffect } from 'react';
-import { Input, Icon, Select } from 'antd';
+import React, { useMemo, useRef, useEffect, useState } from 'react';
+import { Input, Icon, Select, Button } from 'antd';
 import { Link } from 'react-router-dom';
+import { SettingOutlined } from '@ant-design/icons';
+import useLocalStorage from '../hooks/useLocalStorage';
 // TODO: use styled components instead
 import '../styles/Search.css';
-import useLocalStorage from '../hooks/useLocalStorage';
 
 export default function Search({ input, onChange, services, onFilterChange }) {
   const inputRef = useRef();
   const [filters, setFilters] = useLocalStorage('filters', []);
   const [selectedObjects, setSelectedObjects] = useLocalStorage('filterObjects', []);
+  const [isFilterActive, setFilterActive] = useState(Boolean(selectedObjects.length));
 
   useEffect(() => {
     onFilterChange(selectedObjects);
@@ -37,6 +39,10 @@ export default function Search({ input, onChange, services, onFilterChange }) {
     clearInput();
   };
 
+  const onSearchOptionButtonClick = () => {
+    setFilterActive(oldState => !oldState);
+  };
+
   const searchContent = useMemo(() => {
     return (
       <>
@@ -53,6 +59,7 @@ export default function Search({ input, onChange, services, onFilterChange }) {
         </Link>
         <Input
           ref={inputRef}
+          className="searchInput"
           placeholder={'Search username'}
           size="large"
           allowClear
@@ -66,29 +73,37 @@ export default function Search({ input, onChange, services, onFilterChange }) {
 
   const filterContent = useMemo(() => {
     return (
-      <div className="advancedSearchWrapper">
-        <div>Limit search targets</div>
-        <Icon type="plus" />
+      <>
         <Select
           mode="multiple"
           size="large"
           className="targetSelector"
-          placeholder="Select search targets"
+          placeholder="Select sites to filter"
           onChange={onSearchTargetChange}
           defaultValue={filters}
+          allowClear
         >
           {services?.map(s => (
             <Select.Option key={s.service}>{s.service}</Select.Option>
           ))}
         </Select>
-      </div>
+        <Button className="searchOptionButton" onClick={onSearchOptionButtonClick}>
+          Options <SettingOutlined />
+        </Button>
+      </>
     );
   }, [services]);
+
+  const filterContentWrapper = useMemo(() => {
+    return (
+      <div className={`advancedSearchWrapper ${isFilterActive && 'active'}`}>{filterContent}</div>
+    );
+  }, [filterContent, isFilterActive]);
 
   return (
     <div className="search">
       {searchContent}
-      {filterContent}
+      {filterContentWrapper}
     </div>
   );
 }
