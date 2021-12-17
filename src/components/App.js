@@ -7,6 +7,7 @@ import Footer from './Footer';
 import Privacy from './Privacy';
 import Terms from './Terms';
 import LandingPage from './Landing';
+import CubeSpinner from './CubeSpinner';
 
 import 'antd/dist/antd.css';
 import '../styles/App.css';
@@ -40,7 +41,11 @@ export default function App({ match }) {
     if (username.length > 0) {
       content = (
         <div className="container" id="content">
-          <Results username={username} services={services} />
+          {services.length > 0 ? (
+            <Results username={username} services={services} />
+          ) : (
+            <CubeSpinner />
+          )}
         </div>
       );
     } else {
