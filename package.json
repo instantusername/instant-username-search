@@ -3,6 +3,9 @@
   "version": "1.6.3",
   "private": true,
   "dependencies": {
+    "@dnd-kit/core": "^4.0.3",
+    "@dnd-kit/sortable": "^5.1.0",
+    "@dnd-kit/utilities": "^3.0.2",
     "antd": "^3.12.1",
     "debounce": "^1.2.0",
     "react": "^16.7.0",
