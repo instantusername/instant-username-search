@@ -14,22 +14,36 @@ export default function SortableResultCard({ serviceName, checkEndpoint, ready =
   const [isLoading, setIsLoading] = useState(true);
   const [response, setResponse] = useState({});
 
-  const fetchAndSetResponse = useCallback(async () => {
-    await fetch(window.apiUrl + checkEndpoint)
-      .then(response => response.json())
-      .then(responseJSON => {
-        setResponse(responseJSON);
-      })
-      .catch(e => {
-        console.error(e.message);
-      });
+  const fetchAndSetResponse = useCallback(
+    async signal => {
+      await fetch(window.apiUrl + checkEndpoint, { signal })
+        .then(response => response.json())
+        .then(responseJSON => {
+          setResponse(responseJSON);
+        })
+        .catch(e => {
+          console.error(e.message);
+        });
 
-    setIsLoading(false);
-  }, [checkEndpoint]);
+      setIsLoading(false);
+    },
+    [checkEndpoint],
+  );
 
   useEffect(() => {
     setIsLoading(true);
-    ready && fetchAndSetResponse();
+
+    if (ready) {
+      const controller = new AbortController();
+      fetchAndSetResponse(controller.signal);
+
+      return () => {
+        // abort requests
+        if (controller !== undefined) {
+          controller.abort();
+        }
+      };
+    }
   }, [fetchAndSetResponse, ready]);
 
   const { state, message } = isLoading
