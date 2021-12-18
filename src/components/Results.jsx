@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import debounce from 'debounce';
-import ResultCard from './ResultCard';
-
+import SortableResultCard from './SortableResultCard';
 import '../styles/Results.css';
 
 export default function Results({ username, services, setServices }) {
@@ -25,11 +24,11 @@ export default function Results({ username, services, setServices }) {
         {services.map(({ service, endpoint }) => {
           const endpointWithUsername = endpoint.replace('{username}', effectiveUsername);
           return (
-            <ResultCard
+            <SortableResultCard
               key={service}
-              spin={effectiveUsername.length === 0}
               serviceName={service}
               checkEndpoint={endpointWithUsername}
+              ready={effectiveUsername.length > 0}
             />
           );
         })}
