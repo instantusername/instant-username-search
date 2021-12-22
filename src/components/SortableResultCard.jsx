@@ -1,4 +1,5 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback, useEffect, useRef } from 'react';
+import { observeElement } from '../utils/observerUtil';
 import '../styles/ResultCard.css';
 
 const statusMap = {
@@ -13,6 +14,22 @@ const statusMap = {
 export default function SortableResultCard({ serviceName, checkEndpoint, ready = true }) {
   const [isLoading, setIsLoading] = useState(true);
   const [response, setResponse] = useState({});
+  const [isCardVisible, setIsCardVisible] = useState(false);
+  const cardRef = useRef();
+  const previousCheckEndpoint = useRef('');
+
+  useEffect(() => {
+    const observer = observeElement(([entry]) => {
+      setIsCardVisible(entry.isIntersecting);
+    });
+    const element = cardRef.current;
+
+    observer.observe(element);
+
+    return () => {
+      observer.unobserve(element);
+    };
+  }, []);
 
   const fetchAndSetResponse = useCallback(
     async signal => {
@@ -20,31 +37,41 @@ export default function SortableResultCard({ serviceName, checkEndpoint, ready =
         .then(response => response.json())
         .then(responseJSON => {
           setResponse(responseJSON);
+          setIsLoading(false);
         })
         .catch(e => {
-          console.error(e.message);
+          if (e.name !== 'AbortError') {
+            // do not set isLoading as false when it is because of request abortion
+            setIsLoading(false);
+          }
+          console.error(e.name);
         });
-
-      setIsLoading(false);
     },
     [checkEndpoint],
   );
 
   useEffect(() => {
-    setIsLoading(true);
+    if (isCardVisible && checkEndpoint !== previousCheckEndpoint.current) {
+      setIsLoading(true);
 
-    if (ready) {
-      const controller = new AbortController();
-      fetchAndSetResponse(controller.signal);
+      if (ready) {
+        const controller = new AbortController();
+        previousCheckEndpoint.current = checkEndpoint;
+        fetchAndSetResponse(controller.signal);
 
-      return () => {
-        // abort requests
-        if (controller !== undefined) {
-          controller.abort();
-        }
-      };
+        return () => {
+          console.log('==> dif ', previousCheckEndpoint, checkEndpoint);
+          if (checkEndpoint !== previousCheckEndpoint.current) {
+            // abort requests
+            if (controller !== undefined) {
+              console.log('aborting ', checkEndpoint);
+              controller.abort();
+            }
+          }
+        };
+      }
     }
-  }, [fetchAndSetResponse, ready]);
+  }, [fetchAndSetResponse, checkEndpoint, ready, isCardVisible]);
 
   const { state, message } = isLoading
     ? statusMap.loading
@@ -52,10 +79,15 @@ export default function SortableResultCard({ serviceName, checkEndpoint, ready =
     ? statusMap.available
     : statusMap.taken;
 
-  const link = !isLoading && response?.url;
+  const link = !isLoading ? response?.url : undefined;
+
+  if (serviceName === 'Instagram') {
+    console.log(state, message, isLoading);
+  }
 
   return (
     <a
+      ref={cardRef}
       className={'card ' + state}
       href={link}
       target={isLoading ? undefined : '_blank'}
