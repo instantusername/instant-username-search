@@ -1,6 +1,5 @@
 {
     "recommendations": [
-        "coenraads.bracket-pair-colorizer-2",
         "dbaeumer.vscode-eslint",
         "eamodio.gitlens",
         "orta.vscode-jest",
