@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 1.7.0 (2022-07-02)
+
+
+### Features
+
+* meta pixel integrated ([1e2acfd](https://github.com/instantusername/instant-username-search/commit/1e2acfd7b64bcbb0eabccb02817343f468ac349d))
+
 ### 1.6.3 (2021-10-05)
 
 ### 1.6.2 (2021-10-05)
