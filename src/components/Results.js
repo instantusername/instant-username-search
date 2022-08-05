@@ -45,7 +45,11 @@ export default function Results({ username, services }) {
 
   // render cards
   return useMemo(() => {
-    return <div className="results">{services.length > 0 ? cards : <CubeSpinner />}</div>;
+    return (
+      <div className="container" id="content">
+        <div className="results">{services.length > 0 ? cards : <CubeSpinner />}</div>
+      </div>
+    );
   }, [cards, services]);
 }
 
