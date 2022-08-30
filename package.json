@@ -3,6 +3,7 @@
   "version": "1.7.2",
   "private": true,
   "dependencies": {
+    "@ant-design/icons": "^4.7.0",
     "antd": "^3.12.1",
     "debounce": "^1.2.0",
     "react": "^16.7.0",

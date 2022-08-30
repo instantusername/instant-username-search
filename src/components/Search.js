@@ -1,27 +1,60 @@
-import React, { useMemo } from 'react';
-import { Input, Icon } from 'antd';
+import React, { useMemo, useRef, useEffect, useState, useCallback } from 'react';
+import { Input, Icon, Select, Button } from 'antd';
 import { Link } from 'react-router-dom';
+import { SettingOutlined } from '@ant-design/icons';
+import useLocalStorage from '../hooks/useLocalStorage';
 // TODO: use styled components instead
 import '../styles/Search.css';
 
-export default function Search({ input, onChange }) {
-  const inputChanged = ({ target }) => {
+export default function Search({ input, onChange, services, onFilterChange }) {
+  const inputRef = useRef();
+  const [filters, setFilters] = useLocalStorage('filters', []);
+  const [selectedObjects, setSelectedObjects] = useLocalStorage('filterObjects', []);
+  const [isFilterActive, setFilterActive] = useState(Boolean(selectedObjects.length));
+
+  useEffect(() => {
+    onFilterChange(selectedObjects);
+  }, [onFilterChange, selectedObjects]);
+
+  const prettifyInput = useCallback(input => {
     // niceInput is the url friendly version of the input
-    let niceInput = target.value.replace(/[^a-zA-Z0-9-_.]/g, '');
-    onChange(niceInput);
+    return input.replace(/[^a-zA-Z0-9-_.]/g, '');
+  }, []);
+
+  const inputChanged = useCallback(
+    ({ target }) => {
+      onChange(prettifyInput(target.value));
+    },
+    [onChange, prettifyInput],
+  );
+
+  const findServiceObjects = useCallback(
+    selections => {
+      return services?.filter(s => selections?.includes(s.service));
+    },
+    [services],
+  );
+
+  const onSearchTargetChange = useCallback(
+    values => {
+      setFilters(values);
+      setSelectedObjects(findServiceObjects(values));
+      onChange('');
+    },
+    [onChange, setSelectedObjects, setFilters, findServiceObjects],
+  );
+
+  const onSearchOptionButtonClick = () => {
+    setFilterActive(oldState => !oldState);
   };
 
-  const clearInput = () => {
-    onChange('');
-  };
-
-  return useMemo(() => {
+  const searchContent = useMemo(() => {
     return (
-      <div className="search">
+      <>
         <Link
           to={'/'}
           onClick={() => {
-            clearInput();
+            onChange('');
           }}
         >
           <div className="header">
@@ -30,6 +63,8 @@ export default function Search({ input, onChange }) {
           </div>
         </Link>
         <Input
+          ref={inputRef}
+          className="searchInput"
           placeholder={'Search username'}
           size="large"
           allowClear
@@ -37,8 +72,43 @@ export default function Search({ input, onChange }) {
           onChange={inputChanged}
           autoFocus
         />
-      </div>
+      </>
     );
-    // eslint-disable-next-line
-  }, [input]);
+  }, [input, onChange, inputChanged]);
+
+  const filterContent = useMemo(() => {
+    return (
+      <>
+        <Select
+          mode="multiple"
+          size="large"
+          className="targetSelector"
+          placeholder="Select sites to filter"
+          onChange={onSearchTargetChange}
+          defaultValue={filters}
+          allowClear
+        >
+          {services?.map(s => (
+            <Select.Option key={s.service}>{s.service}</Select.Option>
+          ))}
+        </Select>
+        <Button className="searchOptionButton" onClick={onSearchOptionButtonClick}>
+          Options <SettingOutlined />
+        </Button>
+      </>
+    );
+  }, [services, filters, onSearchTargetChange]);
+
+  const filterContentWrapper = useMemo(() => {
+    return (
+      <div className={`advancedSearchWrapper ${isFilterActive && 'active'}`}>{filterContent}</div>
+    );
+  }, [filterContent, isFilterActive]);
+
+  return (
+    <div className="search">
+      {searchContent}
+      {filterContentWrapper}
+    </div>
+  );
 }

@@ -3,14 +3,16 @@ import debounce from 'debounce';
 import '../styles/Results.css';
 import ResultCard from './ResultCard';
 
-export default function Results({ username, services }) {
+export default function Results({ username, services, filteredServices }) {
+  const [selectedServices] = useState(filteredServices || []);
+
   // these are cards with loading state enabled. Create once, use many times
   const spinningCards = useMemo(
     () =>
-      services.map(({ service: serviceName }) => (
+      (selectedServices?.length ? selectedServices : services).map(({ service: serviceName }) => (
         <ResultCard serviceName={serviceName} key={`${serviceName} spin`} spin />
       )),
-    [services],
+    [services, selectedServices],
   );
 
   // cards to render in this component
@@ -18,12 +20,14 @@ export default function Results({ username, services }) {
 
   // returns real functional cards
   const createCards = (username, services) =>
-    services.map(({ service: serviceName, endpoint }) => {
-      const checkEndpoint = endpoint.replace('{username}', username);
-      return (
-        <ResultCard serviceName={serviceName} checkEndpoint={checkEndpoint} key={serviceName} />
-      );
-    });
+    (selectedServices?.length ? selectedServices : services).map(
+      ({ service: serviceName, endpoint }) => {
+        const checkEndpoint = endpoint.replace('{username}', username);
+        return (
+          <ResultCard serviceName={serviceName} checkEndpoint={checkEndpoint} key={serviceName} />
+        );
+      },
+    );
 
   // sets the cards with a debounce. This allows us not to calculate real cards while user keeps typing
   const debouncedSetCards = useCallback(

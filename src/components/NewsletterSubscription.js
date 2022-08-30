@@ -72,8 +72,6 @@ export default function NewsletterSubscription({ illustrationEnabled = false }) 
     }
   }, [subscriptionInfo]);
 
-  console.log();
-
   return (
     <div className="newsletterSubscription-container">
       {illustrationEnabled && (
