@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 1.8.0 (2022-12-23)
+
+
+### Features
+
+* 🎸 add santa hat to the thunderbolt icon ([6e8942f](https://github.com/instantusername/instant-username-search/commit/6e8942f6989f868331dec5118e409015823435e8))
+
 ### 1.7.2 (2022-07-05)
 
 ### 1.7.1 (2022-07-02)
