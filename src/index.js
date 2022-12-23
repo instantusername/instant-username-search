@@ -4,15 +4,11 @@ import './styles/index.css';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 import { HashRouter as Router, Route } from 'react-router-dom';
-import Snowfall from 'react-snowfall';
 
 ReactDOM.render(
-  <>
-    <Snowfall snowflakeCount={35} />
-    <Router>
-      <Route path="/:page?" component={App} />
-    </Router>
-  </>,
+  <Router>
+    <Route path="/:page?" component={App} />
+  </Router>,
   document.getElementById('root'),
 );
 
