@@ -25,6 +25,7 @@ export default function Search({ input, onChange }) {
           }}
         >
           <div className="header">
+            <img id="santa" src={require('../resources/santa.svg')} alt="Santa hat" />
             <Icon type="thunderbolt" theme="filled" />
             <h1>{'Instant Username Search'}</h1>
           </div>

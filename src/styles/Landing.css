@@ -13,15 +13,6 @@
   position: relative;
 }
 
-#santa {
-  width: 2.6rem;
-  height: 2.6rem;
-  position: absolute;
-  top: -1.2rem;
-  left: 2.45rem;
-  transform: rotate(11deg);
-}
-
 .landing .intro h2 {
   font-weight: bold;
 }
@@ -37,12 +28,6 @@
   .landing .astronaut {
     min-width: 5rem;
     min-height: 5rem;
-  }
-  #santa {
-    width: 2rem;
-    height: 2rem;
-    top: -1rem;
-    left: 1.8rem;
   }
 }
 @media (min-width: 1200px) {
