@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 1.9.0 (2022-12-23)
+
+
+### Features
+
+* 🎸 add snowfall effect ([5c1aa5c](https://github.com/instantusername/instant-username-search/commit/5c1aa5cb8f582d35ab950bfa17566956e2e55411))
+
 ## 1.8.0 (2022-12-23)
 
 
