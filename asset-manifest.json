@@ -1,23 +1,24 @@
 {
   "files": {
-    "main.css": "/static/css/main.faa51edc.chunk.css",
-    "main.js": "/static/js/main.be566447.chunk.js",
-    "main.js.map": "/static/js/main.be566447.chunk.js.map",
+    "main.css": "/static/css/main.d59ff47e.chunk.css",
+    "main.js": "/static/js/main.e0161f4a.chunk.js",
+    "main.js.map": "/static/js/main.e0161f4a.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.460024ab.js",
     "runtime-main.js.map": "/static/js/runtime-main.460024ab.js.map",
     "static/css/2.929389fa.chunk.css": "/static/css/2.929389fa.chunk.css",
-    "static/js/2.2148ada9.chunk.js": "/static/js/2.2148ada9.chunk.js",
-    "static/js/2.2148ada9.chunk.js.map": "/static/js/2.2148ada9.chunk.js.map",
+    "static/js/2.1cd2d080.chunk.js": "/static/js/2.1cd2d080.chunk.js",
+    "static/js/2.1cd2d080.chunk.js.map": "/static/js/2.1cd2d080.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.8c4aa443a3625c562a539d19c843fc64.js": "/precache-manifest.8c4aa443a3625c562a539d19c843fc64.js",
+    "precache-manifest.54ad607f75c281a856a8fa4386748c5e.js": "/precache-manifest.54ad607f75c281a856a8fa4386748c5e.js",
     "service-worker.js": "/service-worker.js",
     "static/css/2.929389fa.chunk.css.map": "/static/css/2.929389fa.chunk.css.map",
-    "static/css/main.faa51edc.chunk.css.map": "/static/css/main.faa51edc.chunk.css.map",
-    "static/js/2.2148ada9.chunk.js.LICENSE.txt": "/static/js/2.2148ada9.chunk.js.LICENSE.txt",
+    "static/css/main.d59ff47e.chunk.css.map": "/static/css/main.d59ff47e.chunk.css.map",
+    "static/js/2.1cd2d080.chunk.js.LICENSE.txt": "/static/js/2.1cd2d080.chunk.js.LICENSE.txt",
     "static/media/astronaut.svg": "/static/media/astronaut.5bd53660.svg",
     "static/media/bitcoin.svg": "/static/media/bitcoin.2fcd7ed3.svg",
     "static/media/bmc-coffee.svg": "/static/media/bmc-coffee.bfeb0b81.svg",
     "static/media/radar-1.svg": "/static/media/radar-1.4d54d96b.svg",
+    "static/media/santa.svg": "/static/media/santa.5e009d51.svg",
     "static/media/space-shuttle-2.svg": "/static/media/space-shuttle-2.945736cb.svg",
     "static/media/App.css": "/static/media/stars.4a0dffa7.webp",
     "static/media/sun.svg": "/static/media/sun.d500a303.svg",
@@ -26,8 +27,8 @@
   "entrypoints": [
     "static/js/runtime-main.460024ab.js",
     "static/css/2.929389fa.chunk.css",
-    "static/js/2.2148ada9.chunk.js",
-    "static/css/main.faa51edc.chunk.css",
-    "static/js/main.be566447.chunk.js"
+    "static/js/2.1cd2d080.chunk.js",
+    "static/css/main.d59ff47e.chunk.css",
+    "static/js/main.e0161f4a.chunk.js"
   ]
 }
