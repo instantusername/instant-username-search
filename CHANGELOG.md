@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 1.10.0 (2023-01-01)
+
+
+### Features
+
+* 🎸 remove santa hat ([1d9b21a](https://github.com/instantusername/instant-username-search/commit/1d9b21a6c9505459a30aa0fb1702157684775d5a))
+
 ### 1.9.1 (2022-12-23)
 
 ## 1.9.0 (2022-12-23)
