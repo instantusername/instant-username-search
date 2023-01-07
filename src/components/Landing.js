@@ -1,5 +1,6 @@
 import React from 'react';
-
+import Privacy from './Privacy';
+import Terms from './Terms';
 import WhyUs from './WhyUs';
 import NewsletterSubscription from './NewsletterSubscription';
 import Donations from './Donation';
@@ -36,20 +37,37 @@ const whyUsRows = [
   },
 ];
 
-export default function Landing() {
-  return (
-    <div className="landing">
-      <div className="container" id="whyUs">
-        <WhyUs headerConfig={whyUsHeader} rows={whyUsRows} />
-      </div>
-      <div id="newsletter-wrapper">
-        <div className="container" id="newsLetter">
-          <NewsletterSubscription illustrationEnabled />
+export default function Landing({ page }) {
+  switch (page) {
+    case 'privacy':
+      return (
+        <div className="container" id="content">
+          <Privacy />
         </div>
-      </div>
-      <div className="container" id="donations">
-        <Donations />
-      </div>
-    </div>
-  );
+      );
+
+    case 'terms':
+      return (
+        <div className="container" id="content">
+          <Terms />
+        </div>
+      );
+
+    default:
+      return (
+        <div className="landing">
+          <div className="container" id="whyUs">
+            <WhyUs headerConfig={whyUsHeader} rows={whyUsRows} />
+          </div>
+          <div id="newsletter-wrapper">
+            <div className="container" id="newsLetter">
+              <NewsletterSubscription illustrationEnabled />
+            </div>
+          </div>
+          <div className="container" id="donations">
+            <Donations />
+          </div>
+        </div>
+      );
+  }
 }
