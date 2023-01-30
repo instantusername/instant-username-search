@@ -4,7 +4,7 @@ const middlewares = jsonServer.defaults();
 
 server.use(middlewares);
 
-server.get('/services', (req, res) => {
+server.get('/services.json', (req, res) => {
   res.json(require('./responses.json').services);
 });
 

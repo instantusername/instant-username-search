@@ -19,7 +19,7 @@ export default function App({ match }) {
   const [username, setUsername] = useState('');
 
   const fetchServices = async () => {
-    const response = await fetch(window.apiUrl + '/services');
+    const response = await fetch(window.apiUrl + '/services.json');
     const responseJSON = await response.json();
     setServices(responseJSON);
   };
